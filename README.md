@@ -14,5 +14,7 @@ My name is Sophie Wigmore, and I am a third-year undergraduate student at Northe
 The purpose of this repository is for the Web Development course I am taking.
 
 Heroku Hosted Environment link: http://wigmore-sophie-webdev.herokuapp.com/ 
+
 Link to project: http://wigmore-sophie-webdev.herokuapp.com/project
+
 Link to assignment: http://wigmore-sophie-webdev.herokuapp.com/assignment
