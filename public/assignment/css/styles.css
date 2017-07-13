@@ -8,13 +8,33 @@ body {
 }
 
 .navbar-default {
-    background-color: lavender;
-    border-color: #bfbfdc;
-}
-
-@media (min-width:1200px) {
+    background-color: #031424;
 
 }
+
+.navbar-header {
+        width: 100%;
+}
+
+.glyphicon-ok {
+    color: white
+}
+
+.smw .navbar-default .navbar-brand {
+    color: whitesmoke;
+    font-size: x-large;
+}
+
+.smw .btn-default {
+    background-color: #8eaebd;
+    color: white;
+    border-color: #7c9cab
+}
+
+.smw .btn-danger {
+    background-color: #cf6766
+}
+
 
 .smw .smw-splitview-right{
     width: 75%;
