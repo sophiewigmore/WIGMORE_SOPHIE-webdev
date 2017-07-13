@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <!-- CDN to be used later instead of locally hosted bootstrap files
+        <link href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Profile</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <h1>Profile</h1>
+    <!-- Username form -->
+    <label for="firstname"> First Name</label>
+    <input name="firstname"
+           class="form-control"
+           placeholder="Alice"
+           id="firstname"/>
+
+    <!-- Username form -->
+    <label for="lastname"> Last Name</label>
+    <input name="lastname"
+           class="form-control"
+           placeholder="Wonderland"
+           id="lastname"/>
+
+    <!-- Username form -->
+    <label for="username"> First Name</label>
+    <input name="username"
+           class="form-control"
+           readonly
+           value="alice"
+           id="username"/>
+
+    <!-- Username form -->
+    <label for="email"> First Name</label>
+    <input name="email"
+           class="form-control"
+           type="email"
+           placeholder="alice@wonderland.com"
+           id="email"/>
+
+    <!-- Username form -->
+    <label for="dob"> Date of Birth</label>
+    <input name="dob"
+           type="date"
+           class="form-control"
+           placeholder="mm/dd/yy"
+           id="dob"/>
+
+
+    <a class="btn btn-default btn-primary btn-block"
+       href="website-list.html"
+       role="button">Websites</a>
+
+    <a class="btn btn-default btn-danger btn-block"
+       href="index.html"
+       role="button">Logout</a>
+</div>
+
+</body>
+</html>

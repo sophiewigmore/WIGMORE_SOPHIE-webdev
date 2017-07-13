@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <h1>Login</h1>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <!-- CDN to be used later instead of locally hosted bootstrap files
+        <link href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    -->
+
+
+</head>
+<body>
+
+    <div class="container-fluid">
+        <!-- Username form -->
+        <label for="username"> Username</label>
+        <input name="username"
+               class="form-control"
+               placeholder="alice"
+               id="username"/>
+
+    <!-- Password form -->
+        <label for="password"> Password</label>
+        <input name="password"
+               class="form-control"
+               placeholder="!Qwerty"
+               type="password"
+               id="password"/>
+
+        <a class="btn btn-default btn-primary btn-block"
+           href="profile.html"
+           role="button">Login</a>
+
+        <a class="btn btn-default btn-success btn-block"
+           href="register.html"
+           role="button">Register</a>
+    </div>
+
+</body>
+</html>
