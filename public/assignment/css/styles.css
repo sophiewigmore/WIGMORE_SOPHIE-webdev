@@ -20,12 +20,16 @@ body {
     color: white
 }
 
+.glyphicon-plus {
+    color : white
+}
+
 .smw .navbar-default .navbar-brand {
     color: whitesmoke;
     font-size: x-large;
 }
 
-.smw .btn-default {
+.smw .btn-default, .list-group-item.active {
     background-color: #8eaebd;
     color: white;
     border-color: #7c9cab
