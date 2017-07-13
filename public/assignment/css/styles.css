@@ -35,6 +35,10 @@ body {
     background-color: #cf6766
 }
 
+.smw .btn-success {
+    background-color: #92a591;
+    border-color: #7c8f7b;
+}
 
 .smw .smw-splitview-right{
     width: 75%;
