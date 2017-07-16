@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Page</title>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <!-- CDN to be used later instead of locally hosted bootstrap files
+        <link href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    -->
+</head>
+<body>
+
+<div class="smw">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-text pull-left">
+                    <a class="navbar-link" href="page-list.html">
+                        <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
+                    </a>
+                </div>
+                <a class="navbar-brand" href="website-new.html">New Page</a>
+                <div class="navbar-text pull-right">
+                    <a href="page-list.html">
+                        <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Hand Side to be shown on  -->
+            <div class="col-xs-3 visible-md"><ul class="list-group">
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-xs-10">Page Name</div>
+                        <a href="page-new.html">
+                            <div class="col-xs-2"><span class="pull-right glyphicon glyphicon-plus"/></div>
+                        </a>
+
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="widget-list.html">Home</a></div>
+                        <div class="col-xs-2">
+                            <a href="page-edit.html">
+                                <span class="pull-right glyphicon glyphicon-cog"/>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="widget-list.html">About</a></div>
+                        <div class="col-xs-2">
+                            <a href="page-edit.html">
+                                <span class="pull-right glyphicon glyphicon-cog"/>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="widget-list.html">Make a Post</a></div>
+                        <div class="col-xs-2">
+                            <a href="page-edit.html">
+                                <span class="pull-right glyphicon glyphicon-cog"/>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="widget-list.html">Find Users</a></div>
+                        <div class="col-xs-2">
+                            <a href="page-edit.html">
+                                <span class="pull-right glyphicon glyphicon-cog"/>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </div>
+
+        <!-- Right Hand Side -->
+        <div class="col-xs-12 col-md-9">
+            <!-- Username form -->
+            <label for="name">Page Name</label>
+            <input name="name"
+                   class="form-control"
+                   type="text"
+                   placeholder="Home Page"
+                   id="name"/>
+
+            <!-- Username form -->
+            <label for="description">Description</label>
+            <textarea name="description"
+                      rows="5"
+                      class="form-control"
+                      type="text"
+                      placeholder="Home Page of the Website"
+                      id="description"></textarea>
+
+
+            <a class="btn btn-default btn-primary btn-block"
+               href="website-list.html"
+               role="button">Create</a>
+
+
+            <a class="btn btn-default btn-danger btn-block"
+               href="website-list.html"
+               role="button">Cancel</a></div>
+
+    </div>
+</div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a class="navbar-link" href="profile.html">
+                    <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>

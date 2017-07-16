@@ -5,6 +5,7 @@ input, textarea {
 
 body {
     padding-top: 60px;
+    padding-bottom: 60px
 }
 
 .navbar-default {
@@ -12,21 +13,18 @@ body {
 
 }
 
-.navbar-header {
+.navbar-header, .navbar-fixed-bottom {
         width: 100%;
 }
 
-.glyphicon-ok {
-    color: white
-}
-
-.glyphicon-plus {
-    color : white
-}
 
 .smw .navbar-default .navbar-brand {
     color: whitesmoke;
     font-size: x-large;
+}
+
+.smw-white-icons {
+    color: white
 }
 
 .smw .btn-default, .list-group-item.active {
@@ -59,4 +57,25 @@ body {
     bottom: 0px;
     z-index: 1;
     overflow-y: scroll
+}
+
+.smw-overlay-glyphicon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-bottom: 5px;
+    padding-left: 3px;
+    padding-right: 5px;
+    padding-top: 5px;
+    background-color: white;
+    border-bottom-left-radius: 40%;
+    border-top-right-radius: 40%;
+    z-index: 1;
+    background-color: black;
+    opacity: .4;
+}
+
+.sw-widget-div {
+    position: relative;
+    margin-bottom: 20px;
 }
