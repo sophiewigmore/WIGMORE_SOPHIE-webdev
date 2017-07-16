@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Widget Header</title>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <!-- CDN to be used later instead of locally hosted bootstrap files
+        <link href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    -->
+</head>
+<body>
+
+<div class="smw">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-text pull-left">
+                    <a class="navbar-link" href="widget-list.html">
+                        <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
+                    </a>
+                </div>
+                <a class="navbar-brand" href="page-edit.html">Edit Widget Header</a>
+                <div class="navbar-text pull-right">
+                    <a href="widget-list.html">
+                        <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div class="container-fluid">
+            <label for="name">Name</label>
+            <input name="name"
+                   class="form-control"
+                   type="text"
+                   placeholder="Ice Cream"
+                   id="name"/>
+
+            <label for="description">Text</label>
+            <textarea name="description"
+                      rows="5"
+                      class="form-control"
+                      type="text"
+                      value="I Scream, You Scream: Ice Cream"
+                      id="description"></textarea>
+
+            <label for="headerSize">Size</label>
+            <input name="headerSize"
+                   class="form-control"
+                   type="number"
+                   placeholder="3"
+                   id="headerSize"/>
+
+            <a class="btn btn-default btn-danger btn-block"
+               href="website-list.html"
+               role="button">Delete</a></div>
+
+</div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a class="navbar-link" href="profile.html">
+                    <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>

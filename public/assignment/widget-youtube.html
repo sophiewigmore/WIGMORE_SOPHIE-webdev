@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Widget Image</title>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <!-- CDN to be used later instead of locally hosted bootstrap files
+        <link href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    -->
+</head>
+<body>
+
+<div class="smw">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-text pull-left">
+                    <a class="navbar-link" href="widget-list.html">
+                        <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
+                    </a>
+                </div>
+                <a class="navbar-brand" href="page-edit.html">Edit Widget Image</a>
+                <div class="navbar-text pull-right">
+                    <a href="widget-list.html">
+                        <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div class="container-fluid">
+    <label for="name">Name</label>
+    <input name="name"
+           class="form-control"
+           type="text"
+           placeholder="Ice Cream"
+           id="name"/>
+
+    <label for="description">Text</label>
+    <input name="description"
+           class="form-control"
+           type="text"
+           value=""
+           id="description"/>
+
+    <label for="url">URL </label>
+    <input name="url"
+           class="form-control"
+           type="text"
+           value="https://media.timeout.com/images/100914189/1372/772/image.jpg"
+           id="url"/>
+
+    <label for="width">Width </label>
+    <input name="width"
+           class="form-control"
+           type="number"
+           placeholder="100%"
+           id="width"/>
+
+    <label for="upload">Upload an Image</label>
+    <input name="upload"
+           class="form-control"
+           type="file"
+           id="upload"/>
+
+
+    <a class="btn btn-default btn-primary btn-block"
+       href="widget-image.html"
+       role="button">Upload</a>
+
+
+    <a class="btn btn-default btn-danger btn-block"
+       href="widget-list.html"
+       role="button">Delete</a></div>
+
+
+</div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a class="navbar-link" href="profile.html">
+                    <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>
