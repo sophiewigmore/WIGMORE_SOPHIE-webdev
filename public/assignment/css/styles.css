@@ -42,21 +42,22 @@ body {
     border-color: #7c8f7b;
 }
 
-.smw .smw-splitview-right{
-    width: 75%;
+.smw-splitview-left {
     position: absolute;
-    right: 0px;
-    overflow-y: scroll;
-    top: 120px;
-    bottom: 0px;
-}
-
-.smw .smw-splitview-left {
-    position: absolute;
-    top: 120px;
+    top: 75px;
     bottom: 0px;
     z-index: 1;
-    overflow-y: scroll
+    overflow-y: scroll;
+    border-right: 1px solid lightgray;
+}
+
+.smw-splitview-right{
+    position: absolute;
+    width: 75%%;
+    right: 0px;
+    top: 60px;
+    bottom: 0px;
+    overflow-y: scroll;
 }
 
 .smw-overlay-glyphicon {
