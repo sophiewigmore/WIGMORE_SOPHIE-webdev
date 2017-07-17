@@ -8,6 +8,10 @@ body {
     padding-bottom: 60px;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .navbar-default {
     background-color: #031424;
 
