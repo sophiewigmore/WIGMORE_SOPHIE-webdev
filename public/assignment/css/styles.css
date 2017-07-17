@@ -8,6 +8,10 @@ body {
     padding-bottom: 60px;
 }
 
+.jumbotron {
+    margin-top: 20px
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -22,11 +26,17 @@ a:hover {
 }
 
 
-.smw .navbar-default .navbar-brand {
+@media screen and (max-width: 650px) {
+    #smw-brand-2, #smw-brand-3 {
+        color: white;
+        font-size: 12px;
+    }
+}
+.navbar-default .navbar-brand {
     color: whitesmoke;
     font-size: x-large;
+    border-color: white;
 }
-
 .smw-white-icons {
     color: white
 }
