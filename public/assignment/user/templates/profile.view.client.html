@@ -1,0 +1,68 @@
+<div class="container-fluid">
+<div ng-controller="profileController">
+    <div class="smw">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="pull-left">
+                        <a class="navbar-brand" href="profile.view.client.html">Profile</a></div>
+                    <div class="navbar-text pull-right">
+                        <a href="profile.view.client.html">
+                            <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container-fluid">
+            <label for="firstname"> First Name</label>
+            <input name="firstname"
+                   class="form-control"
+                   ng-model="user.firstName"
+                   type="text"
+                   id="firstname"/>
+
+            <label for="lastname"> Last Name</label>
+            <input name="lastname"
+                   class="form-control"
+                   ng-model="user.lastName"
+                   type="text"
+                   id="lastname"/>
+
+            <label for="username"> Username</label>
+            <input name="username"
+                   ng-model="user.username"
+                   class="form-control"
+                   readonly
+                   id="username"/>
+
+            <label for="email"> Email</label>
+            <input name="email"
+                   class="form-control"
+                   type="email"
+                   placeholder="@webdev.com"
+                   id="email"/>
+
+            <label for="dob"> Date of Birth</label>
+            <input name="dob"
+                   type="date"
+                   class="form-control"
+                   id="dob"/>
+
+            <a class="btn btn-default btn-block"
+               href="../../website/website-list.html"
+               role="button">Websites</a>
+
+            <a class="btn btn-default btn-danger btn-block"
+               href="login.view.client.html"
+               role="button">Logout</a>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+            </div>
+        </nav>
+    </div>
+</div>
+</div>
