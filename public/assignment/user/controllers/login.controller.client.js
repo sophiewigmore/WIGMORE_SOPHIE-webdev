@@ -2,29 +2,21 @@
     angular.module("WamApp")//readOnly
     .controller("loginController", loginController)
 
+    function loginController($scope, $location, userService) {
 
-    var users = [
-        {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
-        {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-        {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-        {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
-    ];
+        $scope.login = login;
+        function init() {
 
+        }
+        init();
 
-//Implement the controller
-//"Decorates" the login controller as a functioj
-//everywhere you reference "loginController" will have this function
-
-    function loginController($scope, $location) {
-        $scope.login = function (user) {
-            for (var u in users) {
-                var _user = users[u];
-                if (_user.username == user.username &&
-                    _user.password == user.password) {
-                    $location.url("profile/" + _user._id);
-                }
+        function login(user) {
+            var user = userService.findUserbyUsernameAndPassword(user.username, user.password);
+            if(user === null) {
+                $scope.errorMessage = "User Not Found";
+            } else {
+                $location.url("profile/" + user._id);
             }
-            $scope.errorMessage = "User Not Found";
         }
     }
 
