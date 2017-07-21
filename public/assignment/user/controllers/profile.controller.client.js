@@ -1,25 +1,30 @@
 (function () {
-     angular.module("WamApp")//readOnly
-    .controller("profileController", profileController)
+    angular.module("WamApp")//readOnly
+        .controller("profileController", profileController)
 
 
-    function profileController($scope, $routeParams, userService) {
+    function profileController($routeParams, userService, $location) {
+        var model = this;
+        model.userId = $routeParams.userId;
         var userId = $routeParams["userId"];
 
-        $scope.updateUser = updateUser;
-        $scope.unregister = unregsiter
+        model.updateUser = updateUser;
+        model.unregister = unregister;
 
         function init() {
-            $scope.user = userService.findUserById(userId);
+            model.user = userService.findUserById(userId);
         }
+
         init();
 
-        function updateUser() {
-
+        function updateUser(user) {
+            userService.updateUser(user._id, user);
+            model.errorMessage = "Updated User";
         }
 
-        function unregister() {
-
+        function unregister(user) {
+            userService.unregister(user._id);
+            $location.url("/login");
         }
     }
 })();

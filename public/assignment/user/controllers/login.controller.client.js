@@ -2,18 +2,21 @@
     angular.module("WamApp")//readOnly
     .controller("loginController", loginController)
 
-    function loginController($scope, $location, userService) {
-
-        $scope.login = login;
+    function loginController($location, userService) {
+        var model = this;
+        model.login = login;
         function init() {
 
         }
         init();
 
         function login(user) {
-            var user = userService.findUserbyUsernameAndPassword(user.username, user.password);
+            if(!user) {
+            model.errorMessage = "User Not Found. Try Again, or Register.";
+        }
+            var user = userService.findUserbyUsernameAndPassword(model.user.username, model.user.password);
             if(user === null) {
-                $scope.errorMessage = "User Not Found";
+                model.errorMessage = "User Not Found. Try Again, or Register.";
             } else {
                 $location.url("profile/" + user._id);
             }

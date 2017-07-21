@@ -1,38 +1,37 @@
 <div class="container-fluid">
-<div ng-controller="profileController">
     <div class="smw">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="pull-left">
-                        <a class="navbar-brand" href="profile.view.client.html">Profile</a></div>
-                    <div class="navbar-text pull-right">
-                        <a href="profile.view.client.html">
+                        <a class="navbar-brand" href="#!/profile/{{model.userId}}/">Profile</a></div>
+                    <div class="navbar-text pull-right" ng-click="model.updateUser(model.user)">
                             <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
                     </div>
                 </div>
             </div>
         </nav>
 
+        <div ng-show="model.errorMessage" class="alert alert-success">{{model.errorMessage}}</div>
 
         <div class="container-fluid">
             <label for="firstname"> First Name</label>
             <input name="firstname"
                    class="form-control"
-                   ng-model="user.firstName"
+                   ng-model="model.user.firstName"
                    type="text"
                    id="firstname"/>
 
             <label for="lastname"> Last Name</label>
             <input name="lastname"
                    class="form-control"
-                   ng-model="user.lastName"
+                   ng-model="model.user.lastName"
                    type="text"
                    id="lastname"/>
 
             <label for="username"> Username</label>
             <input name="username"
-                   ng-model="user.username"
+                   ng-model="model.user.username"
                    class="form-control"
                    readonly
                    id="username"/>
@@ -51,12 +50,21 @@
                    id="dob"/>
 
             <a class="btn btn-default btn-block"
-               href="../../website/website-list.html"
+               href="#!/user/{{model.user._id}}/website"
                role="button">Websites</a>
 
             <a class="btn btn-default btn-danger btn-block"
-               href="login.view.client.html"
+               href="#!/login"
                role="button">Logout</a>
+
+
+            <a class="btn btn-default btn-success btn-block"
+               ng-click="model.updateUser(model.user)"
+               role="button">Update User</a>
+
+            <a class="btn btn-default btn-danger btn-block"
+               ng-click="model.unregister(model.user)"
+               role="button">Unregister</a>
         </div>
 
         <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -64,5 +72,4 @@
             </div>
         </nav>
     </div>
-</div>
 </div>
