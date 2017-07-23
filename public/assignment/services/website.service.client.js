@@ -4,7 +4,6 @@
         .service("websiteService", websiteService);
 
     function websiteService() {
-
         var websites = [
             { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
             { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem" },
@@ -15,17 +14,26 @@
             { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
         ];
 
-        this.findWebsitesForUser = findWebsitesForUser;
 
-        function findWebsitesForUser(userId) {
+        this.findWebsitesbyUser = findWebsitesbyUser;
+        this.createWebsite = createWebsite;
+
+        function findWebsitesbyUser(userId) {
             var sites = [];
-
             for(var w in websites) {
                 if(websites[w].developerId === userId) {
                     sites.push(websites[w]);
                 }
             }
-            return sites
+            return sites;
         }
+
+        function createWebsite(userId, website) {
+            website._id = (new Date()).getTime() + "";
+            website.developerId = userId;
+            websites.push(website);
+            return website;
+        }
+
     }
-})
+})();

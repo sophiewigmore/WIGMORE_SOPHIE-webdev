@@ -3,13 +3,13 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <div class="navbar-text pull-left">
-                    <a class="navbar-link" href="webite-list.view.client.html">
+                    <a class="navbar-link" href="#!/user/{{model.userId}}/website">
                         <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
                     </a>
                 </div>
-                <a class="navbar-brand" href="website-new.view.client.html">New Website</a>
+                <a class="navbar-brand">New Website</a>
                 <div class="navbar-text pull-right">
-                    <a href="webite-list.view.client.html">
+                    <a ng-click="model.createWebsite(website)">
                         <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
                 </div>
             </div>
@@ -68,31 +68,31 @@
 
             <!-- Right Hand Side -->
             <div class="col-xs-12 col-md-10 smw-splitview-right">
-                <!-- Username form -->
                 <label for="name">Website Name</label>
                 <input name="name"
                        class="form-control"
                        type="text"
+                       ng-model="website.name"
                        placeholder="Name"
                        id="name"/>
 
-                <!-- Username form -->
                 <label for="description">Description</label>
                 <textarea name="description"
                           rows="5"
                           class="form-control"
                           type="text"
+                          ng-model="website.description"
                           placeholder="Description"
                           id="description"></textarea>
 
 
                 <a class="btn btn-default btn-primary btn-block"
-                   href="webite-list.view.client.html"
+                   ng-click="model.createWebsite(website)"
                    role="button">Create</a>
 
 
                 <a class="btn btn-default btn-danger btn-block"
-                   href="webite-list.view.client.html"
+                   href="#!/user/{{model.userId}}/website"
                    role="button">Cancel</a></div>
 
         </div>
@@ -100,7 +100,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/templates/profile.view.client.html">
+                <a class="navbar-link" href="#!/profile/{{model.userId}}">
                     <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
                 </a>
             </div>

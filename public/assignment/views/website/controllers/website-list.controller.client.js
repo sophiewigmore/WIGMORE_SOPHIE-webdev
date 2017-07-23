@@ -5,12 +5,10 @@
 
     function websiteListController($routeParams, websiteService) {
         var model = this;
-        var userId = $routeParams.userId;
-
-
+        model.userId = $routeParams.userId;
         function init() {
-            model.wbesites = websiteService.findWebsitesForUser(userId);
+            model.websites = websiteService.findWebsitesbyUser(model.userId);
         }
         init();
     }
-})
+})();
