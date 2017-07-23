@@ -13,8 +13,6 @@
             { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem" },
             { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
         ];
-
-
         this.findWebsitesbyUser = findWebsitesbyUser;
         this.createWebsite = createWebsite;
         this.findWebsiteById = findWebsiteById;
@@ -61,8 +59,8 @@
 
         function deleteWebsite(webId) {
             for (var w in websites) {
-                if (websites[w]._id == webId) {
-                    websites.splice(w);
+                if (websites[w]._id === webId) {
+                    websites.splice(w, 1);
                     return;
                 }
             }
