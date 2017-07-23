@@ -6,6 +6,7 @@
     function websiteNewController($routeParams, websiteService, $location) {
         var model = this;
         model.userId = $routeParams.userId;
+        model.webId = $routeParams.webId;
 
         model.createWebsite = createWebsite;
 

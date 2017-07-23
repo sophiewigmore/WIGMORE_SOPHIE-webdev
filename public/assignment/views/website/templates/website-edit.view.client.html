@@ -3,13 +3,13 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <div class="navbar-text pull-left">
-                    <a class="navbar-link" href="website-list.view.client.html">
+                    <a class="navbar-link" href="#!/user/{{model.userId}}/website">
                         <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
                     </a>
                 </div>
-                <a class="navbar-brand" href="website-edit.view.client.html">Edit Website</a>
+                <a class="navbar-brand">Edit Website</a>
                 <div class="navbar-text pull-right">
-                    <a href="website-list.view.client.html">
+                    <a ng-click="model.updateWebsite(website)">
                         <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
                 </div>
             </div>
@@ -17,53 +17,33 @@
     </nav>
 
     <div class="container-fluid">
-    <div class="row">
-        <!-- Left Hand Side to be shown on  -->
-        <div class="col-md-2 hidden-xs hidden-sm smw-splitview-left">
-            <ul class="list-group">
-                <li class="list-group-item active">
-                    <div class="row">
-                        <div class="col-xs-9">Name</div>
-                        <a href="website-new.view.client.html">
-                            <div class="col-xs-3"><span class="pull-right glyphicon glyphicon-plus smw-white-icons"/></div>
-                        </a>
+        <div class="row">
+            <!-- Left Hand Side to be shown on  -->
+            <div class="col-md-2 hidden-xs hidden-sm smw-splitview-left">
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        <div class="row">
+                            <div class="col-xs-9">Name</div>
+                            <a href="#!/user/{{model.userId}}/website/new">
+                                <div class="col-xs-3"><span
+                                        class="pull-right glyphicon glyphicon-plus smw-white-icons"/></div>
+                            </a>
 
-                    </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                        <div class="col-xs-9">
-                            <a href="../../page/page-list.view.client.html">Wikipedia</a></div>
-                    <div class="col-xs-3">
-                        <a href="website-edit.view.client.html"><span class="pull-right glyphicon glyphicon-cog"/></a></div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-9">
-                        <a href="../../page/page-list.view.client.html">Facebook</a></div>
-                    <div class="col-xs-3">
-                        <a href="website-edit.view.client.html"><span class="pull-right glyphicon glyphicon-cog"/></a></div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-9">
-                        <a href="../../page/page-list.view.client.html">Twitter</a></div>
-                    <div class="col-xs-3">
-                        <a href="website-edit.view.client.html"><span class="pull-right glyphicon glyphicon-cog"/></a></div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                        <div class="col-xs-9">
-                            <a href="../../page/page-list.view.client.html">Amazon</a></div>
-                    <div class="col-xs-3">
-                        <a href="website-edit.view.client.html"><span class="pull-right glyphicon glyphicon-cog"/></a></div>
-                </div>
-            </li>
-        </ul>
-        </div>
+                        </div>
+                    </li>
+                    <li ng-repeat="website in model.websites" class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <a href="#!/user/{{model.userId}}/website/{{website._id}}/pge">{{website.name}}</a>
+                            </div>
+                            <div class="col-xs-3">
+                                <a href="#!/user/{{model.userId}}/website/{{website._id}}"><span
+                                        class="pull-right glyphicon glyphicon-cog"/></a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
 
 
         <!-- Right Hand Side -->
@@ -73,6 +53,7 @@
             <input name="name"
                    class="form-control"
                    type="text"
+                   ng-model="model.website.name"
                    value="Facebook"
                    id="name"/>
 
@@ -81,11 +62,12 @@
             <textarea name="description"
                       rows="5"
                       class="form-control"
+                      ng-model="model.website.description"
                       type="text"
                       id="description">Facebook is a popular social networking platform.</textarea>
 
             <a class="btn btn-default btn-danger btn-block"
-               href="website-list.view.client.html"
+               ng-click="model.deleteWebsite(model.webId)"
                role="button">Delete</a></div>
 
     </div>
@@ -93,7 +75,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/templates/profile.view.client.html">
+                <a class="navbar-link" href="#!/profile/{{model.userId}}">
                     <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
                 </a>
             </div>

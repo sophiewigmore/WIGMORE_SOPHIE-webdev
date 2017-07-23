@@ -17,6 +17,9 @@
 
         this.findWebsitesbyUser = findWebsitesbyUser;
         this.createWebsite = createWebsite;
+        this.findWebsiteById = findWebsiteById;
+        this.updateWebsite = updateWebsite;
+        this.deleteWebsite = deleteWebsite;
 
         function findWebsitesbyUser(userId) {
             var sites = [];
@@ -33,6 +36,37 @@
             website.developerId = userId;
             websites.push(website);
             return website;
+        }
+
+        function findWebsiteById(webId) {
+            for (var w in websites) {
+                var _website = websites[w];
+                if (_website._id == webId) {
+                    return _website;
+                }
+            }
+            return null;
+        }
+
+        function updateWebsite(webId, website) {
+            console.log(website);
+            for (var w in websites) {
+                if (websites[w]._id == webId) {
+                    websites[w] = website;
+                    return websites[w];
+                }
+            }
+            return null;
+        }
+
+        function deleteWebsite(webId) {
+            for (var w in websites) {
+                if (websites[w]._id == webId) {
+                    websites.splice(w);
+                    return;
+                }
+            }
+            return null;
         }
 
     }
