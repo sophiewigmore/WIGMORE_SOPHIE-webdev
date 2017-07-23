@@ -14,7 +14,7 @@
             if(!user) {
             model.errorMessage = "User Not Found. Try Again, or Register.";
         }
-            var user = userService.findUserbyUsernameAndPassword(model.user.username, model.user.password);
+            var user = userService.findUserByCredentials(model.user.username, model.user.password);
             if(user === null) {
                 model.errorMessage = "User Not Found. Try Again, or Register.";
             } else {

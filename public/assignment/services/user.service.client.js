@@ -14,22 +14,22 @@
             {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
         ];
         var api = {
-            "findUserbyUsernameAndPassword": findUserbyUsernameAndPassword,
+            "findUserByCredentials": findUserByCredentials,
             "findUserById": findUserById,
-            "registerUser": registerUser,
+            "createUser": createUser,
             "findUserByUsername": findUserByUsername,
             "updateUser": updateUser,
-            "unregister": unregister
+            "deleteUser": deleteUser
         };
         return api;
 
-        function registerUser(user) {
+        function createUser(user) {
             user._id = (new Date()).getTime() + "";
             users.push(user);
             return user;
         }
 
-        function unregister(userId) {
+        function deleteUser(userId) {
             for (var u in users) {
                 if (users[u]._id == userId) {
                     users.splice(u);
@@ -59,7 +59,7 @@
             return null;
         }
 
-        function findUserbyUsernameAndPassword(username, password) {
+        function findUserByCredentials(username, password) {
             for (var u in users) {
                 var _user = users[u];
                 if (_user.username == username &&

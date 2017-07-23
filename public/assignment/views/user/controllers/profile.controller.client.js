@@ -9,7 +9,7 @@
         var userId = $routeParams["userId"];
 
         model.updateUser = updateUser;
-        model.unregister = unregister;
+        model.deleteUser = deleteUser;
 
         function init() {
             model.user = userService.findUserById(userId);
@@ -22,8 +22,8 @@
             model.errorMessage = "Updated User";
         }
 
-        function unregister(user) {
-            userService.unregister(user._id);
+        function deleteUser(user) {
+            userService.deleteUser(user._id);
             $location.url("/login");
         }
     }
