@@ -10,13 +10,15 @@
         model.pageId = $routeParams.pageId;
 
         model.trustSrc = trustSrc;
+
         function init() {
             model.widgets = widgetService.findWidgetsByPageId(model.pageId);
         }
         init();
 
         function trustSrc(src) {
-            return $sce.trustAsResourceUrl(src);
+            console.log(src);
+            return $sce.trustAsResourceUrl(src.replace("watch?v=", "embed"));
         }
 
     }
