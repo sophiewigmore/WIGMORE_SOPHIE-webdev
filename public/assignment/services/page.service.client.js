@@ -14,6 +14,7 @@
         this.createPage = createPage;
         this.findPageById = findPageById;
         this.updatePage = updatePage;
+        this.deletePage = deletePage;
 
         function findPagesByWebsiteId(websiteId) {
             var pgs = [];
@@ -46,6 +47,16 @@
                 if(pages[p]._id === pageId) {
                     pages[p] = page;
                     return pages[p];
+                }
+            }
+            return null;
+        }
+
+        function deletePage(pageId) {
+            for (var p in pages) {
+                if (pages[p]._id === pageId) {
+                    pages.splice(p, 1);
+                    return;
                 }
             }
             return null;
