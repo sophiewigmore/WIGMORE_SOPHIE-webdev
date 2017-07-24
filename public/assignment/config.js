@@ -53,6 +53,11 @@
                 controller: "pageNewController",
                 controllerAs: "model"
             })
+            .when("/user/:userId/website/:webId/page/:pageId",{
+                templateUrl: "views/page/templates/page-edit.view.client.html",
+                controller: "pageEditController",
+                controllerAs: "model"
+            })
 
 
     }

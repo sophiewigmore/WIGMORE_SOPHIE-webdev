@@ -12,6 +12,7 @@
 
         this.findPagesByWebsiteId = findPagesByWebsiteId;
         this.createPage = createPage;
+        this.findPageById = findPageById;
 
         function findPagesByWebsiteId(websiteId) {
             var pgs = [];
@@ -28,6 +29,15 @@
             page.websiteId = websiteId;
             pages.push(page);
             return page;
+        }
+
+        function findPageById(pageId) {
+            for(var p in pages) {
+                if(pages[p]._id === pageId) {
+                    return pages[p];
+                }
+            }
+            return null;
         }
     }
 
