@@ -22,6 +22,9 @@
 
         this.findWidgetsByPageId = findWidgetsByPageId;
         this.createWidget = createWidget;
+        this.findWidgetById = findWidgetById;
+        this.updateWidget = updateWidget;
+        this.deleteWidget = deleteWidget;
 
         function findWidgetsByPageId(pageId) {
             var wdgts = [];
@@ -40,6 +43,34 @@
             return widget;
         }
 
+        function findWidgetById(widgetId) {
+            for(var w in widgets) {
+                if(widgets[w]._id === widgetId) {
+                    return widgets[w];
+                }
+            }
+            return null;
+        }
+
+        function updateWidget(widgetId, widget) {
+            for(var w in widgets) {
+                if(widgets[w]._id === widgetId) {
+                    widgets[w] = widget;
+                    return widgets[w];
+                }
+            }
+            return null;
+        }
+
+        function deleteWidget(widgetId) {
+            for (var w in widgets) {
+                if (widgets[w]._id === widgetId) {
+                    widgets.splice(w, 1);
+                    return;
+                }
+            }
+            return null;
+        }
     }
 
 })();

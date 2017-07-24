@@ -71,5 +71,12 @@
                 controllerAs: "model"
             })
 
+            .when("/user/:userId/website/:webId/page/:pageId/widget/:widgetId", {
+                templateUrl: "views/widget/templates/widget-edit.view.client.html",
+                controller: "widgetEditController",
+                controllerAs: "model"
+            })
+
+
     }
 })();
