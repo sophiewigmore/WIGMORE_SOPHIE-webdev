@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Assignment Home</a>
+            <a class="navbar-brand pull-right" ng-show="currentUser" id="smw-brand-2" href="#!/profile/{{currentUser._id}}">Profile</a>
+            <a class="navbar-brand pull-right" ng-show="currentUser" id="smw-brand-2" href="#!/logout">Logout</a>
+            <a class="navbar-brand pull-right" ng-show="!currentUser" id="smw-brand-3" href="#!/register">Register</a>
+            <a class="navbar-brand pull-right" ng-show="!currentUser" id="smw-brand-2" href="#!/login">Login</a>
+            <a class="navbar-brand pull-right" ng-show="currentUser.isAdmin" id="smw-brand-2" href="#!/admin">Admin</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container theme-showcase" role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1>Welcome!</h1>
+        <p>This is the home page of Sophie Wigmore's CS4550 Web Development weekly assignment.</p>
+    </div>
+
+</div>
