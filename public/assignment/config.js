@@ -59,6 +59,11 @@
                 controllerAs: "model"
             })
 
+            .when("/user/:userId/website/:webId/page/:pageId/widget",{
+                templateUrl: "views/widget/templates/widget-list.view.client.html",
+                controller: "widgetListController",
+                controllerAs: "model"
+            })
 
     }
 })();

@@ -7,7 +7,7 @@
                         <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
                     </a>
                 </div>
-                <a class="navbar-brand" href="widget-heading.view.client.html">Edit Header Widget</a>
+                <a class="navbar-brand" href="widget-image.view.client.html">Edit Image Widget</a>
                 <div class="navbar-text pull-right">
                     <a href="widget-list.view.client.html">
                         <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
@@ -25,29 +25,48 @@
                id="name"/>
 
         <label for="description">Text</label>
-        <textarea name="description"
-                  rows="5"
-                  class="form-control"
-                  type="text"
-                  value="I Scream, You Scream: Ice Cream"
-                  id="description"></textarea>
+        <input name="description"
+               class="form-control"
+               type="text"
+               value=""
+               id="description"/>
 
-        <label for="headerSize">Size</label>
-        <input name="headerSize"
+        <label for="url">URL </label>
+        <input name="url"
+               class="form-control"
+               type="text"
+               value="https://media.timeout.com/images/100914189/1372/772/image.jpg"
+               id="url"/>
+
+        <label for="width">Width </label>
+        <input name="width"
                class="form-control"
                type="number"
-               placeholder="3"
-               id="headerSize"/>
+               placeholder="100%"
+               id="width"/>
+
+        <label for="upload">Upload an Image</label>
+        <input name="upload"
+               class="form-control"
+               type="file"
+               id="upload"/>
+
+
+        <a class="btn btn-default btn-primary btn-block"
+           href="widget-image.view.client.html"
+           role="button">Upload</a>
+
 
         <a class="btn btn-default btn-danger btn-block"
            href="widget-list.view.client.html"
            role="button">Delete</a></div>
 
+
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a class="navbar-link" href="../user/templates/profile.view.client.html">
+            <a class="navbar-link" href="../../user/templates/profile.view.client.html">
                 <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
             </a>
         </div>
