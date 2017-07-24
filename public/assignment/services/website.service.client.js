@@ -47,7 +47,6 @@
         }
 
         function updateWebsite(webId, website) {
-            console.log(website);
             for (var w in websites) {
                 if (websites[w]._id == webId) {
                     websites[w] = website;

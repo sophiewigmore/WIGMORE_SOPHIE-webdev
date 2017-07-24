@@ -13,6 +13,7 @@
         this.findPagesByWebsiteId = findPagesByWebsiteId;
         this.createPage = createPage;
         this.findPageById = findPageById;
+        this.updatePage = updatePage;
 
         function findPagesByWebsiteId(websiteId) {
             var pgs = [];
@@ -34,6 +35,16 @@
         function findPageById(pageId) {
             for(var p in pages) {
                 if(pages[p]._id === pageId) {
+                    return pages[p];
+                }
+            }
+            return null;
+        }
+
+        function updatePage(pageId, page) {
+            for(var p in pages) {
+                if(pages[p]._id === pageId) {
+                    pages[p] = page;
                     return pages[p];
                 }
             }
