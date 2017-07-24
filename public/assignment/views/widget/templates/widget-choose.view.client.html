@@ -3,73 +3,87 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <div class="navbar-text pull-left">
-                    <a class="navbar-link" href="widget-list.view.client.html">
+                    <a class="navbar-link" href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget">
                         <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
                     </a>
                 </div>
-                <a class="navbar-brand" href="widget-choose.view.client.html">Choose Widget</a>
+                <a class="navbar-brand">Choose Widget</a>
             </div>
         </div>
     </nav>
+
     <div class="container-fluid">
         <ul class="list-group">
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="widget-heading.view.client.html">Header</a>
-                </div>
+
+            <li class="list-group-item" ng-click=
+                    "model.createWidget({'_id': '', 'widgetType': 'HEADING', 'pageId': '', 'size': 0, 'text': ''})">
+                <div class="row"><a>Header</a></div>
             </li>
+
+
             <li class="list-group-item">
                 <div class="row">
-                    Label
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    HTML
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="widget-heading.view.client.html">Text Input</a>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    Link
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    Button
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="widget-image.view.client.html">Image</a>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="widget-youtube.view.client.html">Youtube</a>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    Data Table
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    Repeater
+                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
+                        Label</a>
                 </div>
             </li>
 
+            <li class="list-group-item" ng-click=
+                    "model.createWidget({'_id': '', 'widgetType': 'HTML', 'pageId': '', 'text': ''})">
+                <div class="row"><a>HTML</a></div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
+                        Text Input</a>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
+                        Link</a>
+                </div>
+            </li>
+
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
+                        Button</a>
+                </div>
+            </li>
+
+
+            <li class="list-group-item" ng-click=
+                    "model.createWidget({'_id': '', 'widgetType': 'IMAGE', 'pageId': '', 'width': 0, 'url': ''})">
+                <div class="row"><a>Image</a></div>
+            </li>
+
+            <li class="list-group-item" ng-click=
+                    "model.createWidget({'_id': '', 'widgetType': 'YOUTUBE', 'pageId': '', 'width': 0, 'url': ''})">
+                <div class="row"><a>Youtube</a></div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
+                        Data Table</a>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
+                        Repeater</a>
+                </div>
+            </li>
         </ul>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/templates/profile.view.client.html">
+                <a class="navbar-link"  href="#!/profile/{{model.userId}}">
                     <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
                 </a>
             </div>

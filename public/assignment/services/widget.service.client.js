@@ -21,6 +21,7 @@
         ];
 
         this.findWidgetsByPageId = findWidgetsByPageId;
+        this.createWidget = createWidget;
 
         function findWidgetsByPageId(pageId) {
             var wdgts = [];
@@ -32,6 +33,12 @@
             return wdgts
         }
 
+        function createWidget(pageId, widget) {
+            widget._id = (new Date()).getTime() + "";
+            widget.pageId = pageId;
+            widgets.push(widget);
+            return widget;
+        }
 
     }
 
