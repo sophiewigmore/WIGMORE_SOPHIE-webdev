@@ -3,13 +3,13 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <div class="navbar-text pull-left">
-                    <a class="navbar-link" href="widget-list.view.client.html">
+                    <a class="navbar-link" href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget">
                         <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
                     </a>
                 </div>
-                <a class="navbar-brand" href="widget-youtube.view.client.html">Edit Youtube Widget</a>
+                <a class="navbar-brand">Edit Youtube Widget</a>
                 <div class="navbar-text pull-right">
-                    <a href="widget-list.view.client.html">
+                    <a ng-click="model.updateWidget(model.widget)">
                         <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
                 </div>
             </div>
@@ -21,33 +21,36 @@
         <input name="name"
                class="form-control"
                type="text"
-               placeholder="Ben and Jerry's Video"
+               ng-model="model.widget.widgetType"
                id="name"/>
 
-        <label for="description">Text</label>
-        <input name="description"
+        <label for="widgetText">Text</label>
+        <input name="widgetText"
+               ng-model="model.widget.type"
                class="form-control"
-               type="text"
-               placeholder="Video shows 3 new flavors"
-               id="description"/>
+               value="I Scream, You Scream: Ice Cream"
+               id="widgetText">
+        </input>
 
-        <label for="url">URL </label>
+        <label for="url">URL</label>
         <input name="url"
                class="form-control"
                type="text"
+               ng-model="model.widget.url"
                value="https://www.youtube.com/embed/7yvK_wagSG8"
                id="url"/>
 
-        <label for="width">Width </label>
+        <label for="width">Width</label>
         <input name="width"
                class="form-control"
                type="number"
+               ng-model="model.widget.width"
                placeholder="100%"
                id="width"/>
 
 
         <a class="btn btn-default btn-danger btn-block"
-           href="widget-list.view.client.html"
+           ng-click="model.deleteWidget()"
            role="button">Delete</a></div>
 
 
@@ -55,7 +58,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a class="navbar-link" href="../../user/templates/profile.view.client.html">
+            <a class="navbar-link" href="#!/profile/{{model.userId}}">
                 <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
             </a>
         </div>

@@ -17,12 +17,11 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid sw-widget-div">
 
         <div ng-repeat="widget in model.widgets">
 
             <div ng-switch="widget.widgetType">
-
 
                 <div ng-switch-when="HEADING" class="sw-widget-div">
                     <div class="smw-overlay-glyphicon">
