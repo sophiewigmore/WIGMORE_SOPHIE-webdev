@@ -11,6 +11,7 @@
         ];
 
         this.findPagesByWebsiteId = findPagesByWebsiteId;
+        this.createPage = createPage;
 
         function findPagesByWebsiteId(websiteId) {
             var pgs = [];
@@ -20,6 +21,13 @@
                 }
             }
             return pgs;
+        }
+
+        function createPage(websiteId, page) {
+            page._id = (new Date()).getTime() + "";
+            page.websiteId = websiteId;
+            pages.push(page);
+            return page;
         }
     }
 
