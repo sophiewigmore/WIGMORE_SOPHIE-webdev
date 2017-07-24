@@ -42,11 +42,18 @@
                 controllerAs: "model"
             })
 
-            .when("/user/:userId/website/:webId/page" ,{
+            .when("/user/:userId/website/:webId/page",{
                 templateUrl: "views/page/templates/page-list.view.client.html",
                 controller: "pageListController",
                 controllerAs: "model"
             })
+
+            .when("/user/:userId/website/:webId/page/new",{
+                templateUrl: "views/page/templates/page-new.view.client.html",
+                controller: "pageNewController",
+                controllerAs: "model"
+            })
+
 
     }
 })();
