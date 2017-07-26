@@ -10,4 +10,4 @@ Heroku Hosted Environment link: http://wigmore-sophie-webdev.herokuapp.com/
 
 Link to project: http://wigmore-sophie-webdev.herokuapp.com/project
 
-Link to assignment: http://wigmore-sophie-webdev.herokuapp.com/assignment
+Link to assignment: http://wigmore-sophie-webdev.herokuapp.com/assignment/index
