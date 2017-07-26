@@ -13,14 +13,18 @@
         function login(user) {
             if(!user) {
             model.errorMessage = "User Not Found. Try Again, or Register.";
+            return;
         }
-            var user = userService.findUserByCredentials(model.user.username, model.user.password);
-            if(user === null) {
-                model.errorMessage = "User Not Found. Try Again, or Register.";
-            } else {
-                $rootScope.currentUser = user;
-                $location.url("profile/" + user._id);
-            }
+            var promise = userService.findUserByCredentials(model.user.username, model.user.password);
+            promise.then(function (response) {
+                user = response.data;
+                if(user === null) {
+                    model.errorMessage = "User Not Found. Try Again, or Register.";
+                } else {
+                    $rootScope.currentUser = user;
+                    $location.url("profile/" + user._id);
+                }
+            });
         }
     }
 

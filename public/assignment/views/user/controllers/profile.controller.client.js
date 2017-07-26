@@ -1,6 +1,6 @@
 (function () {
     angular.module("WamApp")//readOnly
-        .controller("profileController", profileController)
+        .controller("profileController", profileController);
 
 
     function profileController($routeParams, userService, $location) {
@@ -15,7 +15,7 @@
             var promise = userService.findUserById(userId);
             promise.then(function (response) {
                 model.user = response.data;
-            });
+            })
         }
 
         init();
