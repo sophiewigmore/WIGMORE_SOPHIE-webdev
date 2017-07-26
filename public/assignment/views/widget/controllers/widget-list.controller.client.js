@@ -9,16 +9,25 @@
         model.webId = $routeParams.webId;
         model.pageId = $routeParams.pageId;
 
-        model.trustSrc = trustSrc;
+        model.trustHtmlContent = trustHtmlContent;
+        model.trustUrlResource = trustUrlResource;
 
         function init() {
             model.widgets = widgetService.findWidgetsByPageId(model.pageId);
         }
         init();
 
-        function trustSrc(src) {
-            console.log(src);
-            return $sce.trustAsResourceUrl(src.replace("watch?v=", "embed"));
+
+        function trustHtmlContent(htmlContent) {
+            return $sce.trustAsHtml(htmlContent);
+        }
+
+        function trustUrlResource(url) {
+            var youtubeUrl = "https://www.youtube.com/embed/";
+            var urlParts = url.split('/');
+            youtubeUrl += urlParts[urlParts.length-1];
+            return $sce.trustAsResourceUrl(youtubeUrl);
+
         }
 
     }

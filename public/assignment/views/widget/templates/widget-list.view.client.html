@@ -43,6 +43,17 @@
                     <ng-include src="'views/widget/templates/widget-image.view.client.html'">
                 </div>
 
+
+                <div ng-switch-when="HTML" class="sw-widget-div">
+                    <div class="smw-overlay-glyphicon">
+                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                            <span class="glyphicon glyphicon-cog smw-white-icons"/></a>
+                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                            <span class="glyphicon glyphicon-align-justify smw-white-icons"/></a>
+                    </div>
+                    <div ng-bind-html="model.trustHtmlContent(widget.text)"></div>
+                </div>
+
                 <div ng-switch-when="YOUTUBE" class="sw-widget-div">
                     <div class="smw-overlay-glyphicon">
                         <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
