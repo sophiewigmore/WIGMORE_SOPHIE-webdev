@@ -71,13 +71,7 @@
         }
 
         function findUserById(userId) {
-            for (var u in users) {
-                var _user = users[u];
-                if (_user._id == userId) {
-                    return _user;
-                }
-            }
-            return null;
+            return $http.get("http://localhost:3000/api/user/" + userId);
         }
     }
 
