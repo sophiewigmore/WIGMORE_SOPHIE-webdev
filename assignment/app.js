@@ -18,6 +18,23 @@ app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUser);
 app.post("/api/user", createUser);
+app.put("/api/user/:userId", updateUser);
+
+
+function updateUser(req, response) {
+    var userId = req.params.userId;
+    var user = req.body;
+    for (var u in users) {
+        if (users[u]._id == userId) {
+            users[u] = user;
+            response.send(user);
+            return;
+        }
+    }
+    response.sendStatus(404);
+}
+
+
 
 function createUser(req, response) {
     var user = req.body;
@@ -25,7 +42,6 @@ function createUser(req, response) {
     users.push(user);
     response.send(user);
 }
-
 
 function findUser(req, response) {
     var username = req.query.username;
@@ -49,7 +65,6 @@ function findUser(req, response) {
             }
         }
     }
-
     response.send("0");
 }
 

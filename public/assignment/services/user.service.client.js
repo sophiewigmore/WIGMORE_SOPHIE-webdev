@@ -39,13 +39,8 @@
         }
 
         function updateUser(userId, user) {
-            for (var u in users) {
-                if (users[u]._id == userId) {
-                    users[u] = user;
-                    return users[u];
-                }
-            }
-            return null;
+            var url = "/api/user/"+userId;
+            return $http.put(url, user);
         }
 
         function findUserByUsername(username) {
