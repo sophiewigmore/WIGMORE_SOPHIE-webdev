@@ -1,6 +1,6 @@
 (function () {
     angular.module("WamApp")
-        .controller("registerController", registerController)
+        .controller("registerController", registerController);
 
     function registerController(userService, $location) {
         var model = this;
@@ -9,16 +9,24 @@
         function init() {
 
         }
+
         init();
 
         function createUser(user) {
-            var _user = userService.findUserByUsername(user.username);
-            if(!_user) {
-                var user = userService.createUser(user);
-                $location.url("/profile/"+user._id);
-            } else {
-                model.error = "Username taken, try something else";
-            }
+            userService.findUserByUsername(user.username)
+                .then(function (response) {
+                    var _user = response.data;
+
+                    if (_user == 0) {
+                        userService.createUser(user)
+                            .then(function (response) {
+                                _user = response.data;
+                                $location.url("/profile/" + _user._id);
+                            });
+                    } else {
+                        model.error = "Username taken, try something else";
+                    }
+                });
         }
     }
 })();

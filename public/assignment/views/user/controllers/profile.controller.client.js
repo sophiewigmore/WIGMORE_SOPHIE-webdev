@@ -12,8 +12,8 @@
         model.deleteUser = deleteUser;
 
         function init() {
-            var promise = userService.findUserById(userId);
-            promise.then(function (response) {
+            userService.findUserById(userId)
+            .then(function (response) {
                 model.user = response.data;
             })
         }
