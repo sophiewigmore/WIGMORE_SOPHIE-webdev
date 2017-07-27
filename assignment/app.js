@@ -16,7 +16,23 @@ var users = [
 //all url data meant for dynamic data and only data, not files start with /api
 app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
-app.get("/user", findUserByCredentials);
+app.get("/api/user", findUserByCredentials);
+
+
+function findUserByCredentials(req, response) {
+    var username = req.query.username;
+    var password = req.query.password;
+
+    for (var u in users) {
+        var _user = users[u];
+        if (_user.username === username &&
+            _user.password === password) {
+            response.send(_user);
+            return;
+        }
+    }
+    response.send("0");
+}
 
 function getAllUsers(req, response) {
     response.send(users);
@@ -27,19 +43,5 @@ function getUserById(req, response) {
             response.send(users[u]);
         }
     }
-}
-
-function findUserByCredentials(req, response) {
-    var username = req.query.username;
-    var password = req.query.password;
-    for (var u in users) {
-        var _user = users[u];
-        if (_user.username === username &&
-            _user.password === password) {
-            response.send(_user);
-            return;
-        }
-    }
-    response.send("0");
 }
 
