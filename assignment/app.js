@@ -19,7 +19,19 @@ app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUser);
 app.post("/api/user", createUser);
 app.put("/api/user/:userId", updateUser);
+app.delete("/api/user/:userId", deleteUser);
 
+
+function deleteUser(req, response) {
+    var userId = req.params.userId;
+    for (var u in users) {
+        if (users[u]._id == userId) {
+            response.send(users.splice(u, 1)[0]);
+            return;
+        }
+    }
+    response.send(null);
+}
 
 function updateUser(req, response) {
     var userId = req.params.userId;

@@ -29,13 +29,8 @@
         }
 
         function deleteUser(userId) {
-            for (var u in users) {
-                if (users[u]._id == userId) {
-                    users.splice(u, 1);
-                    return;
-                }
-            }
-            return null;
+            var url = "/api/user/"+userId;
+            return $http.delete(url);
         }
 
         function updateUser(userId, user) {
