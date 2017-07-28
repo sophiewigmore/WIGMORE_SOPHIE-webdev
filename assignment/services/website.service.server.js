@@ -12,8 +12,10 @@ var websites = [
 
 
 app.get("/api/user/:userId/website", findWebsitesbyUser);
+app.get("/api/user/:userId/website/:webId", findWebsiteById);
 app.post("/api/user/:userId/website", createWebsite);
-
+app.put("/api/user/:userId/website/:webId", updateWebsite);
+app.delete("/api/user/:userId/website/:webId", deleteWebsite);
 
 function findWebsitesbyUser(req, response) {
     var userId = req.params.userId;
@@ -34,4 +36,42 @@ function createWebsite(req, response) {
     website.developerId = userId;
     websites.push(website);
     response.json(website);
+}
+
+function findWebsiteById(req, response) {
+    var webId = req.params.webId;
+
+    for (var w in websites) {
+        var _website = websites[w];
+        if (_website._id == webId) {
+            response.json(_website);
+            return;
+        }
+    }
+    response.sendStatus(404);
+}
+
+function updateWebsite(req, response) {
+    var webId = req.params.webId;
+    var website = req.body;
+
+    for (var w in websites) {
+        if (websites[w]._id == webId) {
+            websites[w] = website;
+            response.json(websites[w]);
+            return;
+        }
+    }
+    response.sendStatus(404);
+}
+
+function deleteWebsite(req, response) {
+    var webId = req.params.webId;
+    for (var w in websites) {
+        if (websites[w]._id === webId) {
+            response.send(websites.splice(w, 1));
+            return;
+        }
+    }
+    response.sendStatus(404);
 }

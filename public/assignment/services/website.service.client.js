@@ -32,35 +32,22 @@
             return $http.post(url, website);
         }
 
-        function findWebsiteById(webId) {
-            for (var w in websites) {
-                var _website = websites[w];
-                if (_website._id == webId) {
-                    return _website;
-                }
-            }
-            return null;
+        function findWebsiteById(userId, webId) {
+            var url = "/api/user/" + userId + "/website/" + webId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
-        function updateWebsite(webId, website) {
-            for (var w in websites) {
-                if (websites[w]._id == webId) {
-                    websites[w] = website;
-                    return websites[w];
-                }
-            }
-            return null;
+        function updateWebsite(userId, webId, website) {
+            var url = "/api/user/" + userId + "/website/" + webId;
+            return $http.put(url, website);
         }
 
-        function deleteWebsite(webId) {
-            for (var w in websites) {
-                if (websites[w]._id === webId) {
-                    websites.splice(w, 1);
-                    return;
-                }
-            }
-            return null;
+        function deleteWebsite(userId, webId) {
+            var url = "/api/user/" + userId + "/website/" + webId;
+            return $http.delete(url);
         }
-
     }
 })();
