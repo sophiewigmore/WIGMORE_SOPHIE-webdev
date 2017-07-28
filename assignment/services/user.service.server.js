@@ -1,9 +1,4 @@
 var app = require("../../express");
-/*  require("./services/user.service.server.js")(app);
- require("./services/website.service.server.js")(app);
- require("./services/page.service.server.js")(app);
- require("./services/widget.service.server.js");
- */
 
 var users = [
     {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", isAdmin: true},
