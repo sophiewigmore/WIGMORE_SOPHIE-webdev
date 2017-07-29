@@ -6,8 +6,8 @@ var pages = [
     {"_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem"}
 ];
 
-
 app.get("/api/website/:webId/page", findPagesByWebsiteId);
+app.post("/api/website/:webId/page", createPage);
 
 function findPagesByWebsiteId(req, response) {
     var websiteId = req.params.webId;
@@ -18,4 +18,14 @@ function findPagesByWebsiteId(req, response) {
         }
     }
     response.json(pgs);
+}
+
+function createPage(req, response) {
+    var websiteId = req.params.webId;
+    var page = req.body;
+
+    page._id = (new Date()).getTime() + "";
+    page.websiteId = websiteId;
+    pages.push(page);
+    response.json(page);
 }
