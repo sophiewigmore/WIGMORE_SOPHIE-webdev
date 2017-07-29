@@ -18,18 +18,26 @@
                     model.pages = pages;
                 })
 
-            model.page = pageService.findPageById(model.pageId);
+            pageService.findPageById(model.webId, model.pageId)
+                .then(function (page) {
+                    model.page = page;
+                })
         }
+
         init();
 
         function updatePage(page) {
-            pageService.updatePage(model.pageId, model.page);
-            $location.url("/user/" + model.userId + "/website/" + model.webId + "/page");
+            pageService.updatePage(model.webId, model.pageId, model.page)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website/" + model.webId + "/page");
+                })
         }
 
         function deletePage() {
-            pageService.deletePage(model.pageId);
-            $location.url("/user/" + model.userId + "/website/" + model.webId + "/page");
+            pageService.deletePage(model.webId, model.pageId)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website/" + model.webId + "/page");
+                })
         }
     }
 

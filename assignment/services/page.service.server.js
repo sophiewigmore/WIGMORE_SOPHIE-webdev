@@ -8,6 +8,9 @@ var pages = [
 
 app.get("/api/website/:webId/page", findPagesByWebsiteId);
 app.post("/api/website/:webId/page", createPage);
+app.get("/api/website/:webId/page/:pageId", findPageById);
+app.put("/api/website/:webId/page/:pageId", updatePage);
+app.delete("/api/website/:webId/page/:pageId", deletePage);
 
 function findPagesByWebsiteId(req, response) {
     var websiteId = req.params.webId;
@@ -28,4 +31,40 @@ function createPage(req, response) {
     page.websiteId = websiteId;
     pages.push(page);
     response.json(page);
+}
+
+function findPageById(req, response) {
+    var pageId = req.params.pageId;
+    for (var p in pages) {
+        if (pages[p]._id === pageId) {
+            response.json(pages[p]);
+            return;
+        }
+    }
+    response.sendStatus(404);
+}
+
+function updatePage(req, response) {
+    var pageId = req.params.pageId;
+    var page = req.body;
+    for (var p in pages) {
+        if (pages[p]._id === pageId) {
+            pages[p] = page;
+            response.json(pages[p]);
+            return;
+        }
+    }
+    response.sendStatus(404);
+}
+
+function deletePage(req, response) {
+    var pageId = req.params.pageId;
+
+    for (var p in pages) {
+        if (pages[p]._id === pageId) {
+            response.json(pages.splice(p, 1));
+            return;
+        }
+    }
+    response.sendStatus(404);
 }

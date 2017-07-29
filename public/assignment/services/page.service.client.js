@@ -29,33 +29,22 @@
             return $http.post(url, page);
         }
 
-        function findPageById(pageId) {
-            for(var p in pages) {
-                if(pages[p]._id === pageId) {
-                    return pages[p];
-                }
-            }
-            return null;
+        function findPageById(webId, pageId) {
+            var url = "/api/website/" + webId + "/page/" + pageId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
-        function updatePage(pageId, page) {
-            for(var p in pages) {
-                if(pages[p]._id === pageId) {
-                    pages[p] = page;
-                    return pages[p];
-                }
-            }
-            return null;
+        function updatePage(webId, pageId, page) {
+            var url = "/api/website/" + webId + "/page/" + pageId;
+            return $http.put(url, page);
         }
 
-        function deletePage(pageId) {
-            for (var p in pages) {
-                if (pages[p]._id === pageId) {
-                    pages.splice(p, 1);
-                    return;
-                }
-            }
-            return null;
+        function deletePage(webId, pageId) {
+            var url = "/api/website/" + webId + "/page/" + pageId;
+            return $http.delete(url);
         }
     }
 
