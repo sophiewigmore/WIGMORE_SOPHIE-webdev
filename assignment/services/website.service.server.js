@@ -10,7 +10,6 @@ var websites = [
     { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
 ];
 
-
 app.get("/api/user/:userId/website", findWebsitesbyUser);
 app.get("/api/user/:userId/website/:webId", findWebsiteById);
 app.post("/api/user/:userId/website", createWebsite);

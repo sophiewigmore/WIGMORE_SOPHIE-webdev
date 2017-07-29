@@ -3,7 +3,7 @@
         .module("WamApp")
         .service("pageService", pageService);
 
-    function pageService() {
+    function pageService($http) {
         var pages = [
             {"_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem"},
             {"_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem"},
@@ -17,13 +17,11 @@
         this.deletePage = deletePage;
 
         function findPagesByWebsiteId(websiteId) {
-            var pgs = [];
-            for (var p in pages) {
-                if (pages[p].websiteId === websiteId) {
-                    pgs.push(pages[p]);
-                }
-            }
-            return pgs;
+            var url = "/api/website/" + websiteId + "/page";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function createPage(websiteId, page) {
