@@ -29,21 +29,21 @@
             return $http.post(url, page);
         }
 
-        function findPageById(webId, pageId) {
-            var url = "/api/website/" + webId + "/page/" + pageId;
+        function findPageById(pageId) {
+            var url = "/api/page/" + pageId;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
                 })
         }
 
-        function updatePage(webId, pageId, page) {
-            var url = "/api/website/" + webId + "/page/" + pageId;
+        function updatePage(pageId, page) {
+            var url = "/api/page/" + pageId;
             return $http.put(url, page);
         }
 
-        function deletePage(webId, pageId) {
-            var url = "/api/website/" + webId + "/page/" + pageId;
+        function deletePage(pageId) {
+            var url = "/api/page/" + pageId;
             return $http.delete(url);
         }
     }

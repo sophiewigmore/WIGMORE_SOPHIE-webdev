@@ -12,7 +12,7 @@
         model.deleteWebsite = deleteWebsite;
 
         function init() {
-            websiteService.findWebsiteById(model.userId, model.webId)
+            websiteService.findWebsiteById(model.webId)
                 .then(function (website) {
                     model.website = website;
                 });
@@ -25,14 +25,14 @@
         init();
 
         function updateWebsite(website) {
-            websiteService.updateWebsite(model.userId, model.webId, model.website)
+            websiteService.updateWebsite(model.webId, model.website)
                 .then(function () {
                     $location.url("/user/" + model.userId + "/website");
                 })
         }
 
         function deleteWebsite(website) {
-            websiteService.deleteWebsite(model.userId, model.webId)
+            websiteService.deleteWebsite(model.webId)
                 .then(function () {
                     $location.url("/user/" + model.userId + "/website");
                 })

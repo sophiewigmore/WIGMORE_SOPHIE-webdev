@@ -18,7 +18,7 @@
                     model.pages = pages;
                 })
 
-            pageService.findPageById(model.webId, model.pageId)
+            pageService.findPageById(model.pageId)
                 .then(function (page) {
                     model.page = page;
                 })
@@ -27,14 +27,14 @@
         init();
 
         function updatePage(page) {
-            pageService.updatePage(model.webId, model.pageId, model.page)
+            pageService.updatePage(model.pageId, model.page)
                 .then(function () {
                     $location.url("/user/" + model.userId + "/website/" + model.webId + "/page");
                 })
         }
 
         function deletePage() {
-            pageService.deletePage(model.webId, model.pageId)
+            pageService.deletePage(model.pageId)
                 .then(function () {
                     $location.url("/user/" + model.userId + "/website/" + model.webId + "/page");
                 })

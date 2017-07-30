@@ -8,9 +8,9 @@ var pages = [
 
 app.get("/api/website/:webId/page", findPagesByWebsiteId);
 app.post("/api/website/:webId/page", createPage);
-app.get("/api/website/:webId/page/:pageId", findPageById);
-app.put("/api/website/:webId/page/:pageId", updatePage);
-app.delete("/api/website/:webId/page/:pageId", deletePage);
+app.get("/api/page/:pageId", findPageById);
+app.put("/api/page/:pageId", updatePage);
+app.delete("/api/page/:pageId", deletePage);
 
 function findPagesByWebsiteId(req, response) {
     var websiteId = req.params.webId;

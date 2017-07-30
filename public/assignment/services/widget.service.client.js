@@ -3,7 +3,7 @@
         .module("WamApp")
         .service("widgetService", widgetService);
 
-    function widgetService() {
+    function widgetService($http) {
         var widgets = [
             {"_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
             {"_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
@@ -27,13 +27,11 @@
         this.deleteWidget = deleteWidget;
 
         function findWidgetsByPageId(pageId) {
-            var wdgts = [];
-            for (var w in widgets) {
-                if (widgets[w].pageId === pageId) {
-                    wdgts.push(widgets[w]);
-                }
-            }
-            return wdgts
+            var url = "/api/page/" + pageId + "/widget";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
         function createWidget(pageId, widget) {

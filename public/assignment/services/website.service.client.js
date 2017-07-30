@@ -32,21 +32,21 @@
             return $http.post(url, website);
         }
 
-        function findWebsiteById(userId, webId) {
-            var url = "/api/user/" + userId + "/website/" + webId;
+        function findWebsiteById(webId) {
+            var url = "/api/website/" + webId;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
                 })
         }
 
-        function updateWebsite(userId, webId, website) {
-            var url = "/api/user/" + userId + "/website/" + webId;
+        function updateWebsite(webId, website) {
+            var url = "/api/website/" + webId;
             return $http.put(url, website);
         }
 
-        function deleteWebsite(userId, webId) {
-            var url = "/api/user/" + userId + "/website/" + webId;
+        function deleteWebsite(webId) {
+            var url = "/api/website/" + webId;
             return $http.delete(url);
         }
     }

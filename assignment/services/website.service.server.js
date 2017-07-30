@@ -11,10 +11,10 @@ var websites = [
 ];
 
 app.get("/api/user/:userId/website", findWebsitesbyUser);
-app.get("/api/user/:userId/website/:webId", findWebsiteById);
+app.get("/api/website/:webId", findWebsiteById);
 app.post("/api/user/:userId/website", createWebsite);
-app.put("/api/user/:userId/website/:webId", updateWebsite);
-app.delete("/api/user/:userId/website/:webId", deleteWebsite);
+app.put("/api/website/:webId", updateWebsite);
+app.delete("/api/website/:webId", deleteWebsite);
 
 function findWebsitesbyUser(req, response) {
     var userId = req.params.userId;
