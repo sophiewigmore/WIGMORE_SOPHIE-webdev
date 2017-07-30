@@ -49,15 +49,17 @@
                placeholder="100%"
                id="width"/>
 
-        <label for="upload">Upload an Image</label>
-        <input name="upload"
-               class="form-control"
-               type="file"
-               id="upload"/>
+        <form action="/api/upload"   method="post" enctype="multipart/form-data"
+        style="margin-bottom: 5px">
+            <input  name="myFile"    type="file" class="form-control"/>
+            <input  name="width"     value="{{model.widget.width}}" style="display: none"/>
+            <input  name="userId"    value="{{model.userId}}"   style="display: none"/>
+            <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
+            <input  name="pageId"    value="{{model.pageId}}"   style="display: none"/>
+            <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
+            <button type="submit"    class="btn btn-default btn-primary btn-block">Upload Image</button>
+        </form>
 
-
-        <a class="btn btn-default btn-primary btn-block"
-           role="button">Upload</a>
 
 
         <a class="btn btn-default btn-danger btn-block"
