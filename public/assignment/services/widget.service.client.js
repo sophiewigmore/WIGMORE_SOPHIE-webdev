@@ -42,12 +42,11 @@
         }
 
         function findWidgetById(widgetId) {
-            for(var w in widgets) {
-                if(widgets[w]._id === widgetId) {
-                    return widgets[w];
-                }
-            }
-            return null;
+            var url = "/api/widget/" +widgetId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
         function updateWidget(widgetId, widget) {

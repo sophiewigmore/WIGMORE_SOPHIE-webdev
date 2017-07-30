@@ -17,6 +17,7 @@ var widgets = [
 ];
 
 app.get("/api/page/:pageId/widget", findWidgetsByPageId);
+app.get("/api/widget/:widgetId", findWidgetById);
 
 function findWidgetsByPageId(req, response) {
     var pageId = req.params.pageId;
@@ -28,4 +29,15 @@ function findWidgetsByPageId(req, response) {
         }
     }
     response.json(wdgts);
+}
+
+function findWidgetById(req, response) {
+    var widgetId = req.params.widgetId;
+    for(var w in widgets) {
+        if(widgets[w]._id === widgetId) {
+            response.json(widgets[w]);
+            return;
+        }
+    }
+    response.sendStatus(404);
 }
