@@ -12,14 +12,19 @@
         model.createWidget = createWidget;
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId);
+            widgetService.findWidgetsByPageId(model.pageId)
+                .then(function (widgets) {
+                    model.widgets = widgets;
+                })
         }
         init();
 
         function createWidget(widget) {
-            widgetService.createWidget(model.pageId, widget);
-            $location.url("/user/" + model.userId + "/website/" + model.webId + "/page/" + model.pageId +
-                "/widget/" + widget._id);
+            widgetService.createWidget(model.pageId, widget)
+                .then(function (widget) {
+                    $location.url("/user/" + model.userId + "/website/" + model.webId + "/page/" + model.pageId +
+                        "/widget/" + widget._id);
+                })
         }
     }
 

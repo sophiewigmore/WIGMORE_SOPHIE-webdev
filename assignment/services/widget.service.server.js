@@ -18,6 +18,7 @@ var widgets = [
 
 app.get("/api/page/:pageId/widget", findWidgetsByPageId);
 app.get("/api/widget/:widgetId", findWidgetById);
+app.post("/api/page/:pageId/widget", createWidget);
 
 function findWidgetsByPageId(req, response) {
     var pageId = req.params.pageId;
@@ -40,4 +41,14 @@ function findWidgetById(req, response) {
         }
     }
     response.sendStatus(404);
+}
+
+function createWidget(req, response) {
+    var pageId = req.params.pageId;
+    var widget = req.body;
+
+    widget._id = (new Date()).getTime() + "";
+    widget.pageId = pageId;
+    widgets.push(widget);
+    response.json(widget);
 }

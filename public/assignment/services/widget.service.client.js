@@ -35,10 +35,11 @@
         }
 
         function createWidget(pageId, widget) {
-            widget._id = (new Date()).getTime() + "";
-            widget.pageId = pageId;
-            widgets.push(widget);
-            return widget;
+            var url = "/api/page/" + pageId + "/widget";
+            return $http.post(url, widget)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
         function findWidgetById(widgetId) {
