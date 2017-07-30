@@ -51,23 +51,13 @@
         }
 
         function updateWidget(widgetId, widget) {
-            for(var w in widgets) {
-                if(widgets[w]._id === widgetId) {
-                    widgets[w] = widget;
-                    return widgets[w];
-                }
-            }
-            return null;
+            var url = "/api/widget/" + widgetId;
+            return $http.put(url, widget);
         }
 
         function deleteWidget(widgetId) {
-            for (var w in widgets) {
-                if (widgets[w]._id === widgetId) {
-                    widgets.splice(w, 1);
-                    return;
-                }
-            }
-            return null;
+            var url = "/api/widget/" + widgetId;
+            return $http.delete(url);
         }
     }
 
