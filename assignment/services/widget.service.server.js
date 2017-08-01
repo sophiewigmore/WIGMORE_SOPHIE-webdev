@@ -21,11 +21,11 @@ var upload = multer({ dest: __dirname+'/../../public/uploads' });
 
 app.get("/api/page/:pageId/widget", findWidgetsByPageId);
 app.get("/api/widget/:widgetId", findWidgetById);
+app.put("/api/page/:pageId/widget", sort);
 app.post("/api/page/:pageId/widget", createWidget);
 app.put("/api/widget/:widgetId", updateWidget);
 app.delete("/api/widget/:widgetId", deleteWidget);
 app.post("/api/upload", upload.single('myFile'), uploadImage);
-app.put("/api/page/:pageId/widget", sort);
 
 
 function findWidgetsByPageId(req, response) {
@@ -49,6 +49,17 @@ function findWidgetById(req, response) {
         }
     }
     response.sendStatus(404);
+}
+
+function sort(req, response) {
+    var pageId = req.params.pageId;
+    var initial = req.query.initial;
+    var final = req.query.final;
+
+    var widgetToMove = widgets.splice(initial, 1)[0];
+    widgets.splice(final, 0, widgetToMove);
+
+    response.json(widgets);
 }
 
 function createWidget(req, response) {
@@ -115,15 +126,4 @@ function uploadImage(req, res) {
 
     widget.url = '/uploads/'+filename;
     res.redirect(callbackUrl);
-}
-
-function sort(req, response) {
-    var pageId = req.params.pageId;
-    var initial = req.query.initial;
-    var final = req.query.final;
-
-    var widgetToMove = widgets.splice(initial, 1);
-    widgets.splice(final, 0, widgetToMove);
-
-    response.json(widgets);
 }
