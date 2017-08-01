@@ -11,6 +11,7 @@
 
         model.trustHtmlContent = trustHtmlContent;
         model.trustUrlResource = trustUrlResource;
+        model.sort = sort;
 
         function init() {
             widgetService.findWidgetsByPageId(model.pageId)
@@ -31,6 +32,11 @@
             youtubeUrl += urlParts[urlParts.length-1];
             return $sce.trustAsResourceUrl(youtubeUrl);
 
+        }
+
+        function sort(initial, final) {
+            widgetService
+                .sort(model.pageId, initial, final);
         }
 
     }
