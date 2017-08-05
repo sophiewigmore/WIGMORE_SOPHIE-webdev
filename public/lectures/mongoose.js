@@ -10,6 +10,7 @@ var userSchema = mongoose.Schema({
     created: {type: Date, default: Date.now}
 }, {collection: "user"});
 
+
 var userModel = mongoose.model("UserModel", userSchema);
 
 updateUser("s9038120938120938", {first: "Alice", last: "Wonder"});

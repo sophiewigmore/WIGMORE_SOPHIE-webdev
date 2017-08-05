@@ -88,6 +88,12 @@
                 controllerAs: "model"
             })
 
+            .when("/user/:userId/website/:webId/page/:pageId/widget/:widgetId/flickr", {
+                templateUrl: "views/widget/templates/widget-flickr-search.view.client.html",
+                controller: "flickrImageSearchController",
+                controllerAs: "model"
+            })
+
 
     }
 })();
