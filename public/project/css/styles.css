@@ -1,0 +1,114 @@
+
+input, textarea {
+    margin-bottom: 5px;
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.jumbotron {
+    margin-top: 20px
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.navbar-default {
+    background-color: #031424;
+    width : 100%
+
+}
+
+.navbar-header, .navbar-fixed-bottom {
+        width: 100%;
+}
+
+
+@media screen and (max-width: 650px) {
+    #smw-brand-2, #smw-brand-3 {
+        color: white;
+        font-size: 12px;
+    }
+}
+.navbar-default .navbar-brand {
+    color: whitesmoke;
+    font-size: x-large;
+    border-color: white;
+}
+.smw-white-icons {
+    color: white
+}
+
+.smw .btn-default, .list-group-item.active {
+    background-color: #8eaebd;
+    color: white;
+    border-color: #7c9cab
+}
+
+.smw .btn-danger {
+    background-color: #cf6766
+}
+
+.smw .btn-success {
+    background-color: #92a591;
+    border-color: #7c8f7b;
+}
+
+
+.smw-splitview-left {
+    position: absolute;
+    top: 75px;
+    bottom: 0px;
+    z-index: 1;
+    overflow-y: scroll;
+    border-right: 1px solid lightgray;
+}
+
+.smw-splitview-right{
+    position: absolute;
+    right: 0px;
+    top: 60px;
+    bottom: 0px;
+    overflow-y: scroll;
+}
+
+.smw-overlay-glyphicon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-bottom: 5px;
+    padding-left: 3px;
+    padding-right: 5px;
+    padding-top: 5px;
+    background-color: white;
+    border-bottom-left-radius: 40%;
+    border-top-right-radius: 40%;
+    z-index: 1;
+    background-color: black;
+    opacity: .4;
+}
+
+.sw-widget-div {
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding-bottom: 20px
+}
+
+.video-container {
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    height: 100%;
+}
+
+.smw-footer-glyphs {
+    padding-top: 12px;
+}
