@@ -19,7 +19,7 @@
             userService.findUserByCredentials(user.username, user.password)
                 .then(function (response) {
                     user = response.data;
-                    if (user == 0) {
+                    if (!user) {
                         model.errorMessage = "User Not Found. Try Again, or Register.";
                     } else {
                         $rootScope.currentUser = user;

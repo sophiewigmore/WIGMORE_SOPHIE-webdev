@@ -29,12 +29,12 @@
 
         function updateUser(userId, user) {
             var url = "/api/user/"+userId;
-            return $http.put(url, user);
+            return $http.put(url, user)
         }
 
         function findUserByUsername(username) {
             var url = "/api/user?username="+username;
-            return $http.get(url);
+            return $http.get(url)
         }
 
         function findUserByCredentials(username, password) {

@@ -61,7 +61,7 @@ function findUser(req, response) {
         userModel
             .findUserByCredentials(username, password)
             .then(function (user) {
-                response.json(user);
+                response.send(user);
             }, function(err) {
                 response.sendStatus(404).send(err);
             })
@@ -69,13 +69,12 @@ function findUser(req, response) {
         userModel
             .findUserByUsername(username)
             .then(function(user) {
-                response.json(user);
+                response.send(user);
             }, function(err) {
                 response.sendStatus(404).send(err);
             })
     }
 
-    response.send("0");
 }
 
 function getAllUsers(req, response) {

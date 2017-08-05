@@ -1,3 +1,5 @@
+console.log("hello from mongoose");
+
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost/webdev-summer-2-2017');
 
@@ -9,6 +11,7 @@ var userSchema = mongoose.Schema({
     dob: Date,
     created: {type: Date, default: Date.now}
 }, {collection: "user"});
+
 
 
 var userModel = mongoose.model("UserModel", userSchema);
