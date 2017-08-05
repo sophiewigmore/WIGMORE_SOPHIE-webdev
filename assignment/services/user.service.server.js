@@ -61,7 +61,9 @@ function findUser(req, response) {
         userModel
             .findUserByCredentials(username, password)
             .then(function (user) {
+                console.log(user);
                 response.send(user);
+
             }, function(err) {
                 response.sendStatus(404).send(err);
             })
