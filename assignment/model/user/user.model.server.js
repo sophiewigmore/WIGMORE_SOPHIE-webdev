@@ -7,10 +7,12 @@ userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
 userModel.findUserByCredentials = findUserByCredentials;
+userModel.findUserByUsername = findUserByUsername;
+userModel.deleteUser = deleteUser;
 module.exports = userModel;
 
 function createUser(user) {
-    return userModel.create(user);//asynchronous call to db, and returns a promise
+    return userModel.create(user);
 }
 
 function findUserById(userId) {
@@ -24,4 +26,12 @@ function updateUser(userId, user) {
 
 function findUserByCredentials(username, password) {
     return userModel.findOne({username: username, password: password});
+}
+
+function findUserByUsername(username) {
+    return userModel.findOne({username: username});
+}
+
+function deleteUser(userId) {
+    return userModel.remove({_id: userId});
 }

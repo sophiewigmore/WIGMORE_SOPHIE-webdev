@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/test');
+var db = mongoose.connect('mongodb://localhost/webdev-summer-2-2017');
 
 var userSchema = mongoose.Schema({
     username: String,
