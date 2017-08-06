@@ -12,7 +12,7 @@
         model.deleteUser = deleteUser;
 
         function init() {
-            userService.findUserById(userId)
+            userService.findUserById(model.userId)
             .then(function (response) {
                 model.user = response.data;
             })
