@@ -9,6 +9,7 @@ widgetModel.findWidgetById = findWidgetById;
 widgetModel.updateWidget = updateWidget;
 widgetModel.deleteWidget = deleteWidget;
 widgetModel.reorderWidget = reorderWidget;
+widgetModel.setUrl = setUrl;
 module.exports = widgetModel;
 
 
@@ -42,4 +43,14 @@ function reorderWidget(pageId, start, end) {
                 var widgetToMove = widgets.splice(start, 1)[0];
                 widgets.splice(end, 0, widgetToMove);
             })
+}
+
+function setUrl(widgetId, url) {
+    return widgetModel.findOne({_id: widgetId })
+        .then(
+            function (widget) {
+                widget.url = url;
+                return widget.save();
+            }
+        )
 }
