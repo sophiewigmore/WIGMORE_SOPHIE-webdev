@@ -1,37 +1,33 @@
 var mongoose = require('mongoose');
-var userSchema = require('./user.schema.server');
+var websiteSchema = require('./website.schema.server');
 var db = require("../models.server");
-var userModel = mongoose.model('UserModel', userSchema);
+var websiteModel = mongoose.model('WebsiteModel', websiteSchema);
 
-userModel.createUser = createUser;
-userModel.findUserById = findUserById;
-userModel.updateUser = updateUser;
-userModel.findUserByCredentials = findUserByCredentials;
-userModel.findUserByUsername = findUserByUsername;
-userModel.deleteUser = deleteUser;
-module.exports = userModel;
+websiteModel.createWebsiteForUser = createWebsiteForUser;
+websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
+websiteModel.findWebsiteById = findWebsiteById;
+websiteModel.updateWebsite = updateWebsite
+websiteModel.deleteWebsite = deleteWebsite;
+module.exports = websiteModel;
 
-function createUser(user) {
-    return userModel.create(user);
+function createWebsiteForUser(userId, website) {
+    website._user = userId;
+    return websiteModel.create(website);
 }
 
-function findUserById(userId) {
-    return userModel.findById(userId);
+function findAllWebsitesForUser(userId) {
+    return websiteModel.find({_user: userId});
 }
 
-function updateUser(userId, user) {
-    return userModel.update({_id: userId},
-        {$set: user});
+function findWebsiteById(websiteId) {
+    return websiteModel.findById(websiteId);
 }
 
-function findUserByCredentials(username, password) {
-    return userModel.findOne({username: username, password: password});
+function updateWebsite(websiteId, website) {
+    return websiteModel.update({_id: websiteId},
+    {$set: website});
 }
 
-function findUserByUsername(username) {
-    return userModel.findOne({username: username});
-}
-
-function deleteUser(userId) {
-    return userModel.remove({_id: userId});
+function deleteWebsite(websiteId) {
+    return websiteModel.remove({_id: websiteId})
 }

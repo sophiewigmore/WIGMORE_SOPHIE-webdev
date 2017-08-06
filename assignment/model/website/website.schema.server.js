@@ -1,17 +1,12 @@
 var mongoose = require('mongoose');
 
-var userSchema = mongoose.Schema({
-        _id: String,
-        username: String,
-        password: String,
-        firstName: String,
-        lastName: String,
-        email: String,
-        phone: String,
-        //websites: {type: mongoose.Schema.Types.ObjectId, ref: "WebsiteModel"},
+var websiteSchema = mongoose.Schema({
+        _user: {type: mongoose.Schema.ObjectId, ref: "UserModel"},
+        name: String,
+        description: String,
+        //pages: {type: mongoose.Schema.Types.ObjectId, ref: "PageModel"},
         dateCreated: {type: Date, default: Date.now()},
-        isAdmin: Boolean
-    }, {collection: "users"}
+    }, {collection: "website"}
 );
 
-module.exports = userSchema;
+module.exports = websiteSchema;
