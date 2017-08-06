@@ -6,7 +6,7 @@ var websiteModel = mongoose.model('WebsiteModel', websiteSchema);
 websiteModel.createWebsiteForUser = createWebsiteForUser;
 websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
 websiteModel.findWebsiteById = findWebsiteById;
-websiteModel.updateWebsite = updateWebsite
+websiteModel.updateWebsite = updateWebsite;
 websiteModel.deleteWebsite = deleteWebsite;
 module.exports = websiteModel;
 

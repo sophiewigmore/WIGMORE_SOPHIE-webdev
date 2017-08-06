@@ -14,7 +14,8 @@ function findWebsitesbyUser(req, response) {
         .findAllWebsitesForUser(userId)
         .then(function (websites) {
             response.json(websites);
-            return;
+        },function(err) {
+            response.sendStatus(404).send(err);
         })
 }
 
@@ -26,7 +27,6 @@ function createWebsite(req, response) {
         .createWebsiteForUser(userId, website)
         .then(function (website) {
             response.json(website);
-            return;
         })
 }
 
