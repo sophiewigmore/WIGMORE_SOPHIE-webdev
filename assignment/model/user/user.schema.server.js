@@ -10,7 +10,7 @@ var userSchema = mongoose.Schema({
         websites: {type: mongoose.Schema.Types.ObjectId, ref: "WebsiteModel"},
         dateCreated: {type: Date, default: Date.now()},
         isAdmin: Boolean
-    }, {collection: "users"}
+    }, {collection: "user"}
 );
 
 module.exports = userSchema;

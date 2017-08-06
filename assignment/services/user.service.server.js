@@ -55,8 +55,6 @@ function findUser(req, response) {
             .findUserByCredentials(username, password)
             .then(function (user) {
                 response.send(user);
-                console.log(user);
-
             }, function(err) {
                 response.sendStatus(404).send(err);
             })
