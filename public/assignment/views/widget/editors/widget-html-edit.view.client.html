@@ -26,13 +26,13 @@
                id="name"/>
 
 
-        <label for="widgetText">Text</label>
-        <input name="widgetText"
-               ng-model="model.widget.text"
-               class="form-control"
-               value="I Scream, You Scream: Ice Cream"
-               id="widgetText">
-        </input>
+        <div ng-model="model.widget.text"
+             text-angular
+             ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        ['indent','outdent'],['html']]">
+        </div>
+
 
 
         <a class="btn btn-default btn-danger btn-block"
