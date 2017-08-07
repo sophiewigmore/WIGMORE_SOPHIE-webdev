@@ -9,7 +9,17 @@ userModel.updateUser = updateUser;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
+userModel.addWebsite = addWebsite;
 module.exports = userModel;
+
+function addWebsite(userId, websiteId) {
+    return userModel
+        .findUserById(userId)
+        .then(function (user) {
+            user.websites.push(websiteId);
+            return user.save();
+        })
+}
 
 function createUser(user) {
     return userModel.create(user);
