@@ -1,0 +1,73 @@
+<div class="smw">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-text pull-left">
+                    <a class="navbar-link"
+                       href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget">
+                        <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
+                    </a>
+                </div>
+                <a class="navbar-brand">Edit Text Widget</a>
+                <div class="navbar-text pull-right">
+                    <a ng-click="model.updateWidget(model.widget)">
+                        <span class="glyphicon glyphicon-check smw-white-icons"></span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid smw-body">
+            <label for="widgetName">Name</label>
+            <input name=widgetName"
+                   ng-model="model.widget.name"
+                   class="form-control"
+                   placeholder="Widget Name"
+                   id="widgetName"/>
+
+        <label for="widgetText">Text</label>
+        <input name=widgetText"
+               ng-model="model.widget.text"
+               class="form-control"
+               placeholder="Widget Text"
+               id="widgetText"/>
+
+            <label for="widgetRows">Rows</label>
+            <input name=widgetRows"
+                   ng-model="model.widget.rows"
+                   class="form-control"
+                   placeholder="5"
+                   type="number"
+                   id="widgetRows"/>
+
+            <label for="widgetPlaceholder">Placeholder</label>
+            <input name=widgetPlaceholder"
+                   ng-model="model.widget.placeholder"
+                   class="form-control"
+                   type="text"
+                   placeholder="Text"
+                   id="widgetPlaceholder"/>
+
+            <label for="widgetFormatted">Formatted</label>
+            <input ng-model="model.widget.formatted"
+                   type="checkbox"
+                   name="widgetFormatted"
+                   id="widgetFormatted"/>
+
+
+        <a class="btn btn-default btn-danger btn-block"
+           ng-click="model.deleteWidget()"
+           role="button">Delete</a>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a class="navbar-link" href="#!/profile/{{model.userId}}">
+                <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+</div>

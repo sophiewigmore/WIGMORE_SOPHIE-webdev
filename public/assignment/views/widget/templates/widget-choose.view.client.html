@@ -12,7 +12,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid .smw-body">
+    <div class="container-fluid smw-body">
         <ul class="list-group">
 
             <li class="list-group-item" ng-click=
@@ -21,38 +21,14 @@
             </li>
 
 
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
-                        Label</a>
-                </div>
-            </li>
-
             <li class="list-group-item" ng-click=
                     "model.createWidget({'widgetType': 'HTML','text': ''})">
                 <div class="row"><a>HTML</a></div>
             </li>
 
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
-                        Text Input</a>
-                </div>
-            </li>
-
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
-                        Link</a>
-                </div>
-            </li>
-
-
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
-                        Button</a>
-                </div>
+            <li class="list-group-item" ng-click=
+                    "model.createWidget({'widgetType': 'TEXT','text': ''})">
+                <div class="row"><a>Text Input</a></div>
             </li>
 
 
@@ -66,18 +42,7 @@
                 <div class="row"><a>Youtube</a></div>
             </li>
 
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
-                        Data Table</a>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
-                        Repeater</a>
-                </div>
-            </li>
+
         </ul>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">

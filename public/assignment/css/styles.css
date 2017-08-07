@@ -25,10 +25,6 @@ a:hover {
         width: 100%;
 }
 
-.navbar-fixed-bottom {
-    margin-top: 1000px;
-}
-
 @media screen and (max-width: 650px) {
     #smw-brand-2, #smw-brand-3 {
         color: white;
@@ -129,5 +125,5 @@ a:hover {
 }
 
 .smw-body {
-    padding-bottom: 60px;
+    padding-bottom: 100px;
 }
