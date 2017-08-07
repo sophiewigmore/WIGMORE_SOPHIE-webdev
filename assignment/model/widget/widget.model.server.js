@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var widgetSchema = require('./widget.schema.server');
 var db = require("../models.server");
 var widgetModel = mongoose.model('WidgetModel', widgetSchema);
+var pageModel = require("../page/page.model.server");
 
 widgetModel.createWidget = createWidget;
 widgetModel.findAllWidgetsForPage = findAllWidgetsForPage;
@@ -15,7 +16,21 @@ module.exports = widgetModel;
 
 function createWidget(pageId, widget) {
     widget._page = pageId;
-    return widgetModel.create(widget);
+    var tempWidget = null;
+    return widgetModel
+        .create(widget)
+        .then(function (widgetDoc) {
+            tempWidget = widgetDoc;
+            pageModel
+                .findPageById(pageId)
+                .then(function (page) {
+                    page.widgets.push(widgetDoc._id);
+                    return page.save();
+                })
+        })
+        .then(function () {
+            return tempWidget;
+        })
 }
 
 function findAllWidgetsForPage(pageId) {
