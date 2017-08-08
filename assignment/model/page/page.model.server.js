@@ -9,7 +9,7 @@ pageModel.findAllPagesForWebsite = findAllPagesForWebsite;
 pageModel.findPageById = findPageById;
 pageModel.updatePage = updatePage;
 pageModel.deletePage = deletePage;
-
+pageModel.removeWidget = removeWidget;
 module.exports = pageModel;
 
 function createPage(websiteId, page) {
@@ -47,4 +47,13 @@ function updatePage(pageId, page) {
 function deletePage(pageId) {
     websiteModel.removePage(pageId);
     return pageModel.remove({_id: pageId});
+}
+
+function removeWidget(widgetId) {
+    pageModel.findOne({widgets : widgetId})
+        .then(function (page) {
+            var widgetToSplice = page.widgets.indexOf(widgetId);
+            page.widgets.splice(widgetToSplice, 1);
+            return page.save();
+        })
 }

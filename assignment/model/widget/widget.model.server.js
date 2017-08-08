@@ -47,6 +47,7 @@ function updateWidget(widgetId, widget) {
 }
 
 function deleteWidget(widgetId) {
+    pageModel.removeWidget(widgetId);
     return widgetModel.remove({_id: widgetId});
 }
 
