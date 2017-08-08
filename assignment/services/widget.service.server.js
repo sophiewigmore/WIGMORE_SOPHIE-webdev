@@ -42,7 +42,6 @@ function sort(req, response) {
     widgetModel
         .reorderWidget(pageId, initial, final)
         .then(function (page) {
-            console.log(page);
             response.send(page);
         },  function (err) {
             response.sendStatus(400).json(err);

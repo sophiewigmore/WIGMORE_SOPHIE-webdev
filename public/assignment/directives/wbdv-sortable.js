@@ -9,6 +9,7 @@
 
         function linkFunction(scope, element) {
             $(element).sortable({
+                axis: 'y',
                 start: function (event, ui) {
                     initial = $(ui.item).index();
                 },
