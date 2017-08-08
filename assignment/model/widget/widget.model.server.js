@@ -52,12 +52,13 @@ function deleteWidget(widgetId) {
 }
 
 function reorderWidget(pageId, start, end) {
-    return widgetModel
-        .find({_page: pageId},
-            function (err, widgets) {
-                var widgetToMove = widgets.splice(start, 1)[0];
-                return widgets.splice(end, 0, widgetToMove)
-            })
+    return pageModel
+        .findPageById(pageId)
+        .then(function (page) {
+            var widgetMoving = page.widgets.splice(start, 1)[0];
+            page.widgets.splice(end,0, widgetMoving);
+            return page.save();
+        })
 }
 
 function setUrl(widgetId, url) {
