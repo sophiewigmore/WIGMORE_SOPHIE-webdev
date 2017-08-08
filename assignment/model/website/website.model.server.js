@@ -9,6 +9,7 @@ websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
 websiteModel.findWebsiteById = findWebsiteById;
 websiteModel.updateWebsite = updateWebsite;
 websiteModel.deleteWebsite = deleteWebsite;
+websiteModel.removePage = removePage;
 module.exports = websiteModel;
 
 function createWebsiteForUser(userId, website) {
@@ -38,8 +39,17 @@ function updateWebsite(websiteId, website) {
     {$set: website});
 }
 
-
 function deleteWebsite(websiteId) {
     userModel.removeWebsite(websiteId);
     return websiteModel.remove({_id: websiteId});
+}
+
+function removePage(pageId) {
+    websiteModel.findOne({pages:pageId})
+        .then(function (website) {
+                var pageToSplice = website.pages.indexOf(pageId);
+                website.pages.splice(pageToSplice, 1);
+                return website.save();
+
+        })
 }
