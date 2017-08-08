@@ -10,6 +10,7 @@ userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
 userModel.addWebsite = addWebsite;
+userModel.removeWebsite = removeWebsite;
 module.exports = userModel;
 
 function addWebsite(userId, websiteId) {
@@ -43,5 +44,18 @@ function findUserByUsername(username) {
 }
 
 function deleteUser(userId) {
-    return userModel.remove({_id: userId});
+    return userModel.remove({_id: userId})
+}
+
+function removeWebsite(websiteId) {
+    userModel
+        .find({websites:websiteId})
+        .then(function (users) {
+                for (var u in users) {
+                    var user = users[u];
+                    var websiteToSplice = user.websites.indexOf(websiteId);
+                    user.websites.splice(websiteToSplice, 1);
+                    return user.save();
+                }
+            });
 }

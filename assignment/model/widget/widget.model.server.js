@@ -54,14 +54,13 @@ function reorderWidget(pageId, start, end) {
     return widgetModel
         .find({_page: pageId},
             function (err, widgets) {
-
                 var widgetToMove = widgets.splice(start, 1)[0];
-                widgets.splice(end, 0, widgetToMove);
+                return widgets.splice(end, 0, widgetToMove)
             })
 }
 
 function setUrl(widgetId, url) {
-    return widgetModel.findOne({_id: widgetId })
+    return widgetModel.findOne({_id: widgetId})
         .then(
             function (widget) {
                 widget.url = url;

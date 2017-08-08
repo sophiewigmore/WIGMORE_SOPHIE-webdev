@@ -57,7 +57,6 @@ function updateWebsite(req, response) {
 
 function deleteWebsite(req, response) {
     var webId = req.params.webId;
-
     websiteModel
         .deleteWebsite(webId)
         .then(function (status) {

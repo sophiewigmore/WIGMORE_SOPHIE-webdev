@@ -9,8 +9,8 @@ pageModel.findAllPagesForWebsite = findAllPagesForWebsite;
 pageModel.findPageById = findPageById;
 pageModel.updatePage = updatePage;
 pageModel.deletePage = deletePage;
-module.exports = pageModel;
 
+module.exports = pageModel;
 
 function createPage(websiteId, page) {
     page._website = websiteId;

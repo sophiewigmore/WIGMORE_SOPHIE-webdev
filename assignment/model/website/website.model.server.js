@@ -18,7 +18,7 @@ function createWebsiteForUser(userId, website) {
         .create(website)
         .then(function (websiteDoc) {
             websiteTmp = websiteDoc;
-           return userModel.addWebsite(userId, websiteDoc._id);
+            return userModel.addWebsite(userId, websiteDoc._id);
         })
         .then(function () {
             return websiteTmp;
@@ -38,6 +38,8 @@ function updateWebsite(websiteId, website) {
     {$set: website});
 }
 
+
 function deleteWebsite(websiteId) {
-    return websiteModel.remove({_id: websiteId})
+    userModel.removeWebsite(websiteId);
+    return websiteModel.remove({_id: websiteId});
 }
