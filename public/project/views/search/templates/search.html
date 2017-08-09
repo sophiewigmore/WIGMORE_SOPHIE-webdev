@@ -1,8 +1,27 @@
 <div class="container-fluid">
-    <h1>One Codex API</h1>
+    <h1>Open Science API</h1>
     <h2>Search By Science Research Topic</h2>
-    <input placeholder="Breast Cancer"
-              class="form-control" id="searchConcept" ng-model="searchConcept"></textarea>
 
-    <button ng-click="model.searchByConcept(searchConcept)" class="btn btn-primary btn-block">Search</button>
+    <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
+
+    <input placeholder="Cancer"
+           class="form-control"
+           id="searchKeyword"
+           ng-model="searchKeyword"></textarea>
+
+    <button ng-click="model.searchArticle(searchKeyword)" class="btn btn-primary btn-block">Search</button>
+
+
+<!--    <table class="table" ng-show="model.articles">
+        <tr>
+            <th>Title</th>
+        </tr>
+        <tr ng-repeat="article in model.articles">
+            <td>
+                {{article.title}}
+            </td>
+        </tr>
+    </table>-->
+
+
 </div>

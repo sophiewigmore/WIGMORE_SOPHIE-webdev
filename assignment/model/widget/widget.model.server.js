@@ -34,7 +34,8 @@ function createWidget(pageId, widget) {
 }
 
 function findAllWidgetsForPage(pageId) {
-    return widgetModel.find({_page: pageId});
+    return widgetModel
+        .find({_page: pageId})
 }
 
 function findWidgetById(widgetId) {

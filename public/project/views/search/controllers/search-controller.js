@@ -3,27 +3,26 @@
         .module("WebDevProject")
         .controller("searchController", searchController);
 
-    function searchController(genomeService) {
+    function searchController(articleService) {
         var model = this;
 
-        model.searchByConcept = searchByConcept;
+        model.searchArticle = searchArticle;
 
-        function init() {
-
-        }
-
-        init();
-
-        function searchByConcept(searchConcept) {
-            if (searchConcept) {
-                genomeService.searchByConcept(searchConcept)
-                    .then(function (results) {
-                        console.log(results);
-                    });
-            } else {
-                model.errorMessage="enter a search item";
+        function searchArticle(searchKeyword) {
+            if (!searchKeyword) {
+                model.errorMessage = "Enter a search item";
+                return;
             }
+            articleService
+                .searchArticle(searchKeyword)
+                .then(function (articles) {
+                    console.log(articles);
+                });
         }
+
+        /*        function renderArticles(articles) {
+         model.articles = articles;
+         }*/
     }
 
 })();
