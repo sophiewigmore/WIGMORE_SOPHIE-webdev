@@ -12,7 +12,6 @@
         function searchArticle(searchKeyword) {
             return $http.get("/api/search/" + searchKeyword)
                 .then(function (response) {
-                    //console.log(response.data);
                     return response.data;
                 });
         }

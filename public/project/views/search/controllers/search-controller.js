@@ -15,14 +15,21 @@
             }
             articleService
                 .searchArticle(searchKeyword)
-                .then(function (articles) {
-                    console.log(articles);
+                .then(function (nodes) {
+                    parseNodes(nodes);
+                    model.nodes = parseNodes(nodes);
+                    console.log(model.nodes);
                 });
         }
 
-        /*        function renderArticles(articles) {
-         model.articles = articles;
-         }*/
+        function parseNodes(nodes) {
+            var dataArray = JSON.parse(nodes);
+            var nodesArray = [];
+            for (var i = 0; i < dataArray.data.length; i++) {
+                nodesArray.push(dataArray.data[i]);
+            }
+            return nodesArray;
+        }
     }
 
 })();

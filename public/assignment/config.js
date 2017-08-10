@@ -19,7 +19,10 @@
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
                 controller: "loginController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
             .when("/register", {
@@ -28,17 +31,23 @@
                 controllerAs: "model"
             })
 
-            .when("/profile/:userId", {
+            .when("/profile", {
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "profileController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
             //website routes
             .when("/user/:userId/website", {
                 templateUrl: "views/website/templates/website-list.view.client.html",
                 controller: "websiteListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
             .when("/user/:userId/website/new", {
@@ -93,7 +102,22 @@
                 controller: "flickrImageSearchController",
                 controllerAs: "model"
             })
-
-
     }
+
+    function checkLogin(userService, $q, $location) {
+        var deferred = $q.defer();
+        userService
+            .checkLogin()
+            .then(function (user) {
+                if(user === '0') {
+                    deferred.reject();
+                    $location.url("#!/login");
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+        return deferred.promise;
+    }
+
+
 })();

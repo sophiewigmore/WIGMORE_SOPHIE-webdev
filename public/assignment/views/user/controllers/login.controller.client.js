@@ -23,7 +23,7 @@
                         model.errorMessage = "User Not Found. Try Again, or Register.";
                     } else {
                         $rootScope.currentUser = user;
-                        $location.url("profile/" + user._id);
+                        $location.url("profile");
                     }
                 });
         }

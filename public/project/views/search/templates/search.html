@@ -12,16 +12,22 @@
     <button ng-click="model.searchArticle(searchKeyword)" class="btn btn-primary btn-block">Search</button>
 
 
-<!--    <table class="table" ng-show="model.articles">
+
+    <table class="table" ng-show="model.nodes">
         <tr>
             <th>Title</th>
+            <th>Date Created</th>
         </tr>
-        <tr ng-repeat="article in model.articles">
+        <tr ng-repeat="node in model.nodes">
             <td>
-                {{article.title}}
+                <a href="#!/details/{{node.id}}">{{node.attributes.title}}</a>
+            </td>
+            <td>
+                {{node.attributes.date_created}}
             </td>
         </tr>
-    </table>-->
+
+    </table>
 
 
 </div>

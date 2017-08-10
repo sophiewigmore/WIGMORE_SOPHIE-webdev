@@ -1,13 +1,45 @@
 var app = require("../../express");
-
 var userModel = require("../model/user/user.model.server");
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(localStrategy));
+passport.serializeUser(serializeUser);
+passport.deserializeUser(deserializeUser);
+
+app.post('/api/login', passport.authenticate('local'), login);
+app.get("/api/checkLogin", checkLogin);
 
 app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
-app.get("/api/user", findUser);
+app.get("/api/users/", findUser);
 app.post("/api/user", createUser);
 app.put("/api/user/:userId", updateUser);
 app.delete("/api/user/:userId", deleteUser);
+
+function checkLogin(req, res) {
+    res.send(req.isAuthenticated() ? req.user : '0');
+}
+
+function localStrategy(username, password, done) {
+    userModel
+        .findUserByCredentials(username, password)
+        .then(function (user) {
+            if (!user) {
+                return done(null, false);
+            }
+            return done(null, user);
+        }, function(err) {
+            if (err) {
+                return done(err); }
+        })
+}
+
+
+function login(req, res) {
+    var user = req.user;
+    res.json(user);
+}
 
 
 function deleteUser(req, response) {
@@ -47,9 +79,9 @@ function createUser(req, response) {
 }
 
 function findUser(req, response) {
-    var username = req.query.username;
-    var password = req.query.password;
-
+    var body = req.body;
+    var username = body.username;
+    var password = body.password;
     if(username && password) {
         userModel
             .findUserByCredentials(username, password)
@@ -82,5 +114,22 @@ function getUserById(req, response) {
             response.json(user);
         })
 
+}
+
+function serializeUser(user, done) {
+    done(null, user);
+}
+
+function deserializeUser(user, done) {
+    userModel
+        .findUserById(user._id)
+        .then(
+            function(user){
+                done(null, user);
+            },
+            function(err){
+                done(err, null);
+            }
+        );
 }
 

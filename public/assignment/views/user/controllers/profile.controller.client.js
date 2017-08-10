@@ -3,11 +3,11 @@
         .controller("profileController", profileController);
 
 
-    function profileController($routeParams, userService, $location) {
+    function profileController($routeParams, userService, $location, user) {
+
         var model = this;
         model.userId = $routeParams.userId;
-        var userId = $routeParams["userId"];
-
+        var userId = user._id;
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
 
