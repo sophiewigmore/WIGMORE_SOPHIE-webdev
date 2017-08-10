@@ -6,7 +6,8 @@
     function articleService($http) {
         var api = {
             "searchArticle" : searchArticle,
-            "getNodeDetails" : getNodeDetails
+            "getNodeDetails" : getNodeDetails,
+            "getWikiDetails" : getWikiDetails
         };
         return api;
 
@@ -22,6 +23,14 @@
                 .then(function (response) {
                     return response.data;
                 })
+        }
+
+        function getWikiDetails(nodeId) {
+            return $http.get("/api/wiki/" + nodeId)
+                .then(function (response) {
+                    return response.data;
+                })
+
         }
 
     }
