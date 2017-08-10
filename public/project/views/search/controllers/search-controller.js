@@ -16,9 +16,7 @@
             articleService
                 .searchArticle(searchKeyword)
                 .then(function (nodes) {
-                    parseNodes(nodes);
                     model.nodes = parseNodes(nodes);
-                    console.log(model.nodes);
                 });
         }
 

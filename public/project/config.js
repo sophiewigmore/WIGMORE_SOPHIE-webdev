@@ -20,8 +20,8 @@
                 controller: "searchController",
                 controllerAs: "model"
             })
-            .when("/details/:id", {
-                templateUrl: "views/details/templates.details.html",
+            .when("/details/:nodeId", {
+                templateUrl: "views/details/templates/details.html",
                 controller: "detailsController",
                 controllerAs: "model"
             })

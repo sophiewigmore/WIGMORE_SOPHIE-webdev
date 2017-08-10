@@ -5,7 +5,8 @@
 
     function articleService($http) {
         var api = {
-            "searchArticle" : searchArticle
+            "searchArticle" : searchArticle,
+            "getNodeDetails" : getNodeDetails
         };
         return api;
 
@@ -14,6 +15,13 @@
                 .then(function (response) {
                     return response.data;
                 });
+        }
+
+        function getNodeDetails(nodeId) {
+            return $http.get("/api/details/" + nodeId)
+                .then(function (response) {
+                    return response.data;
+                })
         }
     }
 })();
