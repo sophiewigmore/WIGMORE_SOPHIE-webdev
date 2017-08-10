@@ -1,4 +1,7 @@
 <div class="container-fluid">
-    <h1>{{model.node.id}}</h1>
+    <h1>{{model.node.attributes.title}}</h1>
+    <h5>Created On: {{model.node.attributes.date_created}}</h5>
+    <p>Category: {{model.node.attributes.category}}</p>
+    <p><a href="{{model.node.relationships.wikis.links.related.href}}">Wiki Link(Not Working Yet)</a></p>
 </div>
 
