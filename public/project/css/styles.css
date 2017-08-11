@@ -1,24 +1,43 @@
-
 input, textarea {
     margin-bottom: 5px;
 }
-
 body {
     padding-top: 60px;
     padding-bottom: 60px;
+    background-color: #0e0b16;
+    font-family: "Helvetica";
+    color: #a5a5af;
+    margin: auto;
 }
 
-.jumbotron {
-    margin-top: 20px
+.panel {
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    background-color: #9b96a1;
+    border-color: #a5a5af;
+    text-align: center;
+    color: white;
+    font-size: large;
 }
 
+.navbar-brand {
+    font-size: smaller;
+}
+.bigger-navbar {
+     font-size: xx-large;
+ }
 a:hover {
     text-decoration: none;
+    color: lightgoldenrodyellow;
 }
-
+a{
+    color: #abaad1;;
+}
 .navbar-default {
-    background-color: #031424;
-    width : 100%
+    background-color: #0e0b16;
+    width : 100%;
+    border-color: #564f57
 
 }
 
@@ -33,19 +52,38 @@ a:hover {
         font-size: 12px;
     }
 }
+.smw-white-icon {
+    font-size: smaller;
+    color: white;
+}
+
+
+.smw-body {
+    text-align: center;
+}
+
+.smw-login {
+    width: 80%
+}
 .navbar-default .navbar-brand {
     color: whitesmoke;
     font-size: x-large;
     border-color: white;
 }
 .smw-white-icons {
-    color: white
+    color: white;
+    font-size: 35px;
 }
 
 .smw .btn-default, .list-group-item.active {
-    background-color: #8eaebd;
+    background-color: #a5a5af;
     color: white;
-    border-color: #7c9cab
+    border-color: #c6c6d0
+}
+
+.smw .btn-blue {
+    background-color: #89bdbc;
+    color: white;
 }
 
 .smw .btn-danger {

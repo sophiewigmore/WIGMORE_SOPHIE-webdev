@@ -40,6 +40,11 @@ a:hover {
     color: white
 }
 
+.smw-white-icon {
+    font-size: smaller;
+    color: white;
+}
+
 .smw .btn-default, .list-group-item.active {
     background-color: #8eaebd;
     color: white;

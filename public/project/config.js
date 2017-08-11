@@ -25,6 +25,38 @@
                 controller: "detailsController",
                 controllerAs: "model"
             })
+            .when("/login", {
+                templateUrl: "views/user/templates/login.view.client.html",
+                controller: "loginController",
+                controllerAs: "model"
+            })
+            .when("/profile", {
+                templateUrl: "views/user/templates/profile.view.client.html",
+                controller: "profileController",
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
+            })
+            .when("/register", {
+                templateUrl: "views/user/templates/register.view.client.html",
+                controller: "registerController",
+                controllerAs: "model"
+            })
+    }
 
+    function checkLogin(userService, $q, $location) {
+        var deferred = $q.defer();
+        userService
+            .checkLogin()
+            .then(function (user) {
+                if(user === '0') {
+                    deferred.reject();
+                    $location.url("/login");
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+        return deferred.promise;
     }
 })();

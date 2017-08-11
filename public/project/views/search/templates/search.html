@@ -1,15 +1,38 @@
 <div class="container-fluid">
-    <h1>Open Science API</h1>
-    <h2>Search By Science Research Topic</h2>
+    <div class="smw">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-text pull-right">
+                    <a class="navbar-link" ng-show="currentUser" href="#!/profile">
+                        <span class="glyphicon glyphicon-user smw-white-icon"></span>
+                    </a>
+                </div>
+                <a class="navbar-brand">DNAtabase</a>
+                <a class="navbar-brand" ng-show="!currentUser" href="#!/login">Login</a>
+                <a class="navbar-brand" ng-show="!currentUser" href="#!/register">Register</a>
+            </div>
+        </div>
+    </nav>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Get research articles and projects about any area of scientific research, at the touch of a button.
+            </div>
+        </div>
+        <h1>Search By Science Research Topic</h1>
 
     <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
 
-    <input placeholder="Cancer"
-           class="form-control"
-           id="searchKeyword"
-           ng-model="searchKeyword"></textarea>
 
-    <button ng-click="model.searchArticle(searchKeyword)" class="btn btn-primary btn-block">Search</button>
+        <div class="container-fluid smw-body">
+            <div class="input-group">
+                <input ng-model="searchKeyword" placeholder="Cancer" type="text" class="form-control">
+                <span class="input-group-btn">
+         <a ng-click="model.searchArticle(searchKeyword)" class="btn btn-default" type="button">
+             <span class="glyphicon glyphicon-search"></span>
+         </a>
+     </span>
+            </div>
 
 
 
@@ -29,5 +52,5 @@
 
     </table>
 
-
+    </div>
 </div>

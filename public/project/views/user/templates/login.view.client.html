@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="smw">
+        <div class="smw">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="navbar-text pull-right">
+                            <a class="navbar-link" href="#!/">
+                                <span class="glyphicon glyphicon-home smw-white-icon"></span>
+                            </a>
+                        </div>
+                        <a class="navbar-brand">DNAtabase Login</a>
+                    </div>
+                </div>
+            </nav>
+
+        <div class="container-fluid smw-login">
+            <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
+            <!-- Username form -->
+            <label for="username">Username</label>
+            <input name="username"
+                   type="text"
+                   ng-model="model.user.username"
+                   class="form-control"
+                   placeholder="swigmore"
+                   id="username"/>
+
+            <!-- Password form -->
+            <label for="password">Password</label>
+            <input name="password"
+                   class="form-control"
+                   ng-model="model.user.password"
+                   placeholder="password123"
+                   type="password"
+                   id="password"/>
+
+            <a class="btn btn-blue btn-block"
+               ng-click="model.login(model.user)"
+               role="button">Login</a>
+
+            <a class="btn btn-default btn-success btn-block"
+               href="#!/register"
+               role="button">Register</a>
+
+        </div>
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+            </div>
+        </nav>
+    </div>
+
+</div>

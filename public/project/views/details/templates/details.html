@@ -1,8 +1,34 @@
 <div class="container-fluid">
-    <h1>{{model.node.attributes.title}}</h1>
-    <h5>Created On: {{model.node.attributes.date_created}}</h5>
-    <p>Category: {{model.node.attributes.category}}</p>
-    <a href="https://api.osf.io/v2/wikis/{{model.wiki}}/content">WIKI</a>
+    <div class="smw">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">DNAtabase</a>
+                    <a class="navbar-brand" href="#!/login">Login</a>
+                    <a class="navbar-brand" href="#!/register">Register</a>
+                </div>
+            </div>
+        </nav>
+        <div class="smw-body">
+        <h1>Title: {{model.node.attributes.title}}</h1>
+        <h5>Created On: {{model.node.attributes.date_created}}</h5>
+        <p>Category: {{model.node.attributes.category}}</p>
+        <a href="https://api.osf.io/v2/wikis/{{model.wiki}}/content">WIKI</a>
+        </div>
 
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-text pull-right">
+                    <a ng-click="model.save(articleDetail)">
+                        <span class="glyphicon glyphicon-heart-empty smw-white-icons glyphicon"></span>Save</a>
+                </div>
+                <div class="navbar-text pull-right">
+                    <a ng-click="model.comment(articleDetail)">
+                        <span class="glyphicon glyphicon-comment smw-white-icons glyphicon"></span> Comment</a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
 </div>
 

@@ -3,7 +3,7 @@
         .module("WebDevProject")
         .controller("searchController", searchController);
 
-    function searchController(articleService) {
+    function searchController(articleService, $rootScope) {
         var model = this;
 
         model.searchArticle = searchArticle;
