@@ -3,9 +3,9 @@
         .module("WamApp")
         .controller("pageListController", pageListController);
 
-    function pageListController($routeParams, pageService) {
+    function pageListController($routeParams, pageService, user) {
         var model = this;
-        model.userId = $routeParams.userId;
+        model.userId = user._id;
         model.webId = $routeParams.webId;
         model.pageId = $routeParams.pageId;
 

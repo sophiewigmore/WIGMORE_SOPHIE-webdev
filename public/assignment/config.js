@@ -19,10 +19,7 @@
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
                 controller: "loginController",
-                controllerAs: "model",
-                resolve : {
-                    user: checkLogin
-                }
+                controllerAs: "model"
             })
 
             .when("/register", {
@@ -41,7 +38,7 @@
             })
 
             //website routes
-            .when("/user/:userId/website", {
+            .when("/website", {
                 templateUrl: "views/website/templates/website-list.view.client.html",
                 controller: "websiteListController",
                 controllerAs: "model",
@@ -50,57 +47,84 @@
                 }
             })
 
-            .when("/user/:userId/website/new", {
+            .when("/website/new", {
                 templateUrl: "views/website/templates/website-new.view.client.html",
                 controller: "websiteNewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
-            .when("/user/:userId/website/:webId", {
+            .when("/website/:webId", {
                 templateUrl: "views/website/templates/website-edit.view.client.html",
                 controller: "websiteEditController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
-            .when("/user/:userId/website/:webId/page", {
+            .when("/website/:webId/page", {
                 templateUrl: "views/page/templates/page-list.view.client.html",
                 controller: "pageListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
-            .when("/user/:userId/website/:webId/page/new", {
+            .when("/website/:webId/page/new", {
                 templateUrl: "views/page/templates/page-new.view.client.html",
                 controller: "pageNewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
-            .when("/user/:userId/website/:webId/page/:pageId", {
+            .when("/website/:webId/page/:pageId", {
                 templateUrl: "views/page/templates/page-edit.view.client.html",
                 controller: "pageEditController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
-            .when("/user/:userId/website/:webId/page/:pageId/widget", {
+            .when("/website/:webId/page/:pageId/widget", {
                 templateUrl: "views/widget/templates/widget-list.view.client.html",
                 controller: "widgetListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
-            .when("/user/:userId/website/:webId/page/:pageId/widget/new", {
+            .when("/website/:webId/page/:pageId/widget/new", {
                 templateUrl: "views/widget/templates/widget-choose.view.client.html",
                 controller: "widgetChooseController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
-            .when("/user/:userId/website/:webId/page/:pageId/widget/:widgetId", {
+            .when("/website/:webId/page/:pageId/widget/:widgetId", {
                 templateUrl: "views/widget/templates/widget-edit.view.client.html",
                 controller: "widgetEditController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
 
-            .when("/user/:userId/website/:webId/page/:pageId/widget/:widgetId/flickr", {
+            .when("/website/:webId/page/:pageId/widget/:widgetId/flickr", {
                 templateUrl: "views/widget/templates/widget-flickr-search.view.client.html",
                 controller: "flickrImageSearchController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
     }
 
@@ -111,7 +135,7 @@
             .then(function (user) {
                 if(user === '0') {
                     deferred.reject();
-                    $location.url("#!/login");
+                    $location.url("/login");
                 } else {
                     deferred.resolve(user);
                 }

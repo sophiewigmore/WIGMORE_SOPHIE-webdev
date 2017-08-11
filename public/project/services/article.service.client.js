@@ -28,6 +28,7 @@
         function getWikiDetails(nodeId) {
             return $http.get("/api/wiki/" + nodeId)
                 .then(function (response) {
+
                     return response.data;
                 })
 

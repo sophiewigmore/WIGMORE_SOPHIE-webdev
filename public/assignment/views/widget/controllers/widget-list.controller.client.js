@@ -3,9 +3,9 @@
         .module("WamApp")
         .controller("widgetListController", widgetListController);
 
-    function widgetListController($routeParams, widgetService, $sce) {
+    function widgetListController($routeParams, widgetService, $sce, user) {
         var model = this;
-        model.userId = $routeParams.userId;
+        model.userId = user._id;
         model.webId = $routeParams.webId;
         model.pageId = $routeParams.pageId;
 

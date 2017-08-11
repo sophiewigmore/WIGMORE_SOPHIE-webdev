@@ -92,7 +92,7 @@ function uploadImage(req, res) {
     var websiteId = req.body.webId;
     var pageId = req.body.pageId;
 
-    var callbackUrl   = "/assignment/#!/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId;
+    var callbackUrl   = "/assignment/#!/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId;
     if (myFile == null) {
         res.redirect(callbackUrl);
         return;

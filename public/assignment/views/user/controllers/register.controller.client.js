@@ -13,20 +13,20 @@
         init();
 
         function createUser(user) {
-
             if(!user) {
                 model.error = "Blank User Data";
                 return;
             }
             else {
-                userService.findUserByUsername(user.username)
+                userService
+                    .findUserByUsername(user.username)
                     .then(function (response) {
                         var _user = response.data;
                         if (!_user) {
-                            userService.createUser(user)
-                                .then(function (response) {
-                                    _user = response.data;
-                                    $location.url("/profile/" + _user._id);
+                            userService
+                                .register(user)
+                                .then(function () {
+                                    $location.url("/profile");
                                 });
                         } else {
                             model.error = "Username taken, try something else";

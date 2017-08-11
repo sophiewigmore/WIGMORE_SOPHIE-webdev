@@ -1,6 +1,6 @@
 (function () {
     angular.module("WamApp")//readOnly
-        .controller("loginController", loginController)
+        .controller("loginController", loginController);
 
     function loginController($location, userService, $rootScope) {
         var model = this;
@@ -8,22 +8,20 @@
         function init() {
 
         }
-
         init();
-
         function login(user) {
             if (!user) {
                 model.errorMessage = "User Not Found. Try Again, or Register.";
                 return;
             }
-            userService.findUserByCredentials(user.username, user.password)
-                .then(function (response) {
-                    user = response.data;
-                    if (!user) {
-                        model.errorMessage = "User Not Found. Try Again, or Register.";
+            userService
+                .login(user.username, user.password)
+                .then(function (user) {
+                    if (user) {
+                        $location.url("/profile");
+
                     } else {
-                        $rootScope.currentUser = user;
-                        $location.url("profile");
+                        model.errorMessage = "User Not Found. Try Again, or Register.";
                     }
                 });
         }

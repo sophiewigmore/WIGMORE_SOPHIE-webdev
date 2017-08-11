@@ -3,13 +3,13 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <div class="navbar-text pull-left">
-                    <a class="navbar-link" href="#!/user/{{model.userId}}/website/{{model.webId}}/page">
+                    <a class="navbar-link" href="#!/website/{{model.webId}}/page">
                         <span class="glyphicon glyphicon-arrow-left smw-white-icons"></span>
                     </a>
                 </div>
                 <a class="navbar-brand">Widgets</a>
                 <div class="navbar-text pull-right">
-                    <a class="navbar-link" href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
+                    <a class="navbar-link" href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/new">
                         <span class="glyphicon glyphicon-plus smw-white-icons"></span>
                     </a>
                 </div>
@@ -25,9 +25,9 @@
 
                 <div ng-switch-when="HEADING" class="sw-widget-div">
                     <div class="smw-overlay-glyphicon">
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-cog smw-white-icons"/></a>
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-align-justify smw-white-icons"/></a>
                     </div>
                     <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
@@ -35,9 +35,9 @@
 
                 <div ng-switch-when="IMAGE" class="sw-widget-div">
                     <div class="smw-overlay-glyphicon">
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-cog smw-white-icons"/></a>
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-align-justify smw-white-icons"/></a>
                     </div>
                     <ng-include src="'views/widget/templates/widget-image.view.client.html'">
@@ -46,9 +46,9 @@
 
                 <div ng-switch-when="HTML" class="sw-widget-div">
                     <div class="smw-overlay-glyphicon">
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-cog smw-white-icons"/></a>
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-align-justify smw-white-icons"/></a>
                     </div>
                     <ng-include src="'views/widget/templates/widget-html.view.client.html'">
@@ -56,9 +56,9 @@
 
                 <div ng-switch-when="TEXT" class="sw-widget-div">
                     <div class="smw-overlay-glyphicon">
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-cog smw-white-icons"/></a>
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-align-justify smw-white-icons"/></a>
                     </div>
                     <ng-include src="'views/widget/templates/widget-text.view.client.html'">
@@ -66,9 +66,9 @@
 
                 <div ng-switch-when="YOUTUBE" class="sw-widget-div youtube-widget">
                     <div class="smw-overlay-glyphicon">
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-cog smw-white-icons"/></a>
-                        <a href="#!/user/{{model.userId}}/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <a href="#!/website/{{model.webId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-align-justify smw-white-icons"/></a>
                     </div>
                     <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
@@ -85,7 +85,7 @@
                 <span class="glyphicon glyphicon-play smw-white-icons smw-footer-glyphs btn-lg"></span>
             </div>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#!/profile/{{model.userId}}">
+                <a class="navbar-link" href="#!/profile">
                     <span class="glyphicon glyphicon-user smw-white-icons btn-lg"></span>
                 </a>
             </div>

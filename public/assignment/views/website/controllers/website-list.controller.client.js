@@ -3,9 +3,9 @@
         .module("WamApp")
         .controller("websiteListController", websiteListController);
 
-    function websiteListController($routeParams, websiteService) {
+    function websiteListController($routeParams, websiteService, user) {
         var model = this;
-        model.userId = $routeParams.userId;
+        model.userId = user._id;
         model.webId = $routeParams.webId;
 
         function init() {

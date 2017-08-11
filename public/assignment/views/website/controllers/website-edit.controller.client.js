@@ -3,9 +3,9 @@
         .module("WamApp")
         .controller("websiteEditController", websiteEditController);
 
-    function websiteEditController($routeParams, websiteService, $location) {
+    function websiteEditController($routeParams, websiteService, $location, user) {
         var model = this;
-        model.userId = $routeParams.userId;
+        model.userId = user._id;
         model.webId = $routeParams.webId;
 
         model.updateWebsite = updateWebsite;
@@ -27,14 +27,14 @@
         function updateWebsite(website) {
             websiteService.updateWebsite(model.webId, model.website)
                 .then(function () {
-                    $location.url("/user/" + model.userId + "/website");
+                    $location.url("/website");
                 })
         }
 
         function deleteWebsite(website) {
             websiteService.deleteWebsite(model.webId)
                 .then(function () {
-                    $location.url("/user/" + model.userId + "/website");
+                    $location.url("/website");
                 })
         }
     }

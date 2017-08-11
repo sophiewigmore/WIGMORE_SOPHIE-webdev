@@ -6,14 +6,11 @@ var cookieParser  = require('cookie-parser');
 var session       = require('express-session');
 
 app.use(cookieParser());
-var session = require('express-session');
-
 app.use(session({
     secret: 'this is the secret',//change this later
     resave: true,
     saveUninitialized: true
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -3,9 +3,9 @@
         .module("WamApp")
         .controller("websiteNewController", websiteNewController);
 
-    function websiteNewController($routeParams, websiteService, $location) {
+    function websiteNewController($routeParams, websiteService, $location, user) {
         var model = this;
-        model.userId = $routeParams.userId;
+        model.userId = user._id;
         model.webId = $routeParams.webId;
 
         model.createWebsite = createWebsite;
@@ -23,7 +23,7 @@
         function createWebsite(website) {
             websiteService.createWebsite(model.userId, website)
                 .then(function () {
-                    $location.url("/user/" + model.userId + "/website");
+                    $location.url("/website");
                 })
         }
     }

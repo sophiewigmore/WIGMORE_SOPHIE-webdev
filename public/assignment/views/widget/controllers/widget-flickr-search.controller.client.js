@@ -3,10 +3,10 @@
         .module("WamApp")
         .controller("flickrImageSearchController", flickrImageSearchController);
 
-    function flickrImageSearchController($routeParams, flickrService, widgetService, $location) {
+    function flickrImageSearchController($routeParams, flickrService, widgetService, $location, user) {
         var model = this;
 
-        model.userId = $routeParams.userId;
+        model.userId = user._id;
         model.webId = $routeParams.webId;
         model.pageId = $routeParams.pageId;
         model.widgetId = $routeParams.widgetId;
@@ -39,7 +39,7 @@
                 .updateWidget(model.widgetId, {'_id': model.widgetId, 'widgetType': 'IMAGE', 'pageId': model.pageId,
                     'width': 100, 'size': 0, 'text': '', 'url': url})
                 .then(function (response) {
-                    $location.url("/user/" + model.userId + "/website/" + model.webId + "/page/" + model.pageId +
+                    $location.url("/website/" + model.webId + "/page/" + model.pageId +
                         "/widget/" + model.widgetId);
                 });
         }

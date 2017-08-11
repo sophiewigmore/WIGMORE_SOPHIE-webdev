@@ -19,6 +19,7 @@
                 .getWikiDetails(model.nodeId)
                 .then(function (wiki) {
                     model.wiki = JSON.parse(wiki).data[0].id;
+                    console.log(model.wiki);
                 });
 
         }

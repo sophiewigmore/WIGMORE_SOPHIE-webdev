@@ -3,9 +3,9 @@
         .module("WamApp")
         .controller("widgetChooseController", widgetChooseController);
 
-    function widgetChooseController($routeParams, widgetService, $location) {
+    function widgetChooseController($routeParams, widgetService, $location, user) {
         var model = this;
-        model.userId = $routeParams.userId;
+        model.userId = user._id;
         model.webId = $routeParams.webId;
         model.pageId = $routeParams.pageId;
 
@@ -22,8 +22,7 @@
         function createWidget(widget) {
             widgetService.createWidget(model.pageId, widget)
                 .then(function (widget) {
-                    $location.url("/user/" + model.userId + "/website/" + model.webId + "/page/" + model.pageId +
-                        "/widget/" + widget._id);
+                    $location.url("/website/" + model.webId + "/page/" + model.pageId + "/widget/" + widget._id);
                 })
         }
     }

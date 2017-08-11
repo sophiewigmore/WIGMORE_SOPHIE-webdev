@@ -6,10 +6,10 @@
     function profileController($routeParams, userService, $location, user) {
 
         var model = this;
-        model.userId = $routeParams.userId;
-        var userId = user._id;
+        model.userId = user._id;
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
+        model.logout = logout;
 
         function init() {
             userService.findUserById(model.userId)
@@ -19,6 +19,14 @@
         }
 
         init();
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url('/login');
+                });
+        }
 
         function updateUser(user) {
             userService.updateUser(user._id, user);
