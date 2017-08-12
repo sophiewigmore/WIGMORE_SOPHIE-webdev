@@ -16,7 +16,6 @@
                 .findUserById(model.userId)
                 .then(function (response) {
                     model.user = response.data;
-                    console.log(user);
                 })
         }
 

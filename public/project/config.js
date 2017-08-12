@@ -18,12 +18,18 @@
             .when("/", {
                 templateUrl: "views/search/templates/search.html",
                 controller: "searchController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: loggedInForDetails
+                }
             })
             .when("/details/:nodeId", {
                 templateUrl: "views/details/templates/details.html",
                 controller: "detailsController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: loggedInForDetails
+                }
             })
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
@@ -59,4 +65,19 @@
             });
         return deferred.promise;
     }
+
+    function loggedInForDetails(projectUserService, $q, $location) {
+        var deferred = $q.defer();
+        projectUserService
+            .checkLogin()
+            .then(function (user) {
+                if (user === "0") {
+                    deferred.resolve(null);
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+        return deferred.promise;
+    }
+
 })();

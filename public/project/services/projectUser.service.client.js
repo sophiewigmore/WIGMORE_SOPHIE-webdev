@@ -13,7 +13,8 @@
             "checkLogin" : checkLogin,
             "login" : login,
             "logout" : logout,
-             "register": register
+             "register": register,
+            "saveArticle" : saveArticle
         };
         return api;
 
@@ -75,6 +76,10 @@
 
         function findUserById(userId) {
             return $http.get("/project/api/user/" + userId);
+        }
+
+        function saveArticle(userId, article) {
+            return $http.post("/project/api/user/" + userId + "/article", article)
         }
     }
 

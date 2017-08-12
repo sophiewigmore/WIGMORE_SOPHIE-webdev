@@ -7,7 +7,7 @@ var userSchema = mongoose.Schema({
         lastName: String,
         email: String,
         phone: String,
-        articles: [{type: mongoose.Schema.Types.ObjectId, ref: "articleModel"}],
+        articles: [String],
         dateCreated: {type: Date, default: Date.now()},
         isAdmin: Boolean
     }, {collection: "projectUser"}

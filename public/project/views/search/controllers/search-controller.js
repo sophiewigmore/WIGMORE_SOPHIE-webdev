@@ -3,9 +3,9 @@
         .module("WebDevProject")
         .controller("searchController", searchController);
 
-    function searchController(articleService) {
+    function searchController(articleService, user) {
         var model = this;
-
+        var currentUser = user;
         model.searchArticle = searchArticle;
 
         function searchArticle(searchKeyword) {

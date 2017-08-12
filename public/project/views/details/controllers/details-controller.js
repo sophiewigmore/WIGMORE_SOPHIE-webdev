@@ -3,11 +3,10 @@
         .module("WebDevProject")
         .controller("detailsController", detailsController);
 
-    function detailsController(articleService, $routeParams, user) {
+    function detailsController(articleService, $routeParams, user, projectUserService) {
         var model = this;
         model.nodeId = $routeParams['nodeId'];
-        model.userId = user._id;
-
+        var currentUser = user;
         model.saveArticle = saveArticle;
 
 
@@ -24,6 +23,7 @@
                     model.wiki = JSON.parse(wiki).data[0].id;
                 });
 
+
         }
 
         init();
@@ -33,8 +33,17 @@
         }
 
         function saveArticle(node) {
-            articleService
-                .createArticle(model.userId, node);
+            var nodeId = node.id;
+            if(!currentUser) {
+                model.errorMessage = "Sign in or register to save this post!";
+            } else {
+                currentUser.articles.push(nodeId);
+                projectUserService
+                    .updateUser(currentUser._id, currentUser)
+                    .then(function (response) {
+                        model.user = response.data;
+                    })
+            }
         }
 
     }

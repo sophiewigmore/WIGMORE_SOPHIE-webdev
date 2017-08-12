@@ -3,13 +3,21 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    <div class="navbar-text pull-right">
+                        <a class="navbar-link" ng-show="currentUser" href="#!/profile">
+                            <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
+                        </a>
+                    </div>
                     <a class="navbar-brand">DNAtabase</a>
-                    <a class="navbar-brand" href="#!/login">Login</a>
-                    <a class="navbar-brand" href="#!/register">Register</a>
+                    <a class="navbar-brand" ng-show="!currentUser" href="#!/login">Login</a>
+                    <a class="navbar-brand" ng-show="!currentUser" href="#!/register">Register</a>
                 </div>
             </div>
         </nav>
         <div class="smw-body">
+            <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
+            <div ng-show="model.errorMessage2" class="alert alert-success">{{model.errorMessage2}}</div>
+
         <h1>Title: {{model.node.attributes.title}}</h1>
         <h5>Created On: {{model.node.attributes.date_created}}</h5>
         <p>Category: {{model.node.attributes.category}}</p>

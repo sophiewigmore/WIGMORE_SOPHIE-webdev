@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var userSchema = require('./user.schema.server');
 var db = require("../models.server");
 var userModel = mongoose.model('ProjectUserModel', userSchema);
-
+var articleModel = require("../article/article.model.server");
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
@@ -11,16 +11,7 @@ userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
 userModel.addWebsite = addWebsite;
 userModel.removeWebsite = removeWebsite;
-userModel.saveArticle = saveArticle;
 module.exports = userModel;
-
-function saveArticle(userId, article) {
-    return userModel
-        .findUserById(userId)
-        .then(function (user) {
-            user.articles.push(article);
-        });
-}
 
 function createUser(user) {
     return userModel.create(user);
