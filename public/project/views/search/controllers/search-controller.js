@@ -8,6 +8,7 @@
         var currentUser = user;
         model.searchArticle = searchArticle;
         model.parseNodes = parseNodes;
+
         function searchArticle(searchKeyword) {
             if (!searchKeyword) {
                 model.errorMessage = "Enter a search item";

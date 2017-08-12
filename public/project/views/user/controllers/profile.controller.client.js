@@ -10,6 +10,7 @@
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
         model.logout = logout;
+        model.unsaveArticle = unsaveArticle;
 
         function init() {
             projectUserService
@@ -46,6 +47,11 @@
         function deleteUser(user) {
            projectUserService.deleteUser(user._id);
             $location.url("/login");
+        }
+        function unsaveArticle(article) {
+            var articleIndex = model.user.actualArticleObjects.indexOf(article);
+            model.user.actualArticleObjects.splice(articleIndex, 1);
+            model.user.articles.splice(articleIndex, 1)[0];
         }
     }
 })();

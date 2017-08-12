@@ -20,7 +20,7 @@
                 controller: "searchController",
                 controllerAs: "model",
                 resolve : {
-                    user: loggedInForDetails
+                    user: loggedInForSearch
                 }
             })
             .when("/details/:nodeId", {
@@ -80,4 +80,18 @@
         return deferred.promise;
     }
 
+    function loggedInForSearch(projectUserService, $q, $location) {
+        var deferred = $q.defer();
+        projectUserService
+            .checkLogin()
+            .then(function (user) {
+                if (user === "0") {
+                    deferred.resolve(null);
+                    $location.url("/");
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+        return deferred.promise;
+    }
 })();

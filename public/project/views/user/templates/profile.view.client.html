@@ -59,10 +59,14 @@
                     <table class="table" ng-show="model.user.articles">
                         <tr>
                             <th>Title</th>
+                            <th>Unlike?</th>
                         </tr>
                         <tr ng-repeat="article in model.user.actualArticleObjects track by $index">
                             <td>
                                 <a href="#!/details/{{article.id}}">{{article.attributes.title}}</a>
+                            </td>
+                            <td>
+                                <a ng-click="model.unsaveArticle(article)"><span class="glyphicon glyphicon-heart"></span></a>
                             </td>
                         </tr>
                     </table>
