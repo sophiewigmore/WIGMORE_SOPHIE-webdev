@@ -1,3 +1,4 @@
+/*
 var app = require("../../express");
 var userModel = require("../model/user/user.model.server");
 var passport = require('passport');
@@ -11,11 +12,11 @@ app.get("/api/checkLogin", checkLogin);
 app.post('/api/logout', logout);
 app.post('/api/register', register);
 
-/*
+/!*
  app.post  ('/api/user',     auth, createUser);
  app.get   ('/api/user',     auth, findAllUsers);
  app.put   ('/api/user/:id', auth, updateUser);
- app.delete('/api/user/:id', auth, deleteUser);*/
+ app.delete('/api/user/:id', auth, deleteUser);*!/
 
 app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
@@ -154,3 +155,4 @@ function deserializeUser(user, done) {
         );
 }
 
+*/

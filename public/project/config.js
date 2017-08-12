@@ -23,10 +23,7 @@
             .when("/details/:nodeId", {
                 templateUrl: "views/details/templates/details.html",
                 controller: "detailsController",
-                controllerAs: "model",
-                resolve : {
-                    user: checkLogin
-                }
+                controllerAs: "model"
             })
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
@@ -48,9 +45,9 @@
             })
     }
 
-    function checkLogin(userService, $q, $location) {
+    function checkLogin(projectUserService, $q, $location) {
         var deferred = $q.defer();
-        userService
+        projectUserService
             .checkLogin()
             .then(function (user) {
                 if(user === '0') {

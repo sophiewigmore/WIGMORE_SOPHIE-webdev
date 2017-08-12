@@ -3,7 +3,7 @@
         .module("WebDevProject")
         .controller("registerController", registerController);
 
-    function registerController(userService, $location) {
+    function registerController(projectUserService, $location) {
         var model = this;
         model.createUser = createUser;
 
@@ -19,12 +19,12 @@
                 return;
             }
             else {
-                userService
+                projectUserService
                     .findUserByUsername(user.username)
                     .then(function (response) {
                         var _user = response.data;
                         if (!_user) {
-                            userService
+                            projectUserService
                                 .register(user)
                                 .then(function () {
                                     $location.url("/profile");

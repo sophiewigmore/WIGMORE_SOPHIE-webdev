@@ -6,17 +6,17 @@ passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
-app.post('/api/login', passport.authenticate('local'), login);
-app.get("/api/checkLogin", checkLogin);
-app.post('/api/logout', logout);
-app.post('/api/register', register);
+app.post('/project/api/login', passport.authenticate('local'), login);
+app.get("/project/api/checkLogin", checkLogin);
+app.post('/project/api/logout', logout);
+app.post('/project/api/register', register);
 
-app.get("/api/users", getAllUsers);
-app.get("/api/user/:userId", getUserById);
-app.get("/api/user/", findUserByUsername);
-app.post("/api/user", createUser);
-app.put("/api/user/:userId", updateUser);
-app.delete("/api/user/:userId", deleteUser);
+app.get("/project/api/users", getAllUsers);
+app.get("/project/api/user/:userId", getUserById);
+app.get("/project/api/user/", findUserByUsername);
+app.post("/project/api/user", createUser);
+app.put("/project/api/user/:userId", updateUser);
+app.delete("/project/api/user/:userId", deleteUser);
 
 function authorized(req, res, next) {
     if (!req.isAuthenticated()) {

@@ -3,7 +3,7 @@
         .controller("profileController", profileController);
 
 
-    function profileController(userService, $location, user) {
+    function profileController(projectUserService, $location, user) {
 
         var model = this;
         model.userId = user._id;
@@ -12,17 +12,18 @@
         model.logout = logout;
 
         function init() {
-            userService
+            projectUserService
                 .findUserById(model.userId)
                 .then(function (response) {
                     model.user = response.data;
+                    console.log(user);
                 })
         }
 
         init();
 
         function logout() {
-            userService
+           return projectUserService
                 .logout()
                 .then(function () {
                     $location.url('#!/');
@@ -30,11 +31,11 @@
         }
 
         function updateUser(user) {
-            userService.updateUser(user._id, user);
+           projectUserService.updateUser(user._id, user);
             model.errorMessage = "Updated User";
         }
         function deleteUser(user) {
-            userService.deleteUser(user._id);
+           projectUserService.deleteUser(user._id);
             $location.url("/login");
         }
     }

@@ -2,19 +2,18 @@
     angular.module("WebDevProject")//readOnly
         .controller("loginController", loginController);
 
-    function loginController($location, userService, $rootScope) {
+    function loginController($location, projectUserService, $rootScope) {
         var model = this;
         model.login = login;
-        function init() {
-
-        }
+        function init() {}
         init();
+
         function login(user) {
             if (!user) {
                 model.errorMessage = "User Not Found. Try Again, or Register.";
                 return;
             }
-            userService
+            projectUserService
                 .login(user.username, user.password)
                 .then(function (user) {
                     if (user) {

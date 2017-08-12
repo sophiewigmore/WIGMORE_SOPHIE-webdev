@@ -1,9 +1,9 @@
 (function () {
     angular
         .module("WebDevProject")
-        .factory("userService", userService);
+        .factory("projectUserService", projectUserService);
 
-    function userService($http) {
+    function projectUserService($http) {
         var api = {
             "findUserById": findUserById,
             "createUser": createUser,
@@ -18,14 +18,14 @@
         return api;
 
         function checkLogin() {
-            return $http.get("/api/checkLogin")
+            return $http.get("/project/api/checkLogin")
                .then(function (response) {
                     return response.data;
                 });
         }
 
         function login(username, password) {
-            var url = "/api/login";
+            var url = "/project/api/login";
             var credentials = {
                 username: username,
                 password: password
@@ -37,7 +37,8 @@
         }
 
         function logout() {
-            var url = "/api/logout";
+            var url = "/project/api/logout";
+            console.log("trying to logout");
             return $http.post(url)
                 .then(function (response) {
                     return response.data;
@@ -45,7 +46,7 @@
         }
 
         function register(userObj) {
-            var url = "/api/register";
+            var url = "/project/api/register";
             return $http.post(url, userObj)
                 .then(function (response) {
                     return response.data;
@@ -53,27 +54,27 @@
         }
 
         function createUser(user) {
-            var url = "/api/user";
+            var url = "/project/api/user";
             return $http.post(url, user);
         }
 
         function deleteUser(userId) {
-            var url = "/api/user/"+userId;
+            var url = "/project/api/user/"+userId;
             return $http.delete(url);
         }
 
         function updateUser(userId, user) {
-            var url = "/api/user/"+userId;
+            var url = "/project/api/user/"+userId;
             return $http.put(url, user)
         }
 
         function findUserByUsername(username) {
-            var url = "/api/user?username="+username;
+            var url = "/project/api/user?username="+username;
             return $http.get(url)
         }
 
         function findUserById(userId) {
-            return $http.get("/api/user/" + userId);
+            return $http.get("/project/api/user/" + userId);
         }
     }
 
