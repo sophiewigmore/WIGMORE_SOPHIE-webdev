@@ -22,8 +22,6 @@
                 .then(function (wiki) {
                     model.wiki = JSON.parse(wiki).data[0].id;
                 });
-
-
         }
 
         init();
@@ -42,6 +40,9 @@
                     .updateUser(currentUser._id, currentUser)
                     .then(function (response) {
                         model.user = response.data;
+                    })
+                    .then(function () {
+                        model.errorMessage2 = "Article Saved!";
                     })
             }
         }

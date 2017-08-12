@@ -13,8 +13,7 @@
             "checkLogin" : checkLogin,
             "login" : login,
             "logout" : logout,
-             "register": register,
-            "saveArticle" : saveArticle
+             "register": register
         };
         return api;
 
@@ -78,9 +77,6 @@
             return $http.get("/project/api/user/" + userId);
         }
 
-        function saveArticle(userId, article) {
-            return $http.post("/project/api/user/" + userId + "/article", article)
-        }
     }
 
 

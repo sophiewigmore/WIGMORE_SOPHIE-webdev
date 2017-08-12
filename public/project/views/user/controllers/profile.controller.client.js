@@ -3,7 +3,7 @@
         .controller("profileController", profileController);
 
 
-    function profileController(projectUserService, $location, user) {
+    function profileController(projectUserService, articleService, $location, user) {
 
         var model = this;
         model.userId = user._id;
@@ -16,6 +16,16 @@
                 .findUserById(model.userId)
                 .then(function (response) {
                     model.user = response.data;
+                    model.user.actualArticleObjects = [];
+                    for (var i = 0; i < model.user.articles.length; i++) {
+                        var articleId = model.user.articles[i];
+                            articleService
+                                .getNodeDetails(articleId)
+                                .then(function (article) {
+                                    var _article = JSON.parse(article).data;
+                                    model.user.actualArticleObjects.push(_article);
+                        });
+                    }
                 })
         }
 

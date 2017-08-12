@@ -16,18 +16,8 @@
         <div ng-show="model.errorMessage" class="alert alert-success">{{model.errorMessage}}</div>
 
         <div class="container-fluid smw-login">
-
-            <ul class="nav nav-pills nav-justified">
-                <li class="active"><a data-toggle="tab" href="">User Data</a>
-                </li>
-                <li class="active"><a data-toggle="tab" href="">Saved Data</a>
-                </li>
-                <li class="active"><a data-toggle="tab" href="">Following</a>
-                </li>
-            </ul>
-
-            <div class="tab-content">
-                <div class="tab-pane active" id="menu1" role="tab-panel">
+            <a ng-click="userData = !userData"><div class="smw-profile-headers"><h2>User Data ▾</h2></div></a>
+            <div ng-hide="userData">
                     <label for="firstname"> First Name</label>
                     <input name="firstname"
                            class="form-control"
@@ -61,15 +51,38 @@
                     <a class="btn btn-default btn-danger btn-block"
                        ng-click="model.deleteUser(model.user)"
                        role="button">Unregister</a>
-                </div>
-                <div class="tab-pane active" ng-hide="savedData">
-                    Saved
-                </div>
-                <div class="tab-pane active" ng-hide="savedUsers">
-                    Following
-                </div>
             </div>
-        </div>
+
+
+            <a ng-click="userSaved = !userSaved"><div class="smw-profile-headers"><h2>Saved Articles ▾</h2></div></a>
+            <div ng-hide="userSaved">
+                    <table class="table" ng-show="model.user.articles">
+                        <tr>
+                            <th>Title</th>
+                        </tr>
+                        <tr ng-repeat="article in model.user.actualArticleObjects track by $index">
+                            <td>
+                                <a href="#!/details/{{article.id}}">{{article.attributes.title}}</a>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+
+
+            <a ng-click="userFollowed = !userFollowed"><div class="smw-profile-headers"> <h2>Following  ▾</h2></div></a>
+            <div ng-hide="userFollowed">
+                <table class="table" ng-show="model.user.following">
+                    <tr>
+                        <th>Users ({{model.user.following.length}})</th>
+                    </tr>
+                    <tr ng-repeat="otherUser in model.user.following track by $index">
+                        <td>
+                            <a href="#!/profile/{{otherUser._id}}">{{otherUser.username}}</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
 
 
         <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -77,4 +90,5 @@
             </div>
         </nav>
     </div>
+</div>
 </div>

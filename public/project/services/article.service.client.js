@@ -7,8 +7,7 @@
         var api = {
             "searchArticle" : searchArticle,
             "getNodeDetails" : getNodeDetails,
-            "getWikiDetails" : getWikiDetails,
-            "saveArticle" : saveArticle
+            "getWikiDetails" : getWikiDetails
         };
         return api;
 
@@ -32,11 +31,6 @@
 
                     return response.data;
                 })
-        }
-
-        function saveArticle(userId, article) {
-            var url = "/project/api/user/" + userId + "/article";
-            return $http.post(url, article);
         }
     }
 })();

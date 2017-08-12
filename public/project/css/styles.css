@@ -79,7 +79,8 @@ a{
 }
 
 .smw-login {
-    width: 90%
+    width: 90%;
+    padding-bottom: 60px
 }
 .navbar-default .navbar-brand {
     color: whitesmoke;
@@ -99,6 +100,10 @@ a{
 
 .smw .btn-blue {
     background-color: #89bdbc;
+    color: white;
+}
+
+.smw-profile-headers {
     color: white;
 }
 

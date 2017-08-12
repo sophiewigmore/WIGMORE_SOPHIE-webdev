@@ -9,7 +9,8 @@ var userSchema = mongoose.Schema({
         phone: String,
         articles: [String],
         dateCreated: {type: Date, default: Date.now()},
-        isAdmin: Boolean
+        isAdmin: Boolean,
+        following: [{type: mongoose.Schema.Types.ObjectId, ref: 'ProjectUserModel'}]
     }, {collection: "projectUser"}
 );
 
