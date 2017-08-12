@@ -1,11 +1,12 @@
 var q = require('q');
 var app = require("../../express");
 const https = require('https');
-
+var articleModel = require("../model/article/article.model.server");
 
 app.get("/api/search/:searchKeyword", searchArticle);
 app.get("/api/details/:nodeId", articleDetails);
 app.get("/api/wiki/:nodeId", getWikiDetails);
+app.post("/api/users/:userId/article", createArticle);
 
 var apiToken = '1kkIUn4AqH29QKa7puglt2Kn61NNt4o9TJSSbZf1l5sgxfX8dsEpmtcQ16XHwQaJpYg1WH';
 
@@ -124,4 +125,15 @@ function wikiDetails(nodeId) {
         });
     });
     return deferred.promise;
+}
+
+function createArticle(req, response) {
+    var article = req.body;
+    var userId = req.params.userId;
+
+    /*articleModel
+        .saveArticleForUser(userId, article)
+        .then(function (article) {
+            response.json(article);
+        });*/
 }

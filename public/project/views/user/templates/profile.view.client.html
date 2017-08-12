@@ -1,55 +1,77 @@
 <div class="container-fluid">
     <div class="smw">
-                <nav class="navbar navbar-default navbar-fixed-top">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <div class="navbar-text pull-right">
-                                <a class="navbar-link" href="#!/">
-                                    <span class="glyphicon glyphicon-home smw-white-icon"></span>
-                                </a>
-                            </div>
-                            <a class="navbar-brand">DNAtabase Profile</a>
-                        </div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-text pull-right">
+                        <a class="navbar-link" href="#!/">
+                            <span class="glyphicon glyphicon-home smw-white-icon-medium"></span>
+                        </a>
                     </div>
-                </nav>
+                    <a class="navbar-brand">DNAtabase Profile</a>
+                </div>
+            </div>
+        </nav>
 
         <div ng-show="model.errorMessage" class="alert alert-success">{{model.errorMessage}}</div>
 
-        <div class="container-fluid">
-            <label for="firstname"> First Name</label>
-            <input name="firstname"
-                   class="form-control"
-                   ng-model="model.user.firstName"
-                   type="text"
-                   id="firstname"/>
+        <div class="container-fluid smw-login">
 
-            <label for="lastname"> Last Name</label>
-            <input name="lastname"
-                   class="form-control"
-                   ng-model="model.user.lastName"
-                   type="text"
-                   id="lastname"/>
+            <ul class="nav nav-pills nav-justified">
+                <li class="active"><a data-toggle="tab" href="#menu1">User Data</a>
+                </li>
+                <li class="active"><a data-toggle="tab" href="">Saved Data</a>
+                </li>
+                <li class="active"><a data-toggle="tab" href="">Following</a>
+                </li>
+            </ul>
 
-            <label for="username"> Username</label>
-            <input name="username"
-                   ng-model="model.user.username"
-                   class="form-control"
-                   readonly
-                   id="username"/>
+            <div class="tab-content">
+                <div class="tab-pane active" id="menu1" role="tab-panel">
+                    <label for="firstname"> First Name</label>
+                    <input name="firstname"
+                           class="form-control"
+                           ng-model="model.user.firstName"
+                           type="text"
+                           id="firstname"/>
 
-            <a class="btn btn-default btn-danger btn-block"
-               ng-click="model.logout()"
-               role="button">Logout</a>
+                    <label for="lastname"> Last Name</label>
+                    <input name="lastname"
+                           class="form-control"
+                           ng-model="model.user.lastName"
+                           type="text"
+                           id="lastname"/>
+
+                    <label for="username"> Username</label>
+                    <input name="username"
+                           ng-model="model.user.username"
+                           class="form-control"
+                           readonly
+                           id="username"/>
+
+                    <a class="btn btn-default btn-danger btn-block"
+                       ng-click="model.logout()"
+                       role="button">Logout</a>
 
 
-            <a class="btn btn-default btn-success btn-block"
-               ng-click="model.updateUser(model.user)"
-               role="button">Update User</a>
+                    <a class="btn btn-default btn-success btn-block"
+                       ng-click="model.updateUser(model.user)"
+                       role="button">Update User</a>
 
-            <a class="btn btn-default btn-danger btn-block"
-               ng-click="model.deleteUser(model.user)"
-               role="button">Unregister</a>
+                    <a class="btn btn-default btn-danger btn-block"
+                       ng-click="model.deleteUser(model.user)"
+                       role="button">Unregister</a>
+                </div>
+                <div class="tab-pane active" ng-hide="savedData">
+                    Saved
+                </div>
+                <div class="tab-pane active" ng-hide="savedUsers">
+                    Following
+                </div>
+            </div>
         </div>
+
+
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
             </div>

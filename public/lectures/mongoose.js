@@ -1,7 +1,5 @@
-console.log("hello from mongoose");
-
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/webdev-summer-2-2017');
+var db = mongoose.connect('mongodb://localhost/webdevproject');
 
 var userSchema = mongoose.Schema({
     username: String,
@@ -14,7 +12,7 @@ var userSchema = mongoose.Schema({
 
 
 
-var userModel = mongoose.model("UserModel", userSchema);
+var userModel = mongoose.model("ProjectUserModel", userSchema);
 
 updateUser("s9038120938120938", {first: "Alice", last: "Wonder"});
 

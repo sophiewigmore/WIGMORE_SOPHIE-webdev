@@ -3,9 +3,12 @@
         .module("WebDevProject")
         .controller("detailsController", detailsController);
 
-    function detailsController(articleService, $routeParams) {
+    function detailsController(articleService, $routeParams, user) {
         var model = this;
         model.nodeId = $routeParams['nodeId'];
+        model.userId = user._id;
+
+        model.saveArticle = saveArticle;
 
 
         function init() {
@@ -19,7 +22,6 @@
                 .getWikiDetails(model.nodeId)
                 .then(function (wiki) {
                     model.wiki = JSON.parse(wiki).data[0].id;
-                    console.log(model.wiki);
                 });
 
         }
@@ -28,6 +30,11 @@
         function parseNode(node) {
             var parsedData = JSON.parse(node);
             return parsedData.data;
+        }
+
+        function saveArticle(node) {
+            articleService
+                .createArticle(model.userId, node);
         }
 
     }

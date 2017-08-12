@@ -23,7 +23,10 @@
             .when("/details/:nodeId", {
                 templateUrl: "views/details/templates/details.html",
                 controller: "detailsController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
             })
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",

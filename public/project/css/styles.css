@@ -10,7 +10,7 @@ body {
     margin: auto;
 }
 
-.panel {
+.panel-home {
     width: 95%;
     margin: auto;
     padding: 10px;
@@ -20,6 +20,19 @@ body {
     color: white;
     font-size: large;
 }
+
+.profile-panel {
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    height : 80%;
+    background-color: black;
+    border-color: black;
+    text-align: center;
+    color: white;
+    font-size: large;
+}
+
 
 .navbar-brand {
     font-size: smaller;
@@ -56,14 +69,17 @@ a{
     font-size: smaller;
     color: white;
 }
-
+.smw-white-icon-medium {
+    font-size: medium;
+    color: white;
+}
 
 .smw-body {
     text-align: center;
 }
 
 .smw-login {
-    width: 80%
+    width: 90%
 }
 .navbar-default .navbar-brand {
     color: whitesmoke;
