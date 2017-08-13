@@ -52,9 +52,9 @@
                     <tr>
                         <th>Users ({{model.otherUser.following.length}})</th>
                     </tr>
-                    <tr ng-repeat="otherUser in model.otherUser.following track by $index">
+                    <tr ng-repeat="otherUserFollowing in model.otherUser.followingActual track by $index">
                         <td>
-                            <a href="#!/profile/{{otherUser._id}}">{{otherUser.username}}</a>
+                            <a href="#!/profile/{{otherUserFollowing._id}}">{{otherUserFollowing.username}}</a>
                         </td>
                     </tr>
                 </table>
