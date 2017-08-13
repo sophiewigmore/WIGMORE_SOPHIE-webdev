@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="smw">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-text pull-right">
+                        <a class="navbar-link" ng-show="model.currentUser" href="#!/profile">
+                            <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
+                        </a>
+                    </div>
+                    <a class="navbar-brand">DNAtabase</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <h1>Search For Users By Username</h1>
+        <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
+
+        <div class="container-fluid smw-body">
+            <div class="input-group">
+                <input ng-model="userSearched" placeholder="Jannunzi" type="text" class="form-control">
+                <span class="input-group-btn">
+         <a ng-click="model.searchUsers(userSearched)" class="btn btn-default" type="button">
+             <span class="glyphicon glyphicon-search"></span>
+         </a>
+     </span>
+            </div>
+            <table class="table" ng-show="model.otherUsers">
+                <tr>
+                    <th>User</th>
+                </tr>
+                <tr ng-repeat="user in model.otherUsers">
+                    <td class="left-align">
+                        <a href="#!/details/{{node.id}}">{{user.username}}</a>
+                    </td>
+                </tr>
+
+        </div>
+    </div>
+</div>

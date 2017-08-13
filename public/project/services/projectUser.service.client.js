@@ -13,7 +13,8 @@
             "checkLogin" : checkLogin,
             "login" : login,
             "logout" : logout,
-             "register": register
+             "register": register,
+            "searchUsers":searchUsers
         };
         return api;
 
@@ -75,6 +76,14 @@
 
         function findUserById(userId) {
             return $http.get("/project/api/user/" + userId);
+        }
+
+        function searchUsers(username) {
+            var url = "/project/api/searchUsers?username=" + username;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
     }

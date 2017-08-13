@@ -11,6 +11,7 @@ userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
 userModel.addWebsite = addWebsite;
 userModel.removeWebsite = removeWebsite;
+userModel.searchUsers = searchUsers;
 module.exports = userModel;
 
 function createUser(user) {
@@ -56,4 +57,14 @@ function removeWebsite(websiteId) {
                     return user.save();
 
             });
+}
+
+function searchUsers(username) {
+    if(username === 'undefined') {
+        console.log(username);
+        return userModel.find();
+    } else {
+        return userModel
+            .find({"username": {$regex : ".*" + username + ".*"}})
+    }
 }

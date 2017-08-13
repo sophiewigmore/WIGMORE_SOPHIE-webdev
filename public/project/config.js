@@ -49,6 +49,14 @@
                 controller: "registerController",
                 controllerAs: "model"
             })
+            .when("/findUsers", {
+                templateUrl: "views/search/templates/otherUsersSearch.view.client.html",
+                controller: "otherUsersSearchController",
+                controllerAs: "model",
+                resolve : {
+                    user: loggedInForSearch
+                }
+            })
     }
 
     function checkLogin(projectUserService, $q, $location) {

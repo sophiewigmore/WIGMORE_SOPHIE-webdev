@@ -76,6 +76,7 @@
             <a ng-click="userFollowed = !userFollowed"><div class="smw-profile-headers"> <h2>Following  ▾</h2></div></a>
             <div ng-hide="userFollowed">
                 <table class="table" ng-show="model.user.following">
+                    <a href="#!/findUsers"><h4>Find Users To Follow</h4></a>
                     <tr>
                         <th>Users ({{model.user.following.length}})</th>
                     </tr>
@@ -86,6 +87,7 @@
                     </tr>
                 </table>
             </div>
+
 
 
 

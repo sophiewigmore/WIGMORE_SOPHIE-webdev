@@ -174,3 +174,7 @@ a{
 .smw-footer-glyphs {
     padding-top: 12px;
 }
+
+.left-align {
+    text-align: left;
+}
