@@ -12,6 +12,8 @@ userModel.deleteUser = deleteUser;
 userModel.addWebsite = addWebsite;
 userModel.removeWebsite = removeWebsite;
 userModel.searchUsers = searchUsers;
+userModel.followUser = followUser;
+userModel.unfollowUser = unfollowUser;
 module.exports = userModel;
 
 function createUser(user) {
@@ -50,21 +52,39 @@ function addWebsite(userId, websiteId) {
 
 function removeWebsite(websiteId) {
     userModel
-        .findOne({websites:websiteId})
+        .findOne({websites: websiteId})
         .then(function (user) {
-                    var websiteToSplice = user.websites.indexOf(websiteId);
-                    user.websites.splice(websiteToSplice, 1);
-                    return user.save();
+            var websiteToSplice = user.websites.indexOf(websiteId);
+            user.websites.splice(websiteToSplice, 1);
+            return user.save();
 
-            });
+        });
 }
 
 function searchUsers(username) {
-    if(username === 'undefined') {
-        console.log(username);
+    if (username === 'undefined') {
         return userModel.find();
     } else {
         return userModel
-            .find({"username": {$regex : ".*" + username + ".*"}})
+            .find({"username": {$regex: ".*" + username + ".*"}})
     }
+}
+
+function followUser(userId, otherUserId) {
+    return userModel
+        .findUserById(userId)
+        .then(function (user) {
+            user.following.push(otherUserId);
+            return user.save();
+        })
+}
+
+function unfollowUser(userId, otherUserId) {
+    return userModel
+        .findUserById(userId)
+        .then(function (user) {
+            var userToSplice = user.following.indexOf(otherUserId);
+            user.following.splice(userToSplice, 1);
+            return user.save();
+        })
 }

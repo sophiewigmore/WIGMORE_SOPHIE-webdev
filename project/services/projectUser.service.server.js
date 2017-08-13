@@ -18,6 +18,8 @@ app.post("/project/api/user", createUser);
 app.put("/project/api/user/:userId", updateUser);
 app.delete("/project/api/user/:userId", deleteUser);
 app.get("/project/api/searchUsers", searchUsers);
+app.get("/project/api/follow", followUser);
+app.get("/project/api/unfollow", unfollowUser);
 
 
 app.post('/project/api/login', function (req, res) {
@@ -133,7 +135,6 @@ function findUserByUsername(req, response) {
 }
 
 function getAllUsers(req, response) {
-
     response.send(users);
 }
 
@@ -156,6 +157,30 @@ function searchUsers(req, response) {
             }, function (err) {
                 response.sendStatus(400).send(err);
             });
+}
+
+function followUser(req, response) {
+    var otherUserId = req.query.otherUserId;
+    var userId = req.query.userId;
+    userModel
+        .followUser(userId, otherUserId)
+        .then(function (user) {
+            response.send(user);
+        },function (err) {
+            response.sendStatus(500).send(err);
+        });
+}
+
+function unfollowUser(req, response) {
+    var otherUserId = req.query.otherUserId;
+    var userId = req.query.userId;
+    userModel
+        .unfollowUser(userId, otherUserId)
+        .then(function (user) {
+            response.send(user);
+        },function (err) {
+            response.sendStatus(500).send(err);
+        });
 }
 
 function serializeUser(user, done) {

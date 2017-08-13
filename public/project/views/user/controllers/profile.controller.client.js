@@ -18,14 +18,23 @@
                 .then(function (response) {
                     model.user = response.data;
                     model.user.actualArticleObjects = [];
+                    model.user.followingActual = [];
                     for (var i = 0; i < model.user.articles.length; i++) {
                         var articleId = model.user.articles[i];
-                            articleService
-                                .getNodeDetails(articleId)
-                                .then(function (article) {
-                                    var _article = JSON.parse(article).data;
-                                    model.user.actualArticleObjects.push(_article);
-                        });
+                        articleService
+                            .getNodeDetails(articleId)
+                            .then(function (article) {
+                                var _article = JSON.parse(article).data;
+                                model.user.actualArticleObjects.push(_article);
+                            });
+                    }
+                    for (var i = 0; i < model.user.following.length; i++) {
+                        var otherUserId = model.user.following[i];
+                        projectUserService
+                            .findUserById(otherUserId)
+                            .then(function (otherUser) {
+                                model.user.followingActual.push(otherUser.data);
+                            });
                     }
                 })
         }
@@ -33,7 +42,7 @@
         init();
 
         function logout() {
-           return projectUserService
+            return projectUserService
                 .logout()
                 .then(function () {
                     $location.url('#!/');
@@ -41,13 +50,15 @@
         }
 
         function updateUser(user) {
-           projectUserService.updateUser(user._id, user);
+            projectUserService.updateUser(user._id, user);
             model.errorMessage = "Updated User";
         }
+
         function deleteUser(user) {
-           projectUserService.deleteUser(user._id);
+            projectUserService.deleteUser(user._id);
             $location.url("/login");
         }
+
         function unsaveArticle(article) {
             var articleIndex = model.user.actualArticleObjects.indexOf(article);
             model.user.actualArticleObjects.splice(articleIndex, 1);

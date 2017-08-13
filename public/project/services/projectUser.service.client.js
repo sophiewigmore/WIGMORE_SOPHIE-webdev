@@ -14,7 +14,9 @@
             "login" : login,
             "logout" : logout,
              "register": register,
-            "searchUsers":searchUsers
+            "searchUsers":searchUsers,
+            "followUser" : followUser,
+            "unfollowUser": unfollowUser
         };
         return api;
 
@@ -84,6 +86,22 @@
                 .then(function (response) {
                     return response.data;
                 })
+        }
+
+        function followUser(userId, otherUserId) {
+            var url = "/project/api/follow?otherUserId=" + otherUserId + "&userId=" + userId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function unfollowUser(userId, otherUserId) {
+            var url = "/project/api/unfollow?otherUserId=" + otherUserId + "&userId=" + userId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
     }

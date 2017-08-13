@@ -57,6 +57,15 @@
                     user: loggedInForSearch
                 }
             })
+            .when("/profile/user/:userId", {
+                templateUrl: "views/user/templates/otherUserProfile.view.client.html",
+                controller: "otherUserProfileController",
+                controllerAs: "model",
+                resolve : {
+                    user: checkLogin
+                }
+            })
+
     }
 
     function checkLogin(projectUserService, $q, $location) {

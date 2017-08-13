@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <div class="smw">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-text pull-right">
+                        <a class="navbar-link" href="#!/">
+                            <span class="glyphicon glyphicon-home smw-white-icon-medium"></span>
+                        </a>
+                        <a class="navbar-link" href="#!/profile">
+                            <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
+                        </a>
+                    </div>
+                    <a class="navbar-brand">DNAtabase</a>
+                </div>
+            </div>
+        </nav>
+
+        <div ng-show="model.errorMessage" class="alert alert-success">{{model.errorMessage}}</div>
+
+        <div class="container-fluid smw-login">
+
+            <div class="smw-profile-headers">
+                <h1>{{model.otherUser.username}}'s Profile
+                    <div ng-hide="model.loggedInUser.following.includes(model.otherUserId)">
+                    <button class="btn btn-success" ng-click="model.followUser(model.loggedInUserId, model.otherUserId)"> Follow</button></div>
+                    <div ng-hide="!model.loggedInUser.following.includes(model.otherUserId)">
+                        <button class="btn btn-danger" ng-click="model.unfollowUser(model.loggedInUserId, model.otherUserId)"> Unfollow</button></div>
+                </h1>
+            </div>
+
+
+
+            <div class="smw-profile-headers"><h3>{{model.otherUser.firstName}}'s Saved Articles</h3></div>
+            <div ng-hide="userSaved">
+                <table class="table" ng-show="model.otherUser.articles">
+                    <tr>
+                        <th>Articles ({{model.otherUser.articles.length}})</th>
+                    </tr>
+                    <tr ng-repeat="article in model.otherUser.actualArticleObjects track by $index">
+                        <td>
+                            <a href="#!/details/{{article.id}}">{{article.attributes.title}}</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="smw-profile-headers"> <h3>Following</h3></div>
+
+                <table class="table" ng-show="model.otherUser.following">
+                    <tr>
+                        <th>Users ({{model.otherUser.following.length}})</th>
+                    </tr>
+                    <tr ng-repeat="otherUser in model.otherUser.following track by $index">
+                        <td>
+                            <a href="#!/profile/{{otherUser._id}}">{{otherUser.username}}</a>
+                        </td>
+                    </tr>
+                </table>
+
+
+            <div class="smw-profile-headers"> <h3>Followed By</h3></div>
+                <table class="table" ng-show="model.otherUser.following">
+                    <tr>
+                        <th>Users ({{model.otherUser.following.length}})</th>
+                    </tr>
+                    <tr ng-repeat="otherUser in model.otherUser.following track by $index">
+                        <td>
+                            <a href="#!/profile/{{otherUser._id}}">{{otherUser.username}}</a>
+                        </td>
+                    </tr>
+                </table>
+
+
+
+
+
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container">
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
