@@ -6,7 +6,7 @@ passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
-app.post('/project/api/login', passport.authenticate('local'), login);
+//app.post('/project/api/login', passport.authenticate('local'), login);
 app.get("/project/api/checkLogin", checkLogin);
 app.post('/project/api/logout', logout);
 app.post('/project/api/register', register);
@@ -17,6 +17,18 @@ app.get("/project/api/user/", findUserByUsername);
 app.post("/project/api/user", createUser);
 app.put("/project/api/user/:userId", updateUser);
 app.delete("/project/api/user/:userId", deleteUser);
+
+
+app.post('/project/api/login', function (req, res) {
+    passport.authenticate('local', function (err, user, info) {
+        if (!user) {
+            return res.send(null);
+        }
+        req.logIn(user, function (err) {
+            return res.send(user);
+        });
+    })(req, res);
+});
 
 function authorized(req, res, next) {
     if (!req.isAuthenticated()) {
@@ -29,6 +41,7 @@ function authorized(req, res, next) {
 function checkLogin(req, res) {
     res.send(req.isAuthenticated() ? req.user : '0');
 }
+
 
 function localStrategy(username, password, done) {
     userModel
@@ -52,6 +65,7 @@ function login(req, res) {
     var user = req.user;
     res.json(user);
 }
+
 
 function logout(req, res) {
     req.logOut();

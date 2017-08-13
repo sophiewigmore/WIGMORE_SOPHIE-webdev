@@ -5,9 +5,13 @@
 
     function searchController(articleService, user) {
         var model = this;
-        var currentUser = user;
         model.searchArticle = searchArticle;
         model.parseNodes = parseNodes;
+
+        function init() {
+            model.currentUser = user;
+        }
+        init();
 
         function searchArticle(searchKeyword) {
             if (!searchKeyword) {

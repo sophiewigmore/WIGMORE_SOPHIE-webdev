@@ -6,7 +6,7 @@
     function detailsController(articleService, $routeParams, user, projectUserService) {
         var model = this;
         model.nodeId = $routeParams['nodeId'];
-        var currentUser = user;
+        model.currentUser = user;
         model.saveArticle = saveArticle;
 
 
@@ -32,12 +32,12 @@
 
         function saveArticle(node) {
             var nodeId = node.id;
-            if(!currentUser) {
+            if(!model.currentUser) {
                 model.errorMessage = "Sign in or register to save this post!";
             } else {
-                currentUser.articles.push(nodeId);
+                model.currentUser.articles.push(nodeId);
                 projectUserService
-                    .updateUser(currentUser._id, currentUser)
+                    .updateUser(model.currentUser._id, model.currentUser)
                     .then(function (response) {
                         model.user = response.data;
                     })

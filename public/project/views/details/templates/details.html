@@ -4,13 +4,16 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="navbar-text pull-right">
-                        <a class="navbar-link" ng-show="currentUser" href="#!/profile">
+                        <a class="navbar-link" ng-show="model.currentUser" href="#!/profile">
                             <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
+                        </a>
+                        <a class="navbar-link" href="#!/">
+                            <span class="glyphicon glyphicon-home smw-white-icon-medium"></span>
                         </a>
                     </div>
                     <a class="navbar-brand">DNAtabase</a>
-                    <a class="navbar-brand" ng-show="!currentUser" href="#!/login">Login</a>
-                    <a class="navbar-brand" ng-show="!currentUser" href="#!/register">Register</a>
+                    <a class="navbar-brand" ng-show="!model.currentUser" href="#!/login">Login</a>
+                    <a class="navbar-brand" ng-show="!model.currentUser" href="#!/register">Register</a>
                 </div>
             </div>
         </nav>

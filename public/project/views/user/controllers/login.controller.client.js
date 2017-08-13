@@ -17,7 +17,6 @@
                 .login(user.username, user.password)
                 .then(function (user) {
                     if (user) {
-                        $rootScope.currentUser = user;
                         $location.url("/profile");
 
                     } else {
