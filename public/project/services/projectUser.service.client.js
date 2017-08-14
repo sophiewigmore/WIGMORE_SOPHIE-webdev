@@ -16,7 +16,8 @@
              "register": register,
             "searchUsers":searchUsers,
             "followUser" : followUser,
-            "unfollowUser": unfollowUser
+            "unfollowUser": unfollowUser,
+            "followingUser" : followingUser
         };
         return api;
 
@@ -102,6 +103,14 @@
                 .then(function (response) {
                     return response.data;
                 });
+        }
+
+        function followingUser(userId) {
+            var url = "/project/api/followingUser?userId=" + userId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
     }

@@ -20,6 +20,7 @@ app.delete("/project/api/user/:userId", deleteUser);
 app.get("/project/api/searchUsers", searchUsers);
 app.get("/project/api/follow", followUser);
 app.get("/project/api/unfollow", unfollowUser);
+app.get("/project/api/followingUser", followingUser);
 
 
 app.post('/project/api/login', function (req, res) {
@@ -183,6 +184,17 @@ function unfollowUser(req, response) {
         });
 }
 
+function followingUser(req, response) {
+    var userId = req.query.userId;
+    userModel
+        .followingUser(userId)
+        .then(function (users) {
+            response.json(users);
+        }, function (err) {
+            response.sendStatus(400).send(err);
+        })
+}
+
 function serializeUser(user, done) {
     done(null, user);
 }
@@ -199,4 +211,5 @@ function deserializeUser(user, done) {
             }
         );
 }
+
 

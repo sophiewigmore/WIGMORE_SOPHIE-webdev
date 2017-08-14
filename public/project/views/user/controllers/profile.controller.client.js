@@ -12,7 +12,14 @@
         model.logout = logout;
         model.unsaveArticle = unsaveArticle;
 
+
+
         function init() {
+            projectUserService
+                .followingUser(model.userId)
+                .then(function (users) {
+                    model.followingUser = users;
+                })
             projectUserService
                 .findUserById(model.userId)
                 .then(function (response) {
@@ -28,8 +35,8 @@
                                 model.user.actualArticleObjects.push(_article);
                             });
                     }
-                    for (var i = 0; i < model.user.following.length; i++) {
-                        var otherUserId = model.user.following[i];
+                    for (var x = 0; x < model.user.following.length; x++) {
+                        var otherUserId = model.user.following[x];
                         projectUserService
                             .findUserById(otherUserId)
                             .then(function (otherUser) {
@@ -37,6 +44,8 @@
                             });
                     }
                 })
+
+
         }
 
         init();

@@ -14,6 +14,7 @@ userModel.removeWebsite = removeWebsite;
 userModel.searchUsers = searchUsers;
 userModel.followUser = followUser;
 userModel.unfollowUser = unfollowUser;
+userModel.followingUser = followingUser;
 module.exports = userModel;
 
 function createUser(user) {
@@ -86,5 +87,13 @@ function unfollowUser(userId, otherUserId) {
             var userToSplice = user.following.indexOf(otherUserId);
             user.following.splice(userToSplice, 1);
             return user.save();
+        })
+}
+
+function followingUser(userId) {
+    return userModel
+        .find({"following" : userId})
+        .then(function (users) {
+            return users;
         })
 }

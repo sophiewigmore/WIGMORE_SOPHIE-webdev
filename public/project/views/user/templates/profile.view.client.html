@@ -88,6 +88,21 @@
                 </table>
             </div>
 
+
+            <a ng-click="followedBy = !followedBy"><div class="smw-profile-headers"> <h2>Followed By  ▾</h2></div></a>
+            <div ng-hide="followedBy">
+                <table class="table" ng-show="model.followingUser">
+                    <tr>
+                        <th>Users ({{model.followingUser.length}})</th>
+                    </tr>
+                    <tr ng-repeat="otherUser in model.followingUser track by $index">
+                        <td>
+                            <a href="#!/profile/user/{{otherUser._id}}">{{otherUser.username}}</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
             </div>
