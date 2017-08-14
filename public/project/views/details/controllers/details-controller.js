@@ -21,7 +21,14 @@
                 .getWikiDetails(model.nodeId)
                 .then(function (wiki) {
                     model.wiki = JSON.parse(wiki).data[0].id;
+                    articleService
+                        .getWikiText(model.wiki)
+                        .then(function (wikiText) {
+                            model.wikiText = wikiText;
+                        })
+
                 });
+
         }
 
         init();
@@ -46,6 +53,7 @@
                     })
             }
         }
+
 
     }
 

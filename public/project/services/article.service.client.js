@@ -7,7 +7,8 @@
         var api = {
             "searchArticle" : searchArticle,
             "getNodeDetails" : getNodeDetails,
-            "getWikiDetails" : getWikiDetails
+            "getWikiDetails" : getWikiDetails,
+            "getWikiText" : getWikiText
         };
         return api;
 
@@ -28,9 +29,17 @@
         function getWikiDetails(nodeId) {
             return $http.get("/api/wiki/" + nodeId)
                 .then(function (response) {
-
                     return response.data;
                 })
         }
+
+        function getWikiText(wikiId) {
+            return $http.get("/api/wikiText/" + wikiId)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+
     }
 })();
