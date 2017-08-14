@@ -17,15 +17,6 @@
         <div class="container-fluid smw-login">
             <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
 
-            <div class="smw-body">
-                <h3>
-                I am a ...
-                <label>
-                    <input  ng-model="model.isUser" type="radio" id="userRadio" name="userType" value="1" checked="checked"/> User </label>
-                <label >
-                    <input  ng-model="model.isAdmin" type="radio" id="adminRadio" name="userType"  value="2" /> Admin </label>
-                </h3>
-            </div>
             <!-- Username form -->
             <label for="username">Username</label>
             <input name="username"

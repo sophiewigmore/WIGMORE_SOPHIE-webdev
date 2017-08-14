@@ -19,13 +19,7 @@
                 .login(user.username, user.password)
                 .then(function (user) {
                     if (user) {
-                        if(!model.isAdmin) {
-                            $location.url("/profile");
-                        }
-                        else if(model.isAdmin) {
-                            $location.url("/admin");
-                        }
-
+                        $location.url("/profile");
                     } else {
                         model.errorMessage = "User Not Found. Try Again, or Register.";
                     }
