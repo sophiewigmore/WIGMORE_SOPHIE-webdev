@@ -13,6 +13,11 @@
             model.loggedInUserId = user._id;
             model.otherUserId = $routeParams["userId"];
 
+            projectUserService
+                .followingUser(model.otherUserId)
+                .then(function (users) {
+                    model.followingOtherUser = users;
+                });
 
             projectUserService
                 .findUserById(model.otherUserId)

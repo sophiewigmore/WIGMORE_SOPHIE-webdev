@@ -54,26 +54,23 @@
                     </tr>
                     <tr ng-repeat="otherUserFollowing in model.otherUser.followingActual track by $index">
                         <td>
-                            <a href="#!/profile/{{otherUserFollowing._id}}">{{otherUserFollowing.username}}</a>
+                            <a href="#!/profile/user/{{otherUserFollowing._id}}">{{otherUserFollowing.username}}</a>
                         </td>
                     </tr>
                 </table>
 
 
             <div class="smw-profile-headers"> <h3>Followed By</h3></div>
-                <table class="table" ng-show="model.otherUser.following">
-                    <tr>
-                        <th>Users ({{model.otherUser.following.length}})</th>
-                    </tr>
-                    <tr ng-repeat="otherUser in model.otherUser.following track by $index">
-                        <td>
-                            <a href="#!/profile/{{otherUser._id}}">{{otherUser.username}}</a>
-                        </td>
-                    </tr>
-                </table>
-
-
-
+            <table class="table" ng-show="model.followingOtherUser">
+                <tr>
+                    <th>Users ({{model.followingOtherUser.length}})</th>
+                </tr>
+                <tr ng-repeat="otherUser in model.followingOtherUser track by $index">
+                    <td>
+                        <a href="#!/profile/user/{{otherUser._id}}">{{otherUser.username}}</a>
+                    </td>
+                </tr>
+            </table>
 
 
             <nav class="navbar navbar-default navbar-fixed-bottom">
