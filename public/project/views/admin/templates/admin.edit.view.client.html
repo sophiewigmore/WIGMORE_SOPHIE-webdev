@@ -15,15 +15,10 @@
             </div>
         </nav>
 
-
-        <div class="container-fluid smw-login">
-            <div ng-show="model.user.isAdmin">
-                <a class="btn btn-default btn-block"
-                   href="#!/adminHome"
-                   role="button">Admin Page</a>
-            </div>
+        <div class="smw-body">
+        <div class="smw-profile-headers"><h1>Edit {{model.user.username}}'s Data</h1></div></a>
             <a ng-click="userData = !userData"><div class="smw-profile-headers"><h2>User Data ▾</h2></div></a>
-            <div ng-hide="userData">
+            <div ng-show="userData">
                 <label for="firstname"> First Name</label>
                 <input name="firstname"
                        class="form-control"
@@ -45,23 +40,18 @@
                        readonly
                        id="username"/>
 
-                <a class="btn btn-default btn-danger btn-block"
-                   ng-click="model.logout()"
-                   role="button">Logout</a>
-
-
                 <a class="btn btn-default btn-success btn-block"
                    ng-click="model.updateUser(model.user)"
                    role="button">Update User</a>
 
                 <a class="btn btn-default btn-danger btn-block"
                    ng-click="model.deleteUser(model.user)"
-                   role="button">Unregister</a>
+                   role="button">Delete {{model.user.username}}</a>
             </div>
 
 
             <a ng-click="userSaved = !userSaved"><div class="smw-profile-headers"><h2>Saved Articles ▾</h2></div></a>
-            <div ng-hide="userSaved">
+            <div ng-show="userSaved">
                 <table class="table" ng-show="model.user.articles">
                     <tr>
                         <th>Title</th>
@@ -80,9 +70,8 @@
 
 
             <a ng-click="userFollowed = !userFollowed"><div class="smw-profile-headers"> <h2>Following  ▾</h2></div></a>
-            <div ng-hide="userFollowed">
+            <div ng-show="userFollowed">
                 <table class="table" ng-show="model.user.following">
-                    <a href="#!/findUsers"><h4>Find Users To Follow</h4></a>
                     <tr>
                         <th>Users ({{model.user.following.length}})</th>
                     </tr>
@@ -96,7 +85,7 @@
 
 
             <a ng-click="followedBy = !followedBy"><div class="smw-profile-headers"> <h2>Followed By  ▾</h2></div></a>
-            <div ng-hide="followedBy">
+            <div ng-show="followedBy">
                 <table class="table" ng-show="model.followingUser">
                     <tr>
                         <th>Users ({{model.followingUser.length}})</th>
@@ -108,6 +97,7 @@
                     </tr>
                 </table>
             </div>
+        </div>
 
             <nav class="navbar navbar-default navbar-fixed-bottom">
                 <div class="container">
