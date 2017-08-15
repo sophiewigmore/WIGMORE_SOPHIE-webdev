@@ -196,3 +196,7 @@ a{
     background-color: black;
     border-color: #a5a5af;
 }
+
+.smw-center-text {
+    text-align: center;
+}

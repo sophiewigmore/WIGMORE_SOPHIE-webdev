@@ -81,6 +81,14 @@
                     user: loggedInAsAdmin
                 }
             })
+            .when("/adminCreateUser", {
+                templateUrl: "views/admin/templates/admin.create.view.client.html",
+                controller: "adminCreateController",
+                controllerAs: "model",
+                resolve: {
+                    user: loggedInAsAdmin
+                }
+            })
 
     }
 
