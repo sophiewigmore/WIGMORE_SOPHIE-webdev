@@ -6,11 +6,22 @@ passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
+/*process.env['OSF_API_TOKEN'] = '1kkIUn4AqH29QKa7puglt2Kn61NNt4o9TJSSbZf1l5sgxfX8dsEpmtcQ16XHwQaJpYg1WH';
+process.env['GOOGLE_CLIENT_ID'] = "220934059689-mdsjmm33mkhfjdss6acubs3ijlufnlkq.apps.googleusercontent.com";
+process.env['GOOGLE_CLIENT_SECRET'] = "mBFTE9cW-7JrbBP2qiOi8bUB";
+process.env['GOOGLE_CALLBACK_URL'] = '/project/auth/google/callback';*/
+
 var googleConfig = {
+    clientID: '220934059689-mdsjmm33mkhfjdss6acubs3ijlufnlkq.apps.googleusercontent.com',
+    clientSecret: 'mBFTE9cW-7JrbBP2qiOi8bUB',
+    callbackURL: '/project/auth/google/callback'
+};
+
+/*var googleConfig = {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK_URL
-};
+};*/
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 

@@ -8,7 +8,8 @@ app.get("/api/details/:nodeId", articleDetails);
 app.get("/api/wiki/:nodeId", getWikiDetails);
 app.get("/api/wikiText/:wikiId", getWikiText);
 
-var apiToken = process.env.OSF_API_TOKEN;
+//var apiToken = process.env.OSF_API_TOKEN;
+var apiToken = '1kkIUn4AqH29QKa7puglt2Kn61NNt4o9TJSSbZf1l5sgxfX8dsEpmtcQ16XHwQaJpYg1WH';
 
 function searchArticle(req, res) {
     var searchKeyword = req.params.searchKeyword;
