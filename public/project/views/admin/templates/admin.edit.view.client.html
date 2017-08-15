@@ -20,6 +20,9 @@
         <div class="smw-profile-headers"><h1>Edit {{model.user.username}}'s Data</h1></div></a>
             <a ng-click="userData = !userData"><div class="smw-profile-headers"><h2>User Data ▾</h2></div></a>
             <div ng-show="userData">
+                <div ng-show="model.user.isAdmin"><h3>User Type: Admin</h3></div>
+                <div ng-show="!model.user.isAdmin"><h3>User Type: User</h3></div>
+
                 <label for="firstname"> First Name</label>
                 <input name="firstname"
                        class="form-control"
