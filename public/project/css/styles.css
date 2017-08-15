@@ -76,6 +76,7 @@ a{
 
 .smw-body {
     text-align: center;
+    padding-bottom: 60px;
 }
 
 .smw-login {
@@ -189,4 +190,9 @@ a{
 
 .target > div:target{
     display:block;
+}
+
+.smw-listgroup {
+    background-color: black;
+    border-color: #a5a5af;
 }

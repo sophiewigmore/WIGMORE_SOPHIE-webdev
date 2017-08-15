@@ -8,6 +8,7 @@
             "findUserById": findUserById,
             "createUser": createUser,
             "findUserByUsername": findUserByUsername,
+            "findAllUsers" : findAllUsers,
             "updateUser": updateUser,
             "deleteUser": deleteUser,
             "checkLogin" : checkLogin,
@@ -17,7 +18,8 @@
             "searchUsers":searchUsers,
             "followUser" : followUser,
             "unfollowUser": unfollowUser,
-            "followingUser" : followingUser
+            "followingUser" : followingUser,
+            "loggedInAsAdmin" : loggedInAsAdmin
         };
         return api;
 
@@ -81,6 +83,13 @@
             return $http.get("/project/api/user/" + userId);
         }
 
+        function findAllUsers() {
+            return $http.get("/project/api/users")
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
         function searchUsers(username) {
             var url = "/project/api/searchUsers?username=" + username;
             return $http.get(url)
@@ -111,6 +120,13 @@
                 .then(function (response) {
                     return response.data;
                 })
+        }
+
+        function loggedInAsAdmin() {
+            return $http.get("/project/api/isAdmin")
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
     }

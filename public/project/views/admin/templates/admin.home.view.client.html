@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="smw">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-text pull-right">
+                        <a class="navbar-link" href="#!/">
+                            <span class="glyphicon glyphicon-home smw-white-icon-medium"></span>
+                        </a>
+                        <a class="navbar-link" href="#!/profile">
+                            <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
+                        </a>                    </div>
+                    <a class="navbar-brand">DNAtabase Admin</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="smw-body">
+            <div class="smw-profile-headers"><h1>Welcome to User Admin Page</h1></div>
+
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-12"><div class="smw-profile-headers"><h5>Manage Users</h5></div></div>
+
+                    </div>
+                </li>
+                <li ng-repeat="user in model.users" ng-if="user.username != model.admin.username" class="list-group-item smw-listgroup">
+                    <div class="row">
+                        <div class="col-xs-6 col-lg-10">{{user.username}}</div>
+                        <div class="col-xs-3 col-lg-1">
+                            <a href="#!/admincrud/{{user._id}}">
+                                <button type="button" class="btn navbar-btn btn-success">Edit</button>
+                            </a>
+                        </div>
+                        <div class="col-xs-3 col-lg-1">
+                            <a ng-click="model.deleteUser(user._id)">
+                                <button type="button" class="btn navbar-btn btn-danger">Delete</button>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+
+            <a class="btn btn-default btn-danger btn-block"
+               ng-click="model.logout()"
+               role="button">Logout</a>
+
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+            </div>
+        </nav>
+    </div>
+</div>

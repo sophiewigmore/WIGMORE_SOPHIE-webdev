@@ -10,7 +10,7 @@ passport.deserializeUser(deserializeUser);
 app.get("/project/api/checkLogin", checkLogin);
 app.post('/project/api/logout', logout);
 app.post('/project/api/register', register);
-
+app.get("/project/api/isAdmin", isAdmin);
 app.get("/project/api/users", getAllUsers);
 app.get("/project/api/user/:userId", getUserById);
 app.get("/project/api/user/", findUserByUsername);
@@ -21,6 +21,7 @@ app.get("/project/api/searchUsers", searchUsers);
 app.get("/project/api/follow", followUser);
 app.get("/project/api/unfollow", unfollowUser);
 app.get("/project/api/followingUser", followingUser);
+
 
 
 app.post('/project/api/login', function (req, res) {
@@ -44,6 +45,10 @@ function authorized(req, res, next) {
 
 function checkLogin(req, res) {
     res.send(req.isAuthenticated() ? req.user : '0');
+}
+
+function isAdmin(req, res) {
+    res.send((req.isAuthenticated() && req.user.isAdmin) ? req.user : '0');
 }
 
 
@@ -136,7 +141,12 @@ function findUserByUsername(req, response) {
 }
 
 function getAllUsers(req, response) {
-    response.send(users);
+    userModel
+        .getAllUsers()
+        .then(function (users) {
+            response.send(users);
+        })
+
 }
 
 

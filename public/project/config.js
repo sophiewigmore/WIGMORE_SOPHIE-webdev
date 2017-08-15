@@ -65,7 +65,38 @@
                     user: checkLogin
                 }
             })
+            .when("/adminHome", {
+                templateUrl: "views/admin/templates/admin.home.view.client.html",
+                controller: "adminHomeController",
+                controllerAs: "model",
+                resolve : {
+                    user: loggedInAsAdmin
+                }
+            })
+            .when("/admincrud/:userId", {
+                templateUrl: "views/admin/templates/admin.edit.view.client.html",
+                controller: "adminEditController",
+                controllerAs: "model",
+                resolve: {
+                    user: loggedInAsAdmin
+                }
+            })
 
+    }
+
+    function loggedInAsAdmin(projectUserService, $q, $location) {
+        var deferred = $q.defer();
+        projectUserService
+            .loggedInAsAdmin()
+            .then(function (user) {
+                if (user === "0") {
+                    deferred.reject();
+                    $location.url("/login");
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+        return deferred.promise;
     }
 
     function checkLogin(projectUserService, $q, $location) {

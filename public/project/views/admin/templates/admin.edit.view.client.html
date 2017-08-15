@@ -7,13 +7,14 @@
                         <a class="navbar-link" href="#!/">
                             <span class="glyphicon glyphicon-home smw-white-icon-medium"></span>
                         </a>
-                    </div>
-                    <a class="navbar-brand">DNAtabase Profile</a>
+                        <a class="navbar-link" href="#!/profile">
+                            <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
+                        </a>                    </div>
+                    <a class="navbar-brand">DNAtabase Edit User</a>
                 </div>
             </div>
         </nav>
 
-        <div ng-show="model.errorMessage" class="alert alert-success">{{model.errorMessage}}</div>
 
         <div class="container-fluid smw-login">
             <div ng-show="model.user.isAdmin">
@@ -23,58 +24,58 @@
             </div>
             <a ng-click="userData = !userData"><div class="smw-profile-headers"><h2>User Data ▾</h2></div></a>
             <div ng-hide="userData">
-                    <label for="firstname"> First Name</label>
-                    <input name="firstname"
-                           class="form-control"
-                           ng-model="model.user.firstName"
-                           type="text"
-                           id="firstname"/>
+                <label for="firstname"> First Name</label>
+                <input name="firstname"
+                       class="form-control"
+                       ng-model="model.user.firstName"
+                       type="text"
+                       id="firstname"/>
 
-                    <label for="lastname"> Last Name</label>
-                    <input name="lastname"
-                           class="form-control"
-                           ng-model="model.user.lastName"
-                           type="text"
-                           id="lastname"/>
+                <label for="lastname"> Last Name</label>
+                <input name="lastname"
+                       class="form-control"
+                       ng-model="model.user.lastName"
+                       type="text"
+                       id="lastname"/>
 
-                    <label for="username"> Username</label>
-                    <input name="username"
-                           ng-model="model.user.username"
-                           class="form-control"
-                           readonly
-                           id="username"/>
+                <label for="username"> Username</label>
+                <input name="username"
+                       ng-model="model.user.username"
+                       class="form-control"
+                       readonly
+                       id="username"/>
 
-                    <a class="btn btn-default btn-danger btn-block"
-                       ng-click="model.logout()"
-                       role="button">Logout</a>
+                <a class="btn btn-default btn-danger btn-block"
+                   ng-click="model.logout()"
+                   role="button">Logout</a>
 
 
-                    <a class="btn btn-default btn-success btn-block"
-                       ng-click="model.updateUser(model.user)"
-                       role="button">Update User</a>
+                <a class="btn btn-default btn-success btn-block"
+                   ng-click="model.updateUser(model.user)"
+                   role="button">Update User</a>
 
-                    <a class="btn btn-default btn-danger btn-block"
-                       ng-click="model.deleteUser(model.user)"
-                       role="button">Unregister</a>
+                <a class="btn btn-default btn-danger btn-block"
+                   ng-click="model.deleteUser(model.user)"
+                   role="button">Unregister</a>
             </div>
 
 
             <a ng-click="userSaved = !userSaved"><div class="smw-profile-headers"><h2>Saved Articles ▾</h2></div></a>
             <div ng-hide="userSaved">
-                    <table class="table" ng-show="model.user.articles">
-                        <tr>
-                            <th>Title</th>
-                            <th>Unlike?</th>
-                        </tr>
-                        <tr ng-repeat="article in model.user.actualArticleObjects track by $index">
-                            <td>
-                                <a href="#!/details/{{article.id}}">{{article.attributes.title}}</a>
-                            </td>
-                            <td>
-                                <a ng-click="model.unsaveArticle(article)"><span class="glyphicon glyphicon-heart"></span></a>
-                            </td>
-                        </tr>
-                    </table>
+                <table class="table" ng-show="model.user.articles">
+                    <tr>
+                        <th>Title</th>
+                        <th>Unlike?</th>
+                    </tr>
+                    <tr ng-repeat="article in model.user.actualArticleObjects track by $index">
+                        <td>
+                            <a href="#!/details/{{article.id}}">{{article.attributes.title}}</a>
+                        </td>
+                        <td>
+                            <a ng-click="model.unsaveArticle(article)"><span class="glyphicon glyphicon-heart"></span></a>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
 
@@ -108,10 +109,10 @@
                 </table>
             </div>
 
-        <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container">
-            </div>
-        </nav>
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container">
+                </div>
+            </nav>
+        </div>
     </div>
-</div>
 </div>
