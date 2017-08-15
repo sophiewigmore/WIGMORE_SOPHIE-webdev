@@ -1,5 +1,6 @@
 var app = require("../../express");
 var userModel = require("../model/user/user.model.server");
+var bcrypt = require('bcryptjs');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
@@ -118,6 +119,9 @@ function localStrategy(username, password, done) {
                 if (!user) {
                     return done(null, false);
                 }
+                if(user && bcrypt.compareSync(password, user.password)) {
+                    return done(null, user);
+                }
                 return done(null, user);
             },
             function (err) {
@@ -127,7 +131,6 @@ function localStrategy(username, password, done) {
             }
         );
 }
-
 
 function login(req, res) {
     var user = req.user;
@@ -142,6 +145,8 @@ function logout(req, res) {
 
 function register(req, res) {
     var userObj = req.body;
+    var salt = bcrypt.genSaltSync(10);
+    userObj.password = bcrypt.hashSync(userObj.password, salt);
     userModel
         .createUser(userObj)
         .then(function (user) {
@@ -179,6 +184,10 @@ function updateUser(req, response) {
 
 function createUser(req, response) {
     var user = req.body;
+    var salt = bcrypt.genSaltSync(10);
+    user.password = bcrypt.hashSync(user.password, salt);
+
+
     userModel
         .createUser(user)
         .then(function (user) {
