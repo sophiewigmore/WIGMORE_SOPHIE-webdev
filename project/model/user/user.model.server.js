@@ -16,6 +16,7 @@ userModel.searchUsers = searchUsers;
 userModel.followUser = followUser;
 userModel.unfollowUser = unfollowUser;
 userModel.followingUser = followingUser;
+userModel.findUserByGoogleId = findUserByGoogleId;
 module.exports = userModel;
 
 function createUser(user) {
@@ -97,8 +98,13 @@ function unfollowUser(userId, otherUserId) {
 
 function followingUser(userId) {
     return userModel
-        .find({"following" : userId})
+        .find({"following": userId})
         .then(function (users) {
             return users;
         })
+}
+
+function findUserByGoogleId(profileId) {
+    return userModel
+        .findOne({"google.id": profileId});
 }

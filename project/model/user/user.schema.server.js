@@ -10,7 +10,11 @@ var userSchema = mongoose.Schema({
         articles: [String],
         dateCreated: {type: Date, default: Date.now()},
         isAdmin: Boolean,
-        following: [{type: mongoose.Schema.Types.ObjectId, ref: 'ProjectUserModel'}]
+        following: [{type: mongoose.Schema.Types.ObjectId, ref: 'ProjectUserModel'}],
+        google: {
+            id: String,
+            token: String
+        },
     }, {collection: "projectUser"}
 );
 
