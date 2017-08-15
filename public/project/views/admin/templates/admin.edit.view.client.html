@@ -16,6 +16,7 @@
         </nav>
 
         <div class="smw-body">
+            <div ng-show="model.errorMessage" class="alert alert-success">{{model.errorMessage}}</div>
         <div class="smw-profile-headers"><h1>Edit {{model.user.username}}'s Data</h1></div></a>
             <a ng-click="userData = !userData"><div class="smw-profile-headers"><h2>User Data ▾</h2></div></a>
             <div ng-show="userData">
@@ -55,7 +56,7 @@
                 <table class="table" ng-show="model.user.articles">
                     <tr>
                         <th>Title</th>
-                        <th>Unlike?</th>
+                        <th>Remove This From {{model.user.username}}'s Saved Articles</th>
                     </tr>
                     <tr ng-repeat="article in model.user.actualArticleObjects track by $index">
                         <td>
