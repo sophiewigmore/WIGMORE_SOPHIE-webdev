@@ -22,14 +22,14 @@
             <div ng-show="model.errorMessage2" class="alert alert-success">{{model.errorMessage2}}</div>
 
             <h1>Title: {{model.node.attributes.title}}</h1>
-            <h5>Created On: {{model.node.attributes.date_created}}</h5>
+            <h5>Created On: {{model.node.attributes.date_created | date : "short"}}</h5>
             <p>Category: {{model.node.attributes.category}}</p>
             <p>Description: {{model.wikiText}}</p>
 
             <ul class="list-group">
                 <li ng-repeat="comment in model.comments" class="list-group-item">
                     <div class="row">
-                        <div class="hidden-xs col-sm-4  col-md-4 col-lg-4">{{comment._user}}:</div>
+                        <div class="hidden-xs col-sm-4  col-md-4 col-lg-4">{{comment._user}} on {{comment.dateCreated | date : "short"}}:</div>
                         <div class="col-xs-11  col-sm-7 col-md-7 col-lg-7">
                             {{comment.content}}
                         </div>
@@ -54,9 +54,13 @@
 
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container-fluid">
-                <div class="navbar-text pull-right">
+                <div class="navbar-text pull-right" ng-show="!model.currentUser || !model.currentUser.articles.includes(model.nodeId)">
                     <a ng-click="model.saveArticle(model.node)">
                         <span class="glyphicon glyphicon-heart-empty smw-white-icons glyphicon"></span>Save</a>
+                </div>
+                <div class="navbar-text pull-right" ng-show="model.currentUser.articles.includes(model.nodeId)">
+                    <a ng-click="model.unsaveArticle(model.node)">
+                        <span class="glyphicon glyphicon-remove smw-white-icons glyphicon"></span>Unsave</a>
                 </div>
                 <div class="navbar-text pull-right" ng-show="model.currentUser">
                     <a ng-click="commentInput=true">

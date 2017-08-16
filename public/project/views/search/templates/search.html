@@ -46,7 +46,7 @@
                         <a href="#!/details/{{node.id}}">{{node.attributes.title}}</a>
                     </td>
                     <td>
-                        {{node.attributes.date_created}}
+                        {{node.attributes.date_created | date : "short"}}
                     </td>
                 </tr>
 

@@ -9,6 +9,7 @@
         model.currentUser = user;
         model.comment = null;
         model.saveArticle = saveArticle;
+        model.unsaveArticle = unsaveArticle;
         model.createComment = createComment;
         model.deleteComment = deleteComment;
 
@@ -59,6 +60,17 @@
                         model.errorMessage2 = "Article Saved!";
                     })
             }
+        }
+
+        function unsaveArticle(node) {
+            var nodeId = node.id;
+            var articleIndex = model.currentUser.articles.indexOf(nodeId);
+            model.currentUser.articles.splice(articleIndex, 1)[0];
+            projectUserService
+                .updateUser(model.currentUser._id, model.currentUser)
+                .then(function (response) {
+                    model.user = response.data;
+                });
         }
 
         function createComment(nodeId, user, comment) {
