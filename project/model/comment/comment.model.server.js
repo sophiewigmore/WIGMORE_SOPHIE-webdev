@@ -6,7 +6,7 @@ var db = require("../models.server");
 
 commentModel.createComment = createComment;
 commentModel.findCommentsForNode = findCommentsForNode;
-commentModel.findCommentByUser = findCommentByUser;
+commentModel.deleteComment = deleteComment;
 module.exports = commentModel;
 
 function createComment(comment) {
@@ -17,6 +17,7 @@ function findCommentsForNode(nodeId) {
     return commentModel.find({_node: nodeId});
 }
 
-function findCommentByUser(userId) {
-    return commentModel.findById(userId);
+function deleteComment(commentId) {
+    console.log(commentId);
+    return commentModel.remove({_id: commentId})
 }

@@ -20,19 +20,36 @@
         <div class="smw-body">
             <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
             <div ng-show="model.errorMessage2" class="alert alert-success">{{model.errorMessage2}}</div>
-            <div ng-show="model.errorMessage3" class="alert alert-success">{{model.errorMessage3}}</div>
 
-        <h1>Title: {{model.node.attributes.title}}</h1>
-        <h5>Created On: {{model.node.attributes.date_created}}</h5>
-        <p>Category: {{model.node.attributes.category}}</p>
-        <p>Description: {{model.wikiText}}</p>
+            <h1>Title: {{model.node.attributes.title}}</h1>
+            <h5>Created On: {{model.node.attributes.date_created}}</h5>
+            <p>Category: {{model.node.attributes.category}}</p>
+            <p>Description: {{model.wikiText}}</p>
+
+            <ul class="list-group">
+                <li ng-repeat="comment in model.comments" class="list-group-item">
+                    <div class="row">
+                        <div class="hidden-xs col-sm-4  col-md-4 col-lg-4">{{comment._user}}:</div>
+                        <div class="col-xs-11  col-sm-7 col-md-7 col-lg-7">
+                            {{comment.content}}
+                        </div>
+                        <div class="col-xs-1  col-sm-1 col-md-1 col-lg-1" ng-show="model.currentUser._id===comment._user
+                        || model.currentUser.isAdmin">
+                            <a ng-click="model.deleteComment(comment)"><span class="glyphicon glyphicon-remove"></span></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
             <div ng-show="commentInput" class="smw-center-text">
                 <h3>Write a Comment...</h3>
                 <textarea ng-model="model.comment.content" class="wide-text-input smw-black-text"></textarea>
-                <button class="btn btn-success" ng-click="model.createComment(model.nodeId, model.currentUser, model.comment)">Submit</button>
+                <button class="btn btn-success"
+                        ng-click="model.createComment(model.nodeId, model.currentUser, model.comment);
+                        commentInput=false">Submit
+                </button>
             </div>
         </div>
-
 
 
         <nav class="navbar navbar-default navbar-fixed-bottom">

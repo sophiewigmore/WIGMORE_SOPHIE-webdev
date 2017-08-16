@@ -3,13 +3,14 @@
         .module("WebDevProject")
         .controller("detailsController", detailsController);
 
-    function detailsController(articleService, $routeParams, user, projectUserService, commentService) {
+    function detailsController(articleService, $routeParams, user, projectUserService, commentService, $location) {
         var model = this;
         model.nodeId = $routeParams['nodeId'];
         model.currentUser = user;
         model.comment = null;
         model.saveArticle = saveArticle;
         model.createComment = createComment;
+        model.deleteComment = deleteComment;
 
         function init() {
             articleService
@@ -35,7 +36,6 @@
                 .then(function (comments) {
                     model.comments = comments;
                 })
-
         }
 
         init();
@@ -62,9 +62,8 @@
         }
 
         function createComment(nodeId, user, comment) {
-            var userId = user._id;
             comment._node = nodeId;
-            comment._user = userId;
+            comment._user = user;
             commentService
                 .createComment(comment)
                 .then(function (createdComment) {
@@ -72,10 +71,18 @@
                         .getCommentsForNode(nodeId)
                         .then(function (comments) {
                             model.comments = comments;
-                            model.errorMessage3 = "Comment Created";
                         })
                 })
         }
+
+        function deleteComment(comment) {
+            commentService
+                .deleteComment(comment._id)
+                .then(function () {
+                    location.reload();
+                })
+        }
+
 
 
     }

@@ -3,7 +3,7 @@ var commentModel = require("../model/comment/comment.model.server");
 
 
 app.post("/project/api/comment", createComment);
-//app.get("/project/api/comment/:userId", findCommentForUser);
+app.delete("/project/api/comment/:commentId", deleteComment);
 app.get("/project/api/comment/:nodeId", findCommentsForNode);
 
 function createComment(req, response) {
@@ -16,6 +16,17 @@ function createComment(req, response) {
         }, function (err) {
             response.status(404).send(err);
             return;
+        });
+}
+
+function deleteComment(req, response) {
+    var commentId = req.params.commentId;
+    commentModel
+        .deleteComment(commentId)
+        .then(function (status) {
+            response.json(status);
+        }, function (err) {
+            response.sendStatus(404).send(err);
         });
 }
 

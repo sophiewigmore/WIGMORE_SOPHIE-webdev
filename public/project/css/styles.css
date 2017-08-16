@@ -21,6 +21,9 @@ body {
     font-size: large;
 }
 
+ul {
+    list-style-type: none;
+}
 .profile-panel {
     width: 95%;
     margin: auto;
