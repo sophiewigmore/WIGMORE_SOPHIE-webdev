@@ -200,3 +200,12 @@ a{
 .smw-center-text {
     text-align: center;
 }
+
+.wide-text-input {
+    width : 80%;
+    margin: auto;
+}
+
+.smw-black-text {
+    color : black;
+}

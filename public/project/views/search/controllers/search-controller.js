@@ -14,15 +14,18 @@
         init();
 
         function searchArticle(searchKeyword) {
-            if (!searchKeyword) {
+            if(searchKeyword) {
+                articleService
+                    .searchArticle(searchKeyword)
+                    .then(function (nodes) {
+                        model.nodes = parseNodes(nodes);
+                    });
+            }
+            else {
                 model.errorMessage = "Enter a search item";
                 return;
             }
-            articleService
-                .searchArticle(searchKeyword)
-                .then(function (nodes) {
-                    model.nodes = parseNodes(nodes);
-                });
+
         }
 
         function parseNodes(nodes) {

@@ -3,12 +3,13 @@
         .module("WebDevProject")
         .controller("detailsController", detailsController);
 
-    function detailsController(articleService, $routeParams, user, projectUserService) {
+    function detailsController(articleService, $routeParams, user, projectUserService, commentService) {
         var model = this;
         model.nodeId = $routeParams['nodeId'];
         model.currentUser = user;
+        model.comment = null;
         model.saveArticle = saveArticle;
-
+        model.createComment = createComment;
 
         function init() {
             articleService
@@ -28,6 +29,12 @@
                         })
 
                 });
+
+            commentService
+                .getCommentsForNode(model.nodeId)
+                .then(function (comments) {
+                    model.comments = comments;
+                })
 
         }
 
@@ -52,6 +59,22 @@
                         model.errorMessage2 = "Article Saved!";
                     })
             }
+        }
+
+        function createComment(nodeId, user, comment) {
+            var userId = user._id;
+            comment._node = nodeId;
+            comment._user = userId;
+            commentService
+                .createComment(comment)
+                .then(function (createdComment) {
+                    commentService
+                        .getCommentsForNode(nodeId)
+                        .then(function (comments) {
+                            model.comments = comments;
+                            model.errorMessage3 = "Comment Created";
+                        })
+                })
         }
 
 

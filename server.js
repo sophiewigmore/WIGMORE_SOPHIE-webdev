@@ -6,9 +6,10 @@ var passport      = require('passport');
 var cookieParser  = require('cookie-parser');
 var session       = require('express-session');
 
+app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(session({
-    secret: 'this is the secret',//change this later
+    secret: process.env.SESSION_SECRET,//change this later
     resave: true,
     saveUninitialized: true
 }));
@@ -25,7 +26,7 @@ app.use(express.static(__dirname + '/public'));
 
 require("./test/app");
 require("./assignment/app");
-require("./project/app");
+require("./project/app")(app);
 
 port = process.env.PORT || 3000;
 app.listen(port);
