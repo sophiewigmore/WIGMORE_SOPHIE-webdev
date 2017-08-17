@@ -8,7 +8,8 @@
             "searchArticle" : searchArticle,
             "getNodeDetails" : getNodeDetails,
             "getWikiDetails" : getWikiDetails,
-            "getWikiText" : getWikiText
+            "getWikiText" : getWikiText,
+            "getContributor" : getContributor
         };
         return api;
 
@@ -35,6 +36,13 @@
 
         function getWikiText(wikiId) {
             return $http.get("/api/wikiText/" + wikiId)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+        function getContributor(nodeId) {
+            return $http.get("/api/contributor/" + nodeId)
                 .then(function (response) {
                     return response.data;
                 })

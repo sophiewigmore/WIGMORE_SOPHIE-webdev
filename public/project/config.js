@@ -23,6 +23,14 @@
                     user: loggedInForSearch
                 }
             })
+            .when("/search/:searchKeyword", {
+                templateUrl: "views/search/templates/search.html",
+                controller: "searchController",
+                controllerAs: "model",
+                resolve : {
+                    user: loggedInForSearch
+                }
+            })
             .when("/details/:nodeId", {
                 templateUrl: "views/details/templates/details.html",
                 controller: "detailsController",

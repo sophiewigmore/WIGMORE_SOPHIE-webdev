@@ -7,6 +7,7 @@ app.get("/api/search/:searchKeyword", searchArticle);
 app.get("/api/details/:nodeId", articleDetails);
 app.get("/api/wiki/:nodeId", getWikiDetails);
 app.get("/api/wikiText/:wikiId", getWikiText);
+app.get("/api/contributor/:nodeId", getContributor);
 
 var apiToken = process.env.OSF_API_TOKEN;
 
@@ -48,6 +49,16 @@ function getWikiText(req, res) {
     var wikiId = req.params.wikiId;
 
     wikiText(wikiId)
+        .then(function (response) {
+            res.json(response);
+        }, function(error) {
+            res.sendStatus(404).send(error);
+        });
+}
+
+function getContributor(req, res) {
+    var nodeId = req.params.nodeId;
+    contributorDetails(nodeId)
         .then(function (response) {
             res.json(response);
         }, function(error) {
@@ -101,6 +112,32 @@ function osfDetails(nodeId) {
         response.on('end', function () {
             try {
                 // body = JSON.parse(body);
+                deferred.resolve(body);
+            } catch (e) {
+                deferred.reject({error: e});
+            }
+
+        });
+    });
+    return deferred.promise;
+}
+
+function contributorDetails(nodeId) {
+    var deferred = q.defer();
+    https.get({
+        hostname: 'api.osf.io',
+        path: '/v2/nodes/' + nodeId + "/contributors/",
+        headers: {
+            "Accept": "application/json",
+            'Authorization': 'Bearer' + apiToken
+        }
+    }, function (response) {
+        var body = '';
+        response.on('data', function (chunk) {
+            body += chunk;
+        });
+        response.on('end', function () {
+            try {
                 deferred.resolve(body);
             } catch (e) {
                 deferred.reject({error: e});

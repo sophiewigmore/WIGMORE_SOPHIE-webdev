@@ -3,20 +3,26 @@
         .module("WebDevProject")
         .controller("searchController", searchController);
 
-    function searchController(articleService, user) {
+    function searchController(articleService, user, $location, $routeParams) {
         var model = this;
         model.searchArticle = searchArticle;
         model.parseNodes = parseNodes;
+        model.searchKeyword = $routeParams.searchKeyword;
 
         function init() {
             model.currentUser = user;
+            if(window.location.href.indexOf("search") > -1) {
+                searchArticle(model.searchKeyword)
+            }
         }
         init();
 
         function searchArticle(searchKeyword) {
             if(searchKeyword) {
+                model.searchKeyword = searchKeyword;
+                $location.url("/search/" + model.searchKeyword);
                 articleService
-                    .searchArticle(searchKeyword)
+                    .searchArticle(model.searchKeyword)
                     .then(function (nodes) {
                         model.nodes = parseNodes(nodes);
                     });

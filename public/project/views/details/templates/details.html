@@ -11,17 +11,29 @@
                             <span class="glyphicon glyphicon-home smw-white-icon-medium"></span>
                         </a>
                     </div>
+                    <div class="navbar-text pull-right">
+                        <a class="navbar-link" ng-show="model.currentUser" href="#!/profile">
+                            <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
+                        </a>
+                    </div>g
+                    <div class="navbar-text pull-left">
+                        <a class="navbar-link" onclick="history.back()">
+                            <span class="glyphicon glyphicon glyphicon-menu-left smw-white-icon-medium"></span>
+                        </a>
+                    </div>
                     <a class="navbar-brand">DNAtabase</a>
                     <a class="navbar-brand" ng-show="!model.currentUser" href="#!/login">Login</a>
                     <a class="navbar-brand" ng-show="!model.currentUser" href="#!/register">Register</a>
                 </div>
             </div>
+
         </nav>
         <div class="smw-body">
             <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
             <div ng-show="model.errorMessage2" class="alert alert-success">{{model.errorMessage2}}</div>
 
             <h1>Title: {{model.node.attributes.title}}</h1>
+            <h1>Contributor: {{model.contributor}}</h1>
             <h5>Created On: {{model.node.attributes.date_created | date : "short"}}</h5>
             <p>Category: {{model.node.attributes.category}}</p>
             <p>Description: {{model.wikiText}}</p>
@@ -29,11 +41,11 @@
             <ul class="list-group">
                 <li ng-repeat="comment in model.comments" class="list-group-item">
                     <div class="row">
-                        <div class="hidden-xs col-sm-4  col-md-4 col-lg-4">{{comment._user}} on {{comment.dateCreated | date : "short"}}:</div>
+                        <div class="hidden-xs col-sm-4  col-md-4 col-lg-4">{{comment._user.username}} on {{comment.dateCreated | date : "short"}}:</div>
                         <div class="col-xs-11  col-sm-7 col-md-7 col-lg-7">
                             {{comment.content}}
                         </div>
-                        <div class="col-xs-1  col-sm-1 col-md-1 col-lg-1" ng-show="model.currentUser._id===comment._user
+                        <div class="col-xs-1  col-sm-1 col-md-1 col-lg-1" ng-show="model.currentUser._id===comment._user._id
                         || model.currentUser.isAdmin">
                             <a ng-click="model.deleteComment(comment)"><span class="glyphicon glyphicon-remove"></span></a>
                         </div>

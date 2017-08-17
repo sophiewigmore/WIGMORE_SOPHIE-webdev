@@ -14,7 +14,9 @@ function createComment(comment) {
 }
 
 function findCommentsForNode(nodeId) {
-    return commentModel.find({_node: nodeId});
+    return commentModel
+        .find({_nodeId: nodeId});
+        //.populate('_user').exec();
 }
 
 function deleteComment(commentId) {

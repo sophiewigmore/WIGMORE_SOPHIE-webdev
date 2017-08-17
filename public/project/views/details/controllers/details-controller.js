@@ -17,6 +17,7 @@
             articleService
                 .getNodeDetails(model.nodeId)
                 .then(function (node) {
+                    console.log(parseNode(node));
                     model.node = parseNode(node);
                 });
 
@@ -31,7 +32,11 @@
                         })
 
                 });
-
+            articleService
+                .getContributor(model.nodeId)
+                .then(function (node) {
+                    model.contributor = JSON.parse(node).data[0].embeds.users.data.attributes.full_name;
+                });
             commentService
                 .getCommentsForNode(model.nodeId)
                 .then(function (comments) {
@@ -74,7 +79,7 @@
         }
 
         function createComment(nodeId, user, comment) {
-            comment._node = nodeId;
+            comment._nodeId = nodeId;
             comment._user = user;
             commentService
                 .createComment(comment)
