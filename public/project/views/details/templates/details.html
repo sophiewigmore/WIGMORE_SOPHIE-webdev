@@ -11,11 +11,6 @@
                             <span class="glyphicon glyphicon-home smw-white-icon-medium"></span>
                         </a>
                     </div>
-                    <div class="navbar-text pull-right">
-                        <a class="navbar-link" ng-show="model.currentUser" href="#!/profile">
-                            <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
-                        </a>
-                    </div>
                     <div class="navbar-text pull-left">
                         <a class="navbar-link" onclick="history.back()">
                             <span class="glyphicon glyphicon glyphicon-menu-left smw-white-icon-medium"></span>
@@ -42,16 +37,18 @@
 
             <div ng-show="commentInput" class="smw-center-text">
                 <h3>Write a Comment...</h3>
-                <textarea ng-model="model.comment.content" class="wide-text-input smw-black-text"></textarea>
-                <button class="btn btn-success"
+                <div class="col-xs-2"></div>
+                <textarea class="col-xs-8 smw-center-text"ng-model="model.comment.content"class="wide-text-input smw-black-text"></textarea>
+                <button class="btn btn-success btn-submit col-xs-2"
                         ng-click="model.createComment(model.nodeId, model.currentUser, model.comment);
                         commentInput=false">Submit
                 </button>
+
             </div>
 
 
             <ul class="col-xs-12 list-group" style="padding-bottom: 60px">
-                <h2 class="smwcolor">Comments</h2>
+                <h2 class="smwcolor">Comments ({{model.comments.length}})</h2>
                 <li ng-repeat="comment in model.comments" class="list-group-item">
                     <div class="row">
                         <div class="hidden-xs col-sm-4  col-md-4 col-lg-4">{{comment._user.username}} on {{comment.dateCreated | date : "short"}}:</div>

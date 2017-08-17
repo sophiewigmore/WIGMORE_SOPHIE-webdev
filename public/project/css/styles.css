@@ -25,9 +25,6 @@ ul {
     text-align: left;
 }
 
-list-group-item {
-
-}
 .profile-panel {
     width: 95%;
     margin: auto;
@@ -81,16 +78,19 @@ a{
 .smw-body {
     text-align: center;
     padding-bottom: 60px;
+    padding-top: 30px;
+    margin : auto;
 }
 
 .smw-body-left {
     padding-bottom: 200px;
-    padding-top: 40px;
+
 }
 
 .smw-login {
     width: 90%;
-    padding-bottom: 60px
+    padding-bottom: 60px;
+    padding-top: 15px;
 }
 .smwcolor {
     color: white;
@@ -121,12 +121,13 @@ a{
 }
 
 .smw .btn-danger {
-    background-color: #cf6766
+    background-color: #cf6766;
+    border-style: none;
 }
 
 .smw .btn-success {
     background-color: #92a591;
-    border-color: #7c8f7b;
+    border-style: none;
 }
 
 
@@ -205,12 +206,12 @@ navbar-brand.smw-smaller-text {
 }
 
 .smw-listgroup {
-    background-color: black;
-    border-color: #a5a5af;
+    color: #7e7984
 }
 
 .smw-center-text {
     text-align: center;
+    margin: auto;
 }
 
 .wide-text-input {
@@ -220,4 +221,12 @@ navbar-brand.smw-smaller-text {
 
 .smw-black-text {
     color : black;
+}
+
+.btn-submit {
+    width : 80px;
+}
+
+.smw-pull-right {
+   text-align: right;
 }

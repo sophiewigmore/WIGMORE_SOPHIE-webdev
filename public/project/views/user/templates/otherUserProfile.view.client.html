@@ -34,48 +34,49 @@
                 </h1>
             </div>
 
-
-
             <div class="smw-profile-headers"><h3>{{model.otherUser.firstName}}'s Saved Articles</h3></div>
             <div ng-hide="userSaved">
-                <table class="table" ng-show="model.otherUser.articles">
-                    <tr>
-                        <th>Articles ({{model.otherUser.articles.length}})</th>
-                    </tr>
-                    <tr ng-repeat="article in model.otherUser.actualArticleObjects track by $index">
-                        <td>
-                            <a href="#!/details/{{article.id}}">{{article.attributes.title}}</a>
-                        </td>
-                    </tr>
-                </table>
+                <ul class="col-xs-12 list-group" ng-show="model.otherUser.articles">
+                    <li class="list-group-item active">
+                        <div class="row">
+                            <div class="col-xs-12">Articles ({{model.otherUser.articles.length}})</a></div>
+                        </div>
+                    </li>
+                    <li ng-repeat="article in model.otherUser.actualArticleObjects track by $index"class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-12"><a href="#!/details/{{article.id}}">{{article.attributes.title}}</a></div>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
-
             <div class="smw-profile-headers"> <h3>Following</h3></div>
-
-                <table class="table" ng-show="model.otherUser.following">
-                    <tr>
-                        <th>Users ({{model.otherUser.following.length}})</th>
-                    </tr>
-                    <tr ng-repeat="otherUserFollowing in model.otherUser.followingActual track by $index">
-                        <td>
-                            <a href="#!/profile/user/{{otherUserFollowing._id}}">{{otherUserFollowing.username}}</a>
-                        </td>
-                    </tr>
-                </table>
-
+                <ul class="col-xs-12 list-group" ng-show="model.otherUser.following">
+                    <li class="list-group-item active">
+                        <div class="row">
+                            <div class="col-xs-12">Users ({{model.otherUser.following.length}})</a></div>
+                        </div>
+                    </li>
+                    <li ng-repeat="otherUserFollowing in model.otherUser.followingActual track by $index" class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-12"> <a href="#!/profile/user/{{otherUserFollowing._id}}">{{otherUserFollowing.username}}</a></div>
+                        </div>
+                    </li>
+                </ul>
 
             <div class="smw-profile-headers"> <h3>Followed By</h3></div>
-            <table class="table" ng-show="model.followingOtherUser">
-                <tr>
-                    <th>Users ({{model.followingOtherUser.length}})</th>
-                </tr>
-                <tr ng-repeat="otherUser in model.followingOtherUser track by $index">
-                    <td>
-                        <a href="#!/profile/user/{{otherUser._id}}">{{otherUser.username}}</a>
-                    </td>
-                </tr>
-            </table>
+            <ul class="col-xs-12 list-group" ng-show="model.followingOtherUser">
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-xs-12">Users ({{model.followingOtherUser.length}})</a></div>
+                    </div>
+                </li>
+                <li ng-repeat="otherUser in model.followingOtherUser track by $index" class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-12"> <a href="#!/profile/user/{{otherUser._id}}">{{otherUser.username}}</a></div>
+                    </div>
+                </li>
+            </ul>
 
 
             <nav class="navbar navbar-default navbar-fixed-bottom">

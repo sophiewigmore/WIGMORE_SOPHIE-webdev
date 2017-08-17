@@ -3,12 +3,17 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    <div class="navbar-text pull-right">
+                        <a class="navbar-link" href="#!/">
+                            <span class="glyphicon glyphicon-home smw-white-icon-medium"></span>
+                        </a>
+                    </div>
                     <div class="navbar-text pull-left">
                         <a class="navbar-link" onclick="history.back()">
                             <span class="glyphicon glyphicon glyphicon-menu-left smw-white-icon-medium"></span>
                         </a>
                     </div>
-                    <a class="navbar-brand">Register with DNAtabase</a>
+                    <a class="navbar-brand">DNAtabase Register</a>
                 </div>
             </div>
         </nav>
@@ -17,7 +22,7 @@
             {{model.error}}
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid smw-login">
             <!-- Username form -->
             <label for="username"> Username</label>
             <input name="username"
