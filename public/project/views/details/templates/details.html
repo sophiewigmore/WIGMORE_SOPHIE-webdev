@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="navbar-text pull-right">
-                        <a class="navbar-link" ng-show="model.currentUser" href="#!/profile">
+                        <a class="navbar-link " ng-show="model.currentUser" href="#!/profile">
                             <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
                         </a>
                         <a class="navbar-link" href="#!/">
@@ -26,19 +26,32 @@
                     <a class="navbar-brand" ng-show="!model.currentUser" href="#!/register">Register</a>
                 </div>
             </div>
-
         </nav>
-        <div class="smw-body">
+
+        <div class="smw-body-left">
             <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
             <div ng-show="model.errorMessage2" class="alert alert-success">{{model.errorMessage2}}</div>
 
-            <h1>Title: {{model.node.attributes.title}}</h1>
-            <h1>Contributor: {{model.contributor}}</h1>
-            <h5>Created On: {{model.node.attributes.date_created | date : "short"}}</h5>
-            <p>Category: {{model.node.attributes.category}}</p>
-            <p>Description: {{model.wikiText}}</p>
+            <h1 class="hidden-xs smwcolor">{{model.node.attributes.title}}</h1>
+            <h3 class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl smwcolor">{{model.node.attributes.title}}</h3>
 
-            <ul class="list-group">
+            <p class="col-xs-12 smwcolor">Contributor: {{model.contributor}}</p>
+            <h5 class="col-xs-12 smwcolor">Created On: {{model.node.attributes.date_created | date : "short"}}</h5>
+            <p class="col-xs-12 smwcolor">Category: {{model.node.attributes.category}}</p>
+            <p class="col-xs-12 smwcolor">Description: {{model.wikiText}}</p>
+
+            <div ng-show="commentInput" class="smw-center-text">
+                <h3>Write a Comment...</h3>
+                <textarea ng-model="model.comment.content" class="wide-text-input smw-black-text"></textarea>
+                <button class="btn btn-success"
+                        ng-click="model.createComment(model.nodeId, model.currentUser, model.comment);
+                        commentInput=false">Submit
+                </button>
+            </div>
+
+
+            <ul class="col-xs-12 list-group" style="padding-bottom: 60px">
+                <h2 class="smwcolor">Comments</h2>
                 <li ng-repeat="comment in model.comments" class="list-group-item">
                     <div class="row">
                         <div class="hidden-xs col-sm-4  col-md-4 col-lg-4">{{comment._user.username}} on {{comment.dateCreated | date : "short"}}:</div>
@@ -52,17 +65,7 @@
                     </div>
                 </li>
             </ul>
-
-            <div ng-show="commentInput" class="smw-center-text">
-                <h3>Write a Comment...</h3>
-                <textarea ng-model="model.comment.content" class="wide-text-input smw-black-text"></textarea>
-                <button class="btn btn-success"
-                        ng-click="model.createComment(model.nodeId, model.currentUser, model.comment);
-                        commentInput=false">Submit
-                </button>
-            </div>
         </div>
-
 
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container-fluid">

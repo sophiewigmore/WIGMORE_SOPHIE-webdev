@@ -14,12 +14,11 @@
                         </a>
                     </div>
                     <a class="navbar-brand">DNAtabase</a>
-                    <a class="navbar-brand" ng-show="!model.currentUser" href="#!/login">Login</a>
-                    <a class="navbar-brand" ng-show="!model.currentUser" href="#!/register">Register</a>
+                    <a class="navbar-brand smw-smaller-text" ng-show="!model.currentUser" href="#!/login">Login</a>
+                    <a class="navbar-brand smw-smaller-text" ng-show="!model.currentUser" href="#!/register">Register</a>
                 </div>
             </div>
         </nav>
-
 
 
         <div class="panel panel-default panel-home">
@@ -38,24 +37,25 @@
                 <span class="input-group-btn">
          <a ng-click="model.searchArticle(model.searchKeyword)" class="btn btn-default" type="button">
              <span class="glyphicon glyphicon-search"></span>
-         </a>
-     </span>
+         </a></span>
             </div>
-            <table class="table" ng-show="model.nodes">
-                <tr>
-                    <th>Title</th>
-                    <th>Date Created</th>
-                </tr>
-                <tr ng-repeat="node in model.nodes">
-                    <td>
-                        <a href="#!/details/{{node.id}}">{{node.attributes.title}}</a>
-                    </td>
-                    <td>
-                        {{node.attributes.date_created | date : "short"}}
-                    </td>
-                </tr>
 
-            </table>
-
+                <ul class="list-group" ng-show="model.nodes">
+                    <li class="list-group-item active">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">Title</div>
+                            <div class="hidden-xs col-sm-4 col-md-4 col-lg-4">Date Created</div>
+                        </div>
+                    </li>
+                    <li ng-repeat="node in model.nodes" class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                                <a href="#!/details/{{node.id}}">{{node.attributes.title}}</a>
+                            </div>
+                            <div class="hidden-xs col-sm-4 col-md-4 col-lg-4">{{node.attributes.date_created | date : "short"}}</div>
+                        </div>
+                    </li>
+                </ul>
         </div>
     </div>
+</div>

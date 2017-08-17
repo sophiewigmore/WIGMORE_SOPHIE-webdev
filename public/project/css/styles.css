@@ -2,8 +2,6 @@ input, textarea {
     margin-bottom: 5px;
 }
 body {
-    padding-top: 60px;
-    padding-bottom: 60px;
     background-color: #0e0b16;
     font-family: "Helvetica";
     color: #a5a5af;
@@ -23,6 +21,12 @@ body {
 
 ul {
     list-style-type: none;
+    padding-top: 15px;
+    text-align: left;
+}
+
+list-group-item {
+
 }
 .profile-panel {
     width: 95%;
@@ -37,15 +41,12 @@ ul {
 }
 
 
-.navbar-brand {
-    font-size: smaller;
-}
 .bigger-navbar {
      font-size: xx-large;
  }
 a:hover {
     text-decoration: none;
-    color: lightgoldenrodyellow;
+    color: #00b3ee;
 }
 a{
     color: #abaad1;;
@@ -80,6 +81,11 @@ a{
 .smw-body {
     text-align: center;
     padding-bottom: 60px;
+}
+
+.smw-body-left {
+    padding-bottom: 200px;
+    padding-top: 40px;
 }
 
 .smw-login {
@@ -193,6 +199,9 @@ a{
 
 .target > div:target{
     display:block;
+}
+navbar-brand.smw-smaller-text {
+    font-size: 15px;
 }
 
 .smw-listgroup {
