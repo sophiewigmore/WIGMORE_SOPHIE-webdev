@@ -65,6 +65,14 @@
                     user: loggedInForSearch
                 }
             })
+            .when("/searchUsers/:userSearched", {
+                templateUrl: "views/search/templates/otherUsersSearch.view.client.html",
+                controller: "otherUsersSearchController",
+                controllerAs: "model",
+                resolve : {
+                    user: loggedInForSearch
+                }
+            })
             .when("/profile/user/:userId", {
                 templateUrl: "views/user/templates/otherUserProfile.view.client.html",
                 controller: "otherUserProfileController",
