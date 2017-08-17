@@ -21,7 +21,7 @@
             </div>
         </nav>
 
-        <div class="smw-body">
+        <div class="container-fluid smw-login">
             <div ng-show="model.errorMessage" class="alert alert-success">{{model.errorMessage}}</div>
         <div class="smw-profile-headers"><h1>Edit {{model.user.username}}'s Data</h1></div></a>
             <a ng-click="userData = !userData"><div class="smw-profile-headers"><h2>User Data ▾</h2></div></a>
@@ -62,50 +62,55 @@
 
             <a ng-click="userSaved = !userSaved"><div class="smw-profile-headers"><h2>Saved Articles ▾</h2></div></a>
             <div ng-show="userSaved">
-                <table class="table" ng-show="model.user.articles">
-                    <tr>
-                        <th>Title</th>
-                        <th>Remove This From {{model.user.username}}'s Saved Articles</th>
-                    </tr>
-                    <tr ng-repeat="article in model.user.actualArticleObjects track by $index">
-                        <td>
-                            <a href="#!/details/{{article.id}}">{{article.attributes.title}}</a>
-                        </td>
-                        <td>
-                            <a ng-click="model.unsaveArticle(article)"><span class="glyphicon glyphicon-heart"></span></a>
-                        </td>
-                    </tr>
-                </table>
+                <ul class="col-xs-12 list-group" ng-show="model.user.articles">
+                    <li class="list-group-item active">
+                        <div class="row">
+                            <div class="col-xs-11">Articles ({{model.user.articles.length}})</a></div>
+                        </div>
+                    </li>
+                    <li ng-repeat="article in model.user.actualArticleObjects track by $index" class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-11"><a href="#!/details/{{article.id}}">{{article.attributes.title}}</a></div>
+                            <div class="col-xs-1">
+                                <a ng-click="model.unsaveArticle(article)"><span class="glyphicon glyphicon-heart"></span></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
 
             <a ng-click="userFollowed = !userFollowed"><div class="smw-profile-headers"> <h2>Following  ▾</h2></div></a>
             <div ng-show="userFollowed">
-                <table class="table" ng-show="model.user.following">
-                    <tr>
-                        <th>Users ({{model.user.following.length}})</th>
-                    </tr>
-                    <tr ng-repeat="otherUser in model.user.followingActual track by $index">
-                        <td>
-                            <a href="#!/profile/user/{{otherUser._id}}">{{otherUser.username}}</a>
-                        </td>
-                    </tr>
-                </table>
+                <ul class="col-xs-12 list-group" ng-show="model.user.following">
+                    <li class="list-group-item active">
+                        <div class="row">
+                            <div class="col-xs-12">Users ({{model.user.following.length}})</a></div>
+                        </div>
+                    </li>
+                    <li ng-repeat="otherUser in model.user.followingActual track by $index" class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-12"> <a href="#!/profile/user/{{otherUser._id}}">{{otherUser.username}}</a></div>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
 
             <a ng-click="followedBy = !followedBy"><div class="smw-profile-headers"> <h2>Followed By  ▾</h2></div></a>
             <div ng-show="followedBy">
-                <table class="table" ng-show="model.followingUser">
-                    <tr>
-                        <th>Users ({{model.followingUser.length}})</th>
-                    </tr>
-                    <tr ng-repeat="otherUser in model.followingUser track by $index">
-                        <td>
-                            <a href="#!/profile/user/{{otherUser._id}}">{{otherUser.username}}</a>
-                        </td>
-                    </tr>
-                </table>
+                <ul class="col-xs-12 list-group"ng-show="model.followingUser">
+                    <li class="list-group-item active">
+                        <div class="row">
+                            <div class="col-xs-12">Users ({{model.followingUser.length}})</a></div>
+                        </div>
+                    </li>
+                    <li ng-repeat="otherUser in model.followingUser track by $index" class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-12"><a href="#!/profile/user/{{otherUser._id}}">{{otherUser.username}}</a></div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
 

@@ -69,10 +69,7 @@
                 <ul class="col-xs-12 list-group" ng-show="model.user.articles">
                     <li class="list-group-item active">
                         <div class="row">
-                            <div class="col-xs-11">Articles ({{model.user.articles.length}})</a></div>
-                            <div class="col-xs-1">
-                                Unlike?
-                            </div>
+                            <div class="col-xs-12">Articles ({{model.user.articles.length}})</a></div>
                         </div>
                     </li>
                     <li ng-repeat="article in model.user.actualArticleObjects track by $index" class="list-group-item">

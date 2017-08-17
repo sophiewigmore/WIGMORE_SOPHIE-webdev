@@ -4,6 +4,9 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="navbar-text pull-right">
+                        <a class="navbar-link" href="#!/">
+                            <span class="glyphicon glyphicon-home smw-white-icon-medium"></span>
+                        </a>
                         <a class="navbar-link" ng-show="model.currentUser" href="#!/profile">
                             <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
                         </a>
@@ -29,15 +32,22 @@
          </a>
      </span>
             </div>
-            <table class="table" ng-show="model.otherUsers">
-                <tr>
-                    <th>User</th>
-                </tr>
-                <tr ng-repeat="user in model.otherUsers">
-                    <td class="left-align">
-                        <a href="#!/profile/user/{{user._id}}">{{user.username}}</a>
-                    </td>
-                </tr>
+
+            <ul class="list-group" ng-show="model.otherUsers">
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-xs-12">User</div>
+                    </div>
+                </li>
+                <li ng-repeat="user in model.otherUsers" class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="#!/profile/user/{{user._id}}">{{user.username}}</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
 
         </div>
     </div>

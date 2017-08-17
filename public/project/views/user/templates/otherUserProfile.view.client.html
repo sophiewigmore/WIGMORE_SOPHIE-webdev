@@ -35,7 +35,6 @@
             </div>
 
             <div class="smw-profile-headers"><h3>{{model.otherUser.firstName}}'s Saved Articles</h3></div>
-            <div ng-hide="userSaved">
                 <ul class="col-xs-12 list-group" ng-show="model.otherUser.articles">
                     <li class="list-group-item active">
                         <div class="row">
@@ -48,7 +47,6 @@
                         </div>
                     </li>
                 </ul>
-            </div>
 
             <div class="smw-profile-headers"> <h3>Following</h3></div>
                 <ul class="col-xs-12 list-group" ng-show="model.otherUser.following">
