@@ -11,11 +11,7 @@
                             <span class="glyphicon glyphicon-user smw-white-icon-medium"></span>
                         </a>
                     </div>
-                    <div class="navbar-text pull-left">
-                        <a class="navbar-link" onclick="history.back()">
-                            <span class="glyphicon glyphicon glyphicon-menu-left smw-white-icon-medium"></span>
-                        </a>
-                    </div>
+
                     <a class="navbar-brand">DNAtabase New User</a>
                 </div>
             </div>
@@ -35,7 +31,7 @@
         </div>
 
 
-        <div class="container-fluid smw-login">
+        <div class="container-fluid">
             <!-- Username form -->
             <label for="username"> Username</label>
             <input name="username"
@@ -53,6 +49,15 @@
                    placeholder="password123"
                    type="password"
                    id="password"/>
+
+            <!-- Password Confirm form -->
+            <label for="password2">Confirm Password</label>
+            <input name="password2"
+                   class="form-control"
+                   ng-model="user.password2"
+                   placeholder="password123"
+                   type="password"
+                   id="password2"/>
 
             <a class="btn btn-default btn-default btn-block"
                ng-click="model.create(user)"

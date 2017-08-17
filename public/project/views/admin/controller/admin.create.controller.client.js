@@ -24,7 +24,7 @@
                         var _user = response.data;
                         if (!_user) {
                             projectUserService
-                                .createUser(user)
+                                .register(user)
                                 .then(function () {
                                     $location.url("/adminHome");
                                 });

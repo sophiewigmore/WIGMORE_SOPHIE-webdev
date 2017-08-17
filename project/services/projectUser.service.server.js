@@ -1,6 +1,6 @@
 var app = require("../../express");
 var userModel = require("../model/user/user.model.server");
-var bcrypt = require('bcryptjs');
+var bcrypt = require('bcrypt-nodejs');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
@@ -113,7 +113,7 @@ function localStrategy(username, password, done) {
                 if (!user) {
                     return done(null, false);
                 }
-                if(user && bcrypt.compareSync(password, user.password)) {
+                if(user && password) {
                     return done(null, user);
                 }
                 return done(null, user);
@@ -139,15 +139,17 @@ function logout(req, res) {
 
 function register(req, res) {
     var userObj = req.body;
-    var salt = bcrypt.genSaltSync(10);
-    userObj.password = bcrypt.hashSync(userObj.password, salt);
-    userModel
-        .createUser(userObj)
-        .then(function (user) {
-            req.login(user, function (status) {
-                res.send(status);
+
+    bcrypt.hash(userObj.password, null, null, function(err, hash) {
+        userModel
+            .createUser(userObj)
+            .then(function (user) {
+                req.login(user, function (status) {
+                    res.send(status);
+                });
             });
-        });
+    })
+
 }
 
 
@@ -178,16 +180,18 @@ function updateUser(req, response) {
 
 function createUser(req, response) {
     var user = req.body;
-    var salt = bcrypt.genSaltSync(10);
-    user.password = bcrypt.hashSync(user.password, salt);
 
+    bcrypt.hash(userObj.password, null, null, function(err, hash) {
 
-    userModel
-        .createUser(user)
-        .then(function (user) {
-            response.json(user);
-            return;
-        })
+        userModel
+            .createUser(userObj)
+            .then(function (user) {
+                req.login(user, function (status) {
+                    response.send(status);
+                });
+            });
+    })
+
 }
 
 function findUserByUsername(req, response) {
