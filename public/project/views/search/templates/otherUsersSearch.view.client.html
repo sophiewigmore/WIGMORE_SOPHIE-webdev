@@ -41,13 +41,16 @@
                 </li>
                 <li ng-repeat="user in model.otherUsers" class="list-group-item">
                     <div class="row">
-                        <div class="col-xs-12">
+                        <div class="col-xs-8">
                             <a href="#!/profile/user/{{user._id}}">{{user.username}}</a>
                         </div>
+                        <div class="col-xs-4" style="text-align: right" ng-hide="model.currentUser.following.includes(user._id)">
+                            <button class="btn btn-success" ng-click="model.followUser(model.currentUser._id, user._id)"> Follow</button></div>
+                        <div class="col-xs-4" style="text-align: right" ng-hide="!model.currentUser.following.includes(user._id)">
+                            <button class="btn btn-danger" ng-click="model.unfollowUser(model.currentUser._id, user._id)"> Unfollow</button></div>
                     </div>
                 </li>
             </ul>
-
 
         </div>
     </div>
